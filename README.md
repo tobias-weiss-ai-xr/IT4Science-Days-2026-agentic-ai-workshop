@@ -1,4 +1,6 @@
 # IT4Science Days 2026 — Agentic AI Workshop
+> **⚠️ Migrated from Codeberg → GitHub**: This repository has moved permanently to [GitHub](https://github.com/tobias-weiss-ai-xr/IT4Science-Days-2026-agentic-ai-workshop). The Codeberg mirror is deprecated.
+
 
 > **Format:** 3h Workshop · Sprache: Deutsch
 
