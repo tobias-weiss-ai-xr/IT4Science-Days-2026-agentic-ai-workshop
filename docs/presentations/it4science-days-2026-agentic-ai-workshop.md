@@ -2,6 +2,7 @@
 marp: true
 theme: default
 paginate: true
+footer: 'IT4Science Days 2026 · Agentic AI Workshop'
 style: |
   section {
     background-color: #1a1a1a;
@@ -14,7 +15,7 @@ style: |
   }
   table {
     margin: 0 auto;
-    font-size: 24px;
+    font-size: 22px;
     border-collapse: collapse;
   }
   table th, table td {
@@ -48,6 +49,40 @@ style: |
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+  /* Speaker badges */
+  .speaker {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    z-index: 10;
+  }
+  .speaker-christian { background: #14432a; color: #7ee2a8; border: 1px solid #2f9e5f; }
+  .speaker-tobias    { background: #1a2f52; color: #8ab8ff; border: 1px solid #3b6fc4; }
+  .speaker-both      { background: #4a3a12; color: #ffd88a; border: 1px solid #b88a2e; }
+  /* Placeholder boxes for content to be added */
+  .todo {
+    background: #3a2a10;
+    border: 1px dashed #c8902e;
+    color: #ffd88a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 20px;
+    margin-top: 8px;
+  }
+  .todo strong { color: #ffe9b0; }
+  blockquote {
+    background: #242424;
+    border-left: 4px solid #666;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    font-style: italic;
+    color: #d0d0d0;
+  }
 ---
 
 <!-- _class: lead -->
@@ -56,9 +91,14 @@ style: |
 
 ## Vom Spec zum produktiven Workflow — ein Workshop mit Hands-on
 
-IT4Science Days 2026 · Agentic AI Workshop
+**IT4Science Days 2026 · Agentic AI Workshop**
 
 Christian Uhl · Tobias Weiß
+
+<!-- notes:
+Begrüßung (~1 min). Kurz vorstellen: Wer wir sind, worum es geht.
+Ziel: Teilnehmende verlassen den Raum mit eigenem Research-Repo + implementiertem Mini-Change.
+-->
 
 ---
 
@@ -66,16 +106,26 @@ Christian Uhl · Tobias Weiß
 
 # Agenda
 
-- SpecDrivenDevelopment — Anforderungen als Treiber
-- Open-Source Toolbox — OpenCode, OpenSpec, Lean & SAIA
-- Hands-on: Agentic Coding + Agentic Literature Review
-- OpenSource vs. Kommerziell
-- Aktuelle Entwicklungen bei den Foundation Models
-- Agent-Harness, Caching & Workflows
-- Use Case: OpenDesk Edu
-- Wrap Up
+| Zeit | Thema | Wer |
+|------|-------|-----|
+| 09:10 | SpecDrivenDevelopment | Christian Uhl |
+| 09:40 | Open-Source Toolbox | Tobias Weiß |
+| 10:10 | **Hands-on** (Coding + Lit-Review) | beide |
+| 10:55 | ☕ Pause | — |
+| 11:10 | OpenSource vs. Kommerziell | Christian Uhl |
+| 11:40 | Foundation Models | Christian Uhl |
+| 12:05 | Harness, Caching & Workflows | beide |
+| 12:20 | Use Case: OpenDesk Edu | Tobias Weiß |
+| 12:50 | Q&A & Abschluss | beide |
+
+<!-- notes:
+Agenda auf 1–2 min durchgehen. Auf das Hands-on und den Use Case als Highlights hinweisen.
+Christian übernimmt Block 1, 3, 4 — Tobias Block 2, 6 — Hands-on/Harness/Q&A gemeinsam.
+-->
 
 ---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
 
 ## SpecDrivenDevelopment — Anforderungen als Treiber
 
@@ -89,7 +139,17 @@ Der Engpass ist nicht das Programmieren, sondern die **Anforderungsklärung**.
 
 > Specs sind der Vertrag zwischen Mensch und Agent.
 
+<!-- notes:
+CHRISTIAN — Block 1 · 09:10–09:40 (30 min)
+→ Intro: Warum Anforderungen der Engpass sind.
+→ Grundprinzip specs/changes/archive erklären.
+→ Vorteile: klarer Scope, überprüfbare Acceptance Criteria.
+→ Übergang: "Specs sind der Treibstoff — die Werkzeuge zeigen wir gleich."
+-->
+
 ---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
 
 ## Delta-Specs: Klarer Scope, überprüfbarer Fortschritt
 
@@ -107,13 +167,43 @@ Der Engpass ist nicht das Programmieren, sondern die **Anforderungsklärung**.
 - Acceptance Criteria sind an die behaviorale Spec gekoppelt.
 - `STATE.md` pro Phase ersetzt das Neuerklären in jeder Agent-Session.
 
+<!-- notes:
+CHRISTIAN — vertiefen: Ein Change-Beispiel aus eurer Praxis durchgehen.
+→ Mini-Live: bestehende Spec an einem echten Beispiel zeigen.
+-->
+
+---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
+
+## SpecDrivenDevelopment — Erfahrungen aus der Praxis
+
+<div class="todo">
+  <strong>Platzhalter Christian:</strong> Hier deine eigenen Beispiele, Erfahrungen und
+  Lessons Learned aus Spec-driven-Projekten einfügen (z. B. Uni Gießen / ZAID).
+  <br/>Vorschläge: Wann lohnt sich OpenSpec? Wann ist es Overhead?
+  Welche Fallstricke gibt es bei Delta-Specs im Team?
+</div>
+
+<!-- notes:
+CHRISTIAN — eigene Praxisbeispiele (5–8 min). Bitte vorab ausfüllen.
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
 # Open-Source Toolbox
 
+<!-- notes:
+TOBIAS — Sektions-Trenner, Übergang.
+-->
+
 ---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## OpenCode: Der agentische Coding-Terminal
 
@@ -123,7 +213,15 @@ Der Engpass ist nicht das Programmieren, sondern die **Anforderungsklärung**.
 - **LSP + AST-grep**: echtes Code-Verständnis, 25 Sprachen.
 - **Plugin-System**: Skills, MCP-Server, Custom-Tools.
 
+<!-- notes:
+TOBIAS — Block 2 · 09:40–10:10 (30 min)
+→ Kurz: Was ist OpenCode, warum CLI-first.
+→ Live/Videos: einen Change durch OpenCode implementieren lassen.
+-->
+
 ---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## OpenSpec & SAIA Accelerator
 
@@ -135,13 +233,26 @@ Der Engpass ist nicht das Programmieren, sondern die **Anforderungsklärung**.
 
 > Kurzdemo: Ein Change wird per OpenCode + SAIA implementiert.
 
+<!-- notes:
+TOBIAS — Kurzdemo oder Video (5 min).
+→ Übergang: "Jetzt seid ihr dran!" → Hands-on.
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-both">👥 beide</div>
+
 # Hands-on: Jetzt selber machen
 
+<!-- notes:
+BEIDE — Sektions-Trenner. Setup-Fragen klären (GitHub-Account, Sandbox).
+-->
+
 ---
+
+<div class="speaker speaker-both">👥 beide</div>
 
 ## Übung 1 — Agentic Coding (OpenSpec-Change)
 
@@ -149,7 +260,15 @@ Der Engpass ist nicht das Programmieren, sondern die **Anforderungsklärung**.
 - Implementieren lassen mit **OpenCode/CLI** — kleine, abgegrenzte Aufgabe in einem Übungs-Repo.
 - 2–3 kurze Ergebnis-Demos.
 
+<!-- notes:
+BEIDE — Übung 1 · ~20 min.
+→ Support durch beide Referenten im Raum.
+→ Ergebnis-Sampling: 2–3 kurze Demos.
+-->
+
 ---
+
+<div class="speaker speaker-both">👥 beide</div>
 
 ## Übung 2 — Agentic Literature Review
 
@@ -164,13 +283,27 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 
 > Ergebnis: **jeder verlässt den Raum mit einem eigenen, CI-validierten Research-Repo.**
 
+<!-- notes:
+BEIDE — Übung 2 · ~20 min.
+→ skeleton-research-Repo: github.com/tobias-weiss-ai-xr/skeleton-research
+→ Kurze Live-Demo: config/taxonomy.yaml anpassen + ersten Lauf zeigen.
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
+
 # OpenSource vs. Kommerziell
 
+<!-- notes:
+CHRISTIAN — Sektions-Trenner Block 3.
+-->
+
 ---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
 
 ## OpenCode vs. Claude Code vs. Alternativen
 
@@ -184,13 +317,43 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 
 > Kein „entweder/oder" — **Mischstrategien** sind die Realität an Hochschulen.
 
+<!-- notes:
+CHRISTIAN — Block 3 · 11:10–11:40 (30 min)
+→ Vergleich führen, Mischstrategien diskutieren.
+→ Interaktion: kurze Abstimmung unter den Teilnehmenden.
+-->
+
+---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
+
+## OpenSource vs. Kommerziell — Praxis-Einordnung
+
+<div class="todo">
+  <strong>Platzhalter Christian:</strong> Deine Perspektive einfügen —
+  z. B. Erfahrungen aus Uni-Gießen-Projekten, Entscheidungskriterien für
+  Hochschulen (Budget, DSGVO, eigene Infra), aktuelle Zahlen/Tendenzen.
+</div>
+
+<!-- notes:
+CHRISTIAN — eigene Praxisbeispiele + Takeaway für Hochschulen.
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
+
 # Foundation Models — aktuelle Entwicklungen
 
+<!-- notes:
+CHRISTIAN — Sektions-Trenner Block 4.
+-->
+
 ---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
 
 ## Was 2026 relevant ist
 
@@ -199,13 +362,42 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 - **Tool-Using & Multi-Agent** werden Standard.
 - Lokale Modelle: Souveränität + Datenschutz ohne Qualitätsverlust bei vielen Tasks.
 
+<!-- notes:
+CHRISTIAN — Block 4 · 11:40–12:05 (25 min)
+→ Überblick + Ausblick & Trends.
+-->
+
+---
+
+<div class="speaker speaker-christian">👤 Christian Uhl</div>
+
+## Foundation Models — eure Fragen & Fokus
+
+<div class="todo">
+  <strong>Platzhalter Christian:</strong> Hier aktuelle Modell-Landschaft einfügen
+  (OpenSource vs. proprietär), Kontextlänge/Agentic-Fähigkeiten, und euren
+  Ausblick 2026/2027. Gerne mit euren Lieblingsbeispielen und Live-Demos.
+</div>
+
+<!-- notes:
+CHRISTIAN — eigene Inhalte (10–15 min). Bitte vorab ausfüllen.
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-both">👥 beide</div>
+
 # Agent-Harness, Caching & Workflows
 
+<!-- notes:
+BEIDE — Sektions-Trenner Block 5.
+-->
+
 ---
+
+<div class="speaker speaker-both">👥 beide</div>
 
 ## Der Harness ist die Steuerungsebene
 
@@ -219,7 +411,14 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 
 > Gleiche Modelle, unterschiedliche Ergebnisse — **je nach Harness**.
 
+<!-- notes:
+BEIDE — Block 5 · 12:05–12:20 (15 min)
+→ Harness als Steuerungsebene: pi, OpenCode, Oh-My-OpenAgent.
+-->
+
 ---
+
+<div class="speaker speaker-both">👥 beide</div>
 
 ## Caching: Effizienz & Kosten
 
@@ -229,6 +428,8 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 
 ---
 
+<div class="speaker speaker-both">👥 beide</div>
+
 ## Workflows als „Muskelgedächtnis"
 
 > **Das Modell ist das Gehirn, die Workflows sind der Muskel.**
@@ -236,13 +437,25 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 - Wiederkehrende Abläufe (Spec → Change → Deploy → Verify → Report) als **wiederverwendbare Routinen** verankern.
 - Qualität wird reproduzierbar, Wissen wandert in den Workflow statt in jede Session neu erklärt zu werden.
 
+<!-- notes:
+BEIDE — Übergang zum Use Case: "Dieses Steuerungs- & Workflow-Wissen setzen wir jetzt in einem realen System um → OpenDesk Edu."
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
 # Use Case: OpenDesk Edu
 
+<!-- notes:
+TOBIAS — Sektions-Trenner Block 6.
+-->
+
 ---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## openDesk Edu — die Plattform
 
@@ -250,7 +463,14 @@ git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git
 - Lernplattformen (ILIAS, Moodle) · Sci-Computing (JupyterHub, Overleaf, RStudio, Dask) · lokale KI (Open WebUI + Ollama) · Lehre-Video (BigBlueButton).
 - **Ein Deployment** (`helmfile apply`), **ein Login** (Keycloak), **ein Backup-System** (k8up).
 
+<!-- notes:
+TOBIAS — Block 6 · 12:20–12:50 (30 min) · Detailplan: docs/plan-opendesk-edu-teil.md
+→ Plattform in 5 min (Demo: Portal, Landscape).
+-->
+
 ---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## Agentic Engineering Showcase
 
@@ -264,7 +484,14 @@ Idee → OpenSpec Change (proposal/specs/tasks) → Agent (OpenCode + SAIA)
 - **Ralph-Loop**: Betriebserkenntnisse → neue Specs → neue Changes.
 - **opendesk-dev-agent**: Knowledge Graph + Experience-Memory per Slash-Command.
 
+<!-- notes:
+TOBIAS — Kern des Blocks: Showcase vom Change-Proposal zum deployed Service.
+→ Live am Beispiel ILIAS-Integration (echte Lessons Learned).
+-->
+
 ---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## Zahlen, die beeindrucken
 
@@ -277,7 +504,13 @@ Idee → OpenSpec Change (proposal/specs/tasks) → Agent (OpenCode + SAIA)
 | Specs | 56 (24 Services, 17 Platform, 4 Auth, 6 Integrations, 5 Registry) |
 | Backups | 5 CronJobs aktiv, 14 d Retention |
 
+<!-- notes:
+TOBIAS — Live-Demo Betrieb: SSO-E2E, kubectl, Grafana, Backups.
+-->
+
 ---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## Ehrliche Hürden
 
@@ -286,13 +519,25 @@ Idee → OpenSpec Change (proposal/specs/tasks) → Agent (OpenCode + SAIA)
 - **Upstream-Drift**: eigene Images & Security-Patching stehen auf der Roadmap.
 - **Ops-Wissen bleibt nötig**: K8s, Keycloak, Helm — Agenten beschleunigen, Menschen verantworten.
 
+<!-- notes:
+TOBIAS — Ehrlichkeit schafft Glaubwürdigkeit. Kurz halten.
+-->
+
 ---
 
 <!-- _class: lead -->
 
+<div class="speaker speaker-both">👥 beide</div>
+
 # Wrap Up
 
+<!-- notes:
+BEIDE — Abschluss.
+-->
+
 ---
+
+<div class="speaker speaker-both">👥 beide</div>
 
 ## Das Muster auf eigene Projekte übertragen
 
@@ -302,7 +547,13 @@ Idee → OpenSpec Change (proposal/specs/tasks) → Agent (OpenCode + SAIA)
 4. **Wissen persistieren**: pi-memory/Knowledge Graph ab Session 1.
 5. **Loop institutionalisieren**: Betriebserkenntnisse werden Changes.
 
+<!-- notes:
+BEIDE — Takeaway-Material zeigen (Links).
+-->
+
 ---
+
+<div class="speaker speaker-both">👥 beide</div>
 
 ## Resources
 
@@ -313,9 +564,15 @@ Idee → OpenSpec Change (proposal/specs/tasks) → Agent (OpenCode + SAIA)
 - **skeleton-research** — github.com/tobias-weiss-ai-xr/skeleton-research
 - **Superpowers Skills** — github.com/obra/superpowers
 
+<!-- notes:
+Links können als QR-Code oder Handout ergänzt werden.
+-->
+
 ---
 
 <!-- _class: lead -->
+
+<div class="speaker speaker-both">👥 beide</div>
 
 # Questions & Discussion
 
@@ -326,6 +583,10 @@ Diskussionsthemen:
 - Governance-Regeln für agentische Systeme?
 - Eigene Modelle auf lokaler Hardware?
 - Agentische Literatur-Reviews für Ihre Forschung?
+
+<!-- notes:
+BEIDE — Moderation: Erfahrungsaustausch & Anwendungsfälle aus Teilnehmenden-Perspektive.
+-->
 
 ---
 
