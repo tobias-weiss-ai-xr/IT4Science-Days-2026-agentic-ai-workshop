@@ -21,12 +21,19 @@ Fortsetzung der Veranstaltungsreihe **HackyHour**.
 
 ## Agenda
 
-- **SpecDrivenDevelopment** — Anforderungen als Treiber agentischer Entwicklung
-- **Open-Source Toolbox ausgepackt** — OpenCode, OpenSpec und Lean für agentisches Programmieren mit dem **SAIA Accelerator**
-- **OpenSource vs. Kommerziell** — OpenCode vs. Claude Code vs. Alternativen
+- Ablauf, Vorstellung
 - **Aktuelle Entwicklungen bei den Foundation Modellen**
-- **Agile Methoden im KI-Zeitalter**
-- **Use Case: OpenDesk Edu** — Kollaborations-, Lern- und Forschungsplattform als praktisches Beispiel für Agentic Engineering
+- Grundlagen, Definition
+
+- **Open-Source Toolbox ausgepackt** — OpenCode, OpenSpec und Lean für agentisches Programmieren mit dem **SAIA Accelerator**
+
+- ** Anwendung: Eigenes Research Repo **
+-- * https://github.com/tobias-weiss-ai-xr/skeleton-research
+-- Git, Harness
+
+- **SpecDrivenDevelopment** — Anforderungen als Treiber agentischer Entwicklung
+
+- **OpenSource vs. Kommerziell** — OpenCode vs. Claude Code vs. Alternativen
 
 ## Links
 
