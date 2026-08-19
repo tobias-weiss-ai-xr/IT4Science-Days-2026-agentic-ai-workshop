@@ -28,10 +28,18 @@ Fortsetzung der Veranstaltungsreihe **HackyHour**.
 - **Open-Source Toolbox ausgepackt** — OpenCode, OpenSpec und Lean für agentisches Programmieren mit dem **SAIA Accelerator**
 
 - ** Anwendung: Eigenes Research Repo **
--- * https://github.com/tobias-weiss-ai-xr/skeleton-research
--- Git, Harness
-- **Token optimized Development** — oh-my-opencode, taskfleet, etc. 
+- ** https://github.com/tobias-weiss-ai-xr/skeleton-research ** - Git, Harness
 - **Spec Driven Development** — Anforderungen als Treiber agentischer Entwicklung
+- **Token optimized Development** — oh-my-opencode, taskfleet, etc. 
+- ** Anwendung: Eigenes Research Repo ** Spec selbst anwenden
+
+- Q/A TN präsentieren Outcomes ergebnisse, 
+
+Präsi 1.5h
+
+Hands 1.5h
+
+Q/A 1h
 
 
 
