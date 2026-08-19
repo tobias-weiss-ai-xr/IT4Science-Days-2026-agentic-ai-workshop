@@ -30,10 +30,10 @@ Fortsetzung der Veranstaltungsreihe **HackyHour**.
 - ** Anwendung: Eigenes Research Repo **
 -- * https://github.com/tobias-weiss-ai-xr/skeleton-research
 -- Git, Harness
+- **Token optimized Development** — oh-my-opencode, taskfleet, etc. 
+- **Spec Driven Development** — Anforderungen als Treiber agentischer Entwicklung
 
-- **SpecDrivenDevelopment** — Anforderungen als Treiber agentischer Entwicklung
 
-- **OpenSource vs. Kommerziell** — OpenCode vs. Claude Code vs. Alternativen
 
 ## Links
 
