@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" font-family="Segoe UI, system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+
+  <!-- LEFT: title -->
+  <text x="50" y="110" fill="#ffffff" font-size="46" font-weight="700">Agentic AI</text>
+  <text x="50" y="162" fill="#ffffff" font-size="46" font-weight="700">in der Praxis</text>
+  <text x="50" y="200" fill="#8ab8ff" font-size="20">Vom Spec zum produktiven Workflow</text>
+  <text x="50" y="240" fill="#ffd88a" font-size="17" font-weight="600">IT4Science Days 2026</text>
+  <text x="50" y="268" fill="#888888" font-size="15">Christian Uhl · Tobias Weiß · 3h Workshop · Hands-on</text>
+
+  <!-- accent line -->
+  <line x1="50" y1="215" x2="360" y2="215" stroke="#3b6fc4" stroke-width="2"/>
+
+  <!-- RIGHT: mini pyramid -->
+  <rect x="900" y="60" width="90" height="40" rx="6" fill="#1a2f52" stroke="#3b6fc4" stroke-width="1.5"/>
+  <text x="945" y="86" fill="#8ab8ff" font-size="15" font-weight="700" text-anchor="middle">SPEC</text>
+
+  <rect x="855" y="110" width="180" height="40" rx="6" fill="#4a3a12" stroke="#b88a2e" stroke-width="1.5"/>
+  <text x="945" y="136" fill="#ffd88a" font-size="15" font-weight="700" text-anchor="middle">CONTRACT</text>
+
+  <rect x="795" y="160" width="300" height="40" rx="6" fill="#14432a" stroke="#2f9e5f" stroke-width="1.5"/>
+  <text x="945" y="186" fill="#7ee2a8" font-size="15" font-weight="700" text-anchor="middle">TEST</text>
+
+  <text x="945" y="235" fill="#666666" font-size="14" text-anchor="middle" font-style="italic">spec · contract · test</text>
+  <text x="945" y="258" fill="#444444" font-size="13" text-anchor="middle">one config · one re-run</text>
+
+  <!-- bottom-right watermark -->
+  <text x="1150" y="305" fill="#333333" font-size="12" text-anchor="end">IT4Science-Days-2026-agentic-ai-workshop</text>
+</svg>
