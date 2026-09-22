@@ -211,8 +211,26 @@ Ton: nicht als Kunststück erzählen. Die Methode ist der Held, nicht der Sprech
 > Bei großen Runden: 5–6 Stichworte aus dem Raum, Rest per Karte/Zettel.
 
 <!-- notes:
-CHRISTIAN — moderiert (~4 min). Die gesammelten Wünsche sichtbar notieren —
-Wrap-Up greift sie auf. Zeit hart timen.
+CHRISTIAN — moderiert (~3 min). Die gesammelten Wünsche sichtbar notieren —
+Wrap-Up greift sie auf. Zeit hart timen (Erwartungs-Folie braucht 90 s).
+-->
+
+---
+
+## Was Sie heute mitnehmen — und was nicht
+
+- **Mitnehmen**: wie Agenten gesteuert werden (Spec · Contract · Test), ein eigenes Research-Repo, einen live umgesetzten Spec-Change
+- **Nicht mitnehmen**: einen fertigen Klick-Bot — wir bauen keine Assistenten, wir lernen, Agenten zu *führen*
+- **Ehrlich**: das hier ist Agent-Ebene. Basiswissen reicht — Chat-Grundlagen bringen wir nicht bei
+
+> Ein Bot lässt sich leichter bauen, wenn Sie verstehen, was unter ihm liegt.
+
+<!-- notes:
+CHRISTIAN oder TOBIAS (~90 s). Erwartungsmanagement aus der JLU-Erfahrung (09/2026):
+Viele erwarten „fertige Bots" à la Claude Cowork — ernst nehmen, nicht abwerten.
+Dialogmuster für „Ich will nur einen Bot": der Zitat-Satz oben, dann: „Genau das
+ist heute." Bei Unruhe: Blitzlicht-Wünsche referenzieren („die meisten Wünsche
+waren Agent-Aufgaben, keine Bot-Wünsche").
 -->
 
 ---
@@ -699,6 +717,28 @@ Die Harnesses nach Stage/Use-Case ranken.
 
 ---
 
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## Von der Chat-Webseite zum Terminal-Agenten
+
+**1. Chat-GUI** — ein Fenster, ein Gespräch; Sie übertragen Ergebnisse von Hand
+**2. Assistent / Bot** — vorgefertigte Fähigkeiten, begrenzter Zugriff („Persona")
+**3. Agent im Harness** — liest & schreibt Dateien, ruft Werkzeuge, entscheidet den nächsten Schritt selbst
+**4. Workflows & CI** — mehrere Agenten, Specs, Pipeline: das Ziel des Vormittags
+
+> **Agentisch ist nicht das Terminal — es ist die Autonomie**: selbst entscheiden, selbst handeln.
+> Auch eine GUI kann agentisch sein; das Terminal ist heute der reifste Ort dafür: prüfbar, wiederholbar, automatisierbar.
+
+<!-- notes:
+TOBIAS (~2 min). Aus der JLU-Erfahrung: „Was ist agentisch an OpenCode mit geladenem
+Skill?" — Antwort: der Skill allein ist es nicht; die Schleife aus Entscheiden +
+Handeln ist es. Brücke zur Begriffe-Folie: Agent = Modell bestimmt die nächsten
+Schritte. GUI-Punkt (Christian) aufgreifen: auch opencode-GUI ist agentisch —
+Kriterium ist Autonomie, nicht die Oberfläche.
+-->
+
+---
+
 <!-- _class: smaller -->
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
@@ -861,6 +901,23 @@ Pause 10:10–10:20.
 <!-- notes:
 TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: Wie Teilnehmende mit
 skeleton-research ihre eigene Forschung unterstützen. Tobias führt das Repo.
+-->
+
+---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## Erst planen, dann bauen: die Modes
+
+- **Plan-Mode**: der Agent liest nur — stellt Fragen, schlägt Schritte vor. **Nichts wird geändert.**
+- **Build-Mode**: der Agent setzt den freigegebenen Plan um
+- Plan lesen ist der schnellste Weg, agentisches Arbeiten zu *verstehen* — genau so starten wir gleich
+
+<!-- notes:
+TOBIAS (~2 min). JLU-Erfahrung: Plan-Mode kannte niemand — deshalb jetzt explizit.
+OpenCode: Mode per Tab wechseln; Claude Code hat das gleiche Konzept.
+Brücke zur Pyramide: der Plan ist die Spezifikation in klein — Block 5 baut darauf auf.
+Für Ungeduldige: Build-Mode sofort, aber Plan vorher lesen lassen.
 -->
 
 ---

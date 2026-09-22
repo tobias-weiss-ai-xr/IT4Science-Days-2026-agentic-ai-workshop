@@ -30,6 +30,7 @@ Im Mittelpunkt steht ein **Hands-on**: Jede Teilnehmende verlässt den Raum mit 
 
 - GitHub-Account (vorab anlegen), `git` und Python ≥ 3.11 lokal, Browser
 - Kein Dev-Hintergrund nötig — Dev-Jargon wird auf den Folien erläutert (CI, Harness, PR …)
+- Kein Bot-Baukasten-Kurs: Wir starten auf Agent-Ebene (Harness, Spec, Pipeline) — Chat-Basics setzen wir voraus, Dev-Wissen nicht
 - Optional: SAIA/GWDG-Zugang für eigene LLM-Nutzung; für sensible Daten zeigen wir lokale Modelle
 
 > Ablauf- und Facilitation-Details für Referenten: [`docs/runbook-it4science-2026.md`](docs/runbook-it4science-2026.md) (Arc-Mapping, Formative-Assessment-Maßnahmen M1–M9, Fallback-Plan).

@@ -62,6 +62,18 @@ in den Köpfen der Referenten.
 | M8 | 09:00–12:00 | **Roamer-Rolle** nach Tabelle Arc: der Nicht-Leadende geht durch die Reihen, löst leise fest | 02 |
 | M9 | durchgehend | **Fehler normalisieren**: „Bei uns bricht das auch regelmäßig" — Versuchsanordnungs-Ton (Christians Hook macht das vor) | 02, 07 |
 
+### JLU-Erfahrung (Christian, 09/2026, analoger Kurz-Kurs)
+
+Clientel erwartete „fertige Bots" (à la Claude Cowork); Plan-Mode kannte niemand;
+„was ist agentisch an OpenCode mit geladenem Skill" kam nicht an. Daraus (Deck:
+Erwartungs-Folie, Spektrum-Folie, Modes-Folie):
+
+| # | Wann | Was | Quelle |
+|---|---|---|---|
+| M10 | Anw1 + Anw2 | **Worked Example + Roamer**: einer führt das Beispiel vorne Schritt für Schritt, der andere geht zu den Schnelleren/High-Skillern in den Dialog — Rollentrennung fest einplanen | 02, 09 |
+| M11 | bei „Ich will nur einen Bot" | **Antwortmuster, nicht abwerten**: „Ein Bot lässt sich leichter bauen, wenn Sie verstehen, was unter ihm liegt — genau das ist heute." Erwartung ernst nehmen | 04 |
+| M12 | falls Publikum weniger technisch | **Kontingenz**: Plan-Mode-Demo statt Selbst-Ausführung, TN paaren, gewonnene Hands-on-Zeit in Dialog verwandeln | 07, 09 |
+
 ## 5. Nach dem Workshop
 
 - [ ] Exit-Tickets auswerten, 2 Verbesserungen notieren (dieses Runbook aktualisieren)
