@@ -1393,6 +1393,11 @@ aufgreifen: „Hat das jemand von Ihnen angestoßen?“
 <!-- notes:
 TOBIAS — Block 8 · 11:45–12:00 (15 min), Moderation. Offene Fragen, Diskussion,
 Wrap-Up — Wünsche aus der Vorstellungsrunde Revue passieren lassen.
+Diskussionsimpulse (ehem. eigene Folie, hierher migriert):
+- Wo liegt das größte Potenzial, und wo die größte Skepsis?
+- Governance-Regeln für agentische Systeme?
+- Eigene Modelle auf lokaler Hardware (Souveränität)?
+- Agentische Literatur-Reviews für Ihre Forschung?
 -->
 
 ---
@@ -1452,23 +1457,9 @@ Links können als QR-Code oder Handout ergänzt werden.
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-# Questions & Discussion
+# Vielen Dank!
 
-Vielen Dank!
-
-> Materialien & Folien: dieses Repo. Fragen danach gern als GitHub-Issue.
-
-Diskussionsthemen:
-- Wo liegt das größte Potenzial, und wo die größte Skepsis?
-- Governance-Regeln für agentische Systeme?
-- Eigene Modelle auf lokaler Hardware (Souveränität)?
-- Agentische Literatur-Reviews für Ihre Forschung?
-
-<!-- notes:
-TOBIAS — Moderation: Erfahrungsaustausch & Anwendungsfälle aus Teilnehmenden-Perspektive.
--->
-
----
+Materialien & Folien: dieses Repo. Fragen danach gern als GitHub-Issue.
 
 # License
 
