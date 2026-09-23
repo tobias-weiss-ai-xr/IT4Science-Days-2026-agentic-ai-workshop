@@ -97,7 +97,7 @@ Einordnung, warum agentisches Arbeiten 2026 möglich ist:
 | Harness | Rolle | Setzen wir ein für |
 |---------|-------|--------------------|
 | **OpenCode** | CLI-Coding-Agent — Multi-Model, LSP, Plugins, Skills, MCP | tägliche Coding-Agents |
-| **pi** | minimaler Terminal-Harness, erweiterbar (Skills, Extensions, Themes) | kontrollierte Workflows · dieser Workshop |
+| **pi** | minimaler Terminal-Harness, erweiterbar (Skills, Packages, Themes) · [pi.dev/packages](https://pi.dev/packages) | kontrollierte Workflows · dieser Workshop |
 | **zot** | schlankes Agent-Harness mit TUI + JSON-RPC | Headless & Automation |
 
 ### Weiteres Tooling

@@ -157,10 +157,10 @@ Uni Gießen
 DevOps Engineer,
 Uni Marburg
 
-> **Aus der Praxis im HRZ:** 
+> **Aus der Praxis im Rechenzentrum:** 
 > - openDesk Edu: Digitale Dienste für Forschung, Lehre und Verwaltung.
 > - Wissens-Pipelines & IT-Betrieb agentisch.
-> - Specs, Contracts, Tests: OSS mit open-source Werkzeugen gebaut.
+> - Specs, Contracts, Tests: Open-source Software mit open-source Werkzeugen erstellen.
 
 </div>
 </div>
@@ -227,7 +227,7 @@ Wrap-Up greift sie auf. Zeit hart timen (Erwartungs-Folie braucht 90 s).
 
 Was nicht geliefert wird: der fertige Bot. 
 
-> Wir bauen keine autonomen Assistenten, sondern steuern die Agenten selbst.
+> Wir bauen keine voll-autonomen Assistenten, sondern führen und korrigieren die Agenten.
 
 <!-- notes:
 CHRISTIAN oder TOBIAS (~90 s). Erwartungsmanagement aus der JLU-Erfahrung (09/2026):
@@ -753,11 +753,11 @@ Kriterium ist Autonomie, nicht die Oberfläche.
 <div>
 
 **1. OpenCode**: der Allrounder
-- Agent im Terminal (CLI/TUI): `opencode run "…"`, Modell je Agent.
-- LSP, Plugins, Skills, MCP · mit OmO: AST-Grep, Background-Agents.
+- Agent im Terminal (CLI/TUI), Modell je Agent.
+- LSP, Plugins, Skills, MCP.
 
 **2. pi**: das Minimal-Harness
-- Skills · Prompt-Templates · Extensions · Themes.
+- Skills · Prompt-Templates · Packages · Themes.
 - „Adapt pi, nicht umgekehrt“.
 
 **3. zot**: das schlanke Agent-Harness
@@ -777,88 +777,22 @@ Kriterium ist Autonomie, nicht die Oberfläche.
 
 > Ein **Harness ist die Steuerungsebene**: gleiche Modelle, unterschiedliche Ergebnisse, je nach Harness.
 
-**Claude Code** (kommerziell) als Vergleichsmaßstab, Open-Source spielt oben mit.
-
-</div>
-</div>
-
----
-
-<!-- _class: smaller -->
-
-<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-
-## pi als Plattform: Extensions statt Features
-
-| Kategorie | Beispiele (Auswahl) |
-|----------|---------------------|
-| Skills | superpowers (TDD, Debugging) · CVE-Scanner · AGENTS.md-Audit |
-| Agenten & Orchestrierung | subagents (Council-Modus) · until-done (Ziel-Schleife) · plan-mode · evaluate (Gegenspieler-Prüfung) |
-| Output-Stil | caveman (knapp) · ponytail (minimal) |
-| UI | webui · desktop-ui · glimpseui (native Dialoge) · chrome |
-| Werkzeuge & Suche | mcp-Adapter (LibreOffice, n8n) · websearch · searxng |
-| Absicherung | tool-repair · retry · permission-system · secrets · quotas · rtk |
-
-> Der Kern bleibt klein — alles andere ist nachrüstbar.
+**Kommerzielle Gegenprobe** — Claude Code · Codex · Antigravity CLI:
+bequem, sofort brauchbar — aber anbieter-optimiert, im Mittelfeld.
 
 <div style="font-size:15px; color:#9a9a9a; margin-top:4px;">
-26 Extensions · eigene pi-Installation, Stand 09/2026
+Quelle: eigene Erfassung
+</div>
+
+</div>
 </div>
 
 <!-- notes:
-TOBIAS (~90 s). Beleg für „Adapt pi, nicht umgekehrt": der Kern bleibt minimal,
-die Fähigkeiten kommen als Extensions. Überschneidungen zur Tooling-Folie
-(superpowers, rtk, ponytail, caveman) sind Absicht — dieselben Werkzeuge,
-hier aus Plattform-Sicht.
-
-Vollständige Liste (eigene Installation):
-- Skills: github.com/obra/superpowers · @firstpick/pi-skill-vulnerability-scanner (CVE) · @testzugang/pi-audit-agents-md (AGENTS.md-Review)
-- Agenten: pi-subagents (Subagent-Tool + Council) · pi-subagent-model-selection · pi-until-done (autonome Zielschleife) · @narumitw/pi-plan-mode · pi-evaluate (adversarieller Post-Run-Check)
-- Output-Stil: @fgladisch/pi-caveman · @dietrichgebert/ponytail
-- UI: @khimaros/pi-webui · pi-desktop-ui · glimpseui (native Dialoge/Diagramme) · pi-chrome
-- Tools/Suche: pi-mcp-adapter (MCP-Gateway; Server: libreoffice, n8n) · @mammothb/pi-websearch · pi-searxng-search · pi-skillful
-- Absicherung: pi-tool-repair · @monotykamary/pi-retry · pi-permission-system · @smallbatchcode/pi-slash-command-guard · pi-secrets · @latentminds/pi-quotas · @sherif-fanous/pi-rtk · pi-continue
--->
-
-<!-- notes:
-TOBIAS — Timing (20 min): 12 min Vergleich inkl. Live-Demo — derselbe Prompt in
-allen dreien, Ergebnis-Differenz zeigen: „gleiche Modelle, unterschiedliche
-Ergebnisse“ wird bewiesen, nicht behauptet. 3 min Ranking. Danach Tooling-Folie.
-Details: OpenCode mit OmO → AST-Grep (25 Sprachen), parallele Background-Agents.
-Glossar für Nicht-Devs (Zielgruppe Postdocs): LSP = Language Server (Code-Verständnis
-im Editor), MCP = Model Context Protocol, AST-Grep = strukturelle Code-Suche.
-pi: nichts eingebacken, alles baubar. zot: Extensions, Slash-Commands,
-`zot "prompt"` · `zot -p` · `zot rpc` — RPC für eigene Automation.
-Ranking: OpenCode Tagesgeschäft, pi minimal & erweiterbar, zot Skripting/RPC.
-**Claude Code** (kommerziell) als Vergleichsmaßstab, Open-Source spielt oben mit.
-pi steckt dahinter, wie dieser Workshop entstanden ist.
--->
-
----
-
-<!-- _class: smaller -->
-
-<div class="speaker speaker-christian">👤 Christian Uhl</div>
-
-## Die kommerzielle Gegenprobe
-
-| Harness | Zuschnitt |
-|---------|-----------|
-| **Claude Code** (Anthropic) | auf die eigenen Modelle abgestimmt, hoher Token-Verbrauch |
-| **Codex** (OpenAI) | auf die eigenen Modelle abgestimmt |
-| **Antigravity CLI** (Google) | auf die eigenen Modelle abgestimmt, löst Gemini CLI ab |
-
-- Für die Modelle des Anbieters optimiert → **nicht übertragbar**
-- In unabhängigen Vergleichen eher **Mittelfeld**
-- Stärke: **ohne Konfiguration sofort brauchbar**
-
-> Bequemlichkeit gegen Kontrolle. Wer nichts einstellen möchte, fährt gut.
-> Wer optimieren will, stößt an Grenzen.
-
-<!-- notes:
-CHRISTIAN. Kurzer Einschub nach Tobias' Vergleich der offenen Harnesses, damit
-niemand den Raum mit dem Eindruck verlaesst, Open Source sei hier eine
-ideologische Entscheidung.
+TOBIAS (~4 min): die drei offenen Harnesses nach Einsatz ranken; die rechte Spalte
+liest sich als Entscheidungshilfe. OmO-Details (AST-Grep, Background-Agents) stehen
+auf der Tooling-Folie. Danach CHRISTIAN (~2 min): kommerzielle
+Gegenprobe (Zeile unten rechts), damit niemand den Raum mit dem Eindruck
+verlaesst, Open Source sei hier eine ideologische Entscheidung.
 
 (1) Warum ueberhaupt erwaehnen
     Ein Teil des Raums nutzt genau diese Werkzeuge oder hat davon gehoert. Wer
@@ -891,6 +825,58 @@ ideologische Entscheidung.
     legitim, es haengt davon ab, ob man ein Werkzeug benutzen oder es formen will.
     Rueckverweis auf die eigene Folie zuvor: Auch hier entscheidet nicht das
     Modell, sondern wie gut die Umgebung zur Aufgabe passt.
+-->
+
+---
+
+<!-- _class: smaller -->
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## pi als Plattform: Packages statt Features
+
+| Kategorie | Beispiele (Auswahl) |
+|----------|---------------------|
+| Skills | superpowers (TDD, Debugging) · CVE-Scanner · AGENTS.md-Audit |
+| Agenten & Orchestrierung | subagents (Council-Modus) · until-done (Ziel-Schleife) · plan-mode · evaluate (Gegenspieler-Prüfung) |
+| Output-Stil | caveman (knapp) · ponytail (minimal) |
+| UI | webui · desktop-ui · glimpseui (native Dialoge) · chrome |
+| Werkzeuge & Suche | mcp-Adapter (LibreOffice, n8n) · websearch · searxng |
+| Absicherung | tool-repair · retry · permission-system · secrets · quotas · rtk |
+
+> Der Kern bleibt klein — alles andere ist nachrüstbar.
+
+<div style="font-size:15px; color:#9a9a9a; margin-top:4px;">
+<a href="https://pi.dev/packages">26 Packages · pi.dev/packages</a> · eigene Installation, Stand 09/2026
+</div>
+
+<!-- notes:
+TOBIAS (~90 s). Beleg für „Adapt pi, nicht umgekehrt": der Kern bleibt minimal,
+die Fähigkeiten kommen als Packages. Überschneidungen zur Tooling-Folie
+(superpowers, rtk, ponytail, caveman) sind Absicht — dieselben Werkzeuge,
+hier aus Plattform-Sicht.
+
+Vollständige Liste (eigene Installation):
+- Skills: github.com/obra/superpowers · @firstpick/pi-skill-vulnerability-scanner (CVE) · @testzugang/pi-audit-agents-md (AGENTS.md-Review)
+- Agenten: pi-subagents (Subagent-Tool + Council) · pi-subagent-model-selection · pi-until-done (autonome Zielschleife) · @narumitw/pi-plan-mode · pi-evaluate (adversarieller Post-Run-Check)
+- Output-Stil: @fgladisch/pi-caveman · @dietrichgebert/ponytail
+- UI: @khimaros/pi-webui · pi-desktop-ui · glimpseui (native Dialoge/Diagramme) · pi-chrome
+- Tools/Suche: pi-mcp-adapter (MCP-Gateway; Server: libreoffice, n8n) · @mammothb/pi-websearch · pi-searxng-search · pi-skillful
+- Absicherung: pi-tool-repair · @monotykamary/pi-retry · pi-permission-system · @smallbatchcode/pi-slash-command-guard · pi-secrets · @latentminds/pi-quotas · @sherif-fanous/pi-rtk · pi-continue
+-->
+
+<!-- notes:
+TOBIAS — Timing (20 min): 12 min Vergleich inkl. Live-Demo — derselbe Prompt in
+allen dreien, Ergebnis-Differenz zeigen: „gleiche Modelle, unterschiedliche
+Ergebnisse“ wird bewiesen, nicht behauptet. 3 min Ranking. Danach Tooling-Folie.
+Details: OpenCode mit OmO → AST-Grep (25 Sprachen), parallele Background-Agents.
+Glossar für Nicht-Devs (Zielgruppe Postdocs): LSP = Language Server (Code-Verständnis
+im Editor), MCP = Model Context Protocol, AST-Grep = strukturelle Code-Suche.
+pi: nichts eingebacken, alles baubar. zot: Extensions, Slash-Commands,
+`zot "prompt"` · `zot -p` · `zot rpc` — RPC für eigene Automation.
+Ranking: OpenCode Tagesgeschäft, pi minimal & erweiterbar, zot Skripting/RPC.
+**Claude Code** (kommerziell) als Vergleichsmaßstab, Open-Source spielt oben mit.
+pi steckt dahinter, wie dieser Workshop entstanden ist.
 -->
 
 ---
