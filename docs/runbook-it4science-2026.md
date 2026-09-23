@@ -71,7 +71,7 @@ Erwartungs-Folie, Spektrum-Folie, Modes-Folie):
 | # | Wann | Was | Quelle |
 |---|---|---|---|
 | M10 | Anw1 + Anw2 | **Worked Example + Roamer**: einer führt das Beispiel vorne Schritt für Schritt, der andere geht zu den Schnelleren/High-Skillern in den Dialog — Rollentrennung fest einplanen | 02, 09 |
-| M11 | bei „Ich will nur einen Bot" | **Antwortmuster, nicht abwerten**: „Ein Bot lässt sich leichter bauen, wenn Sie verstehen, was unter ihm liegt — genau das ist heute." Erwartung ernst nehmen | 04 |
+| M11 | bei „Ich will nur einen Bot" | **Antwortmuster, nicht abwerten**: „Danach ist ein Bot schnell gebaut — wenn klar ist, was unter ihm läuft. Genau das ist heute." Erwartung ernst nehmen | 04 |
 | M12 | falls Publikum weniger technisch | **Kontingenz**: Plan-Mode-Demo statt Selbst-Ausführung, TN paaren, gewonnene Hands-on-Zeit in Dialog verwandeln | 07, 09 |
 
 ## 5. Nach dem Workshop

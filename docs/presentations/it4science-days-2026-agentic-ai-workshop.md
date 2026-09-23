@@ -217,13 +217,20 @@ Wrap-Up greift sie auf. Zeit hart timen (Erwartungs-Folie braucht 90 s).
 
 ---
 
-## Was Sie heute mitnehmen — und was nicht
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-- **Mitnehmen**: wie Agenten gesteuert werden (Spec · Contract · Test), ein eigenes Research-Repo, einen live umgesetzten Spec-Change
-- **Nicht mitnehmen**: einen fertigen Klick-Bot — wir bauen keine Assistenten, wir lernen, Agenten zu *führen*
-- **Ehrlich**: das hier ist Agent-Ebene. Basiswissen reicht — Chat-Grundlagen bringen wir nicht bei
+## Was der Vormittag liefert — und was nicht
 
-> Ein Bot lässt sich leichter bauen, wenn Sie verstehen, was unter ihm liegt.
+- **ein Research-Repo** mit laufender Pipeline
+- **einen Spec-Change**, live umgesetzt
+- **Kriterien** für Modelle und Harnesses statt Trendlisten
+
+Was nicht geliefert wird: der fertige Bot. Assistenten bauen wir keine — Agenten steuern wir.
+Der Unterschied ist der Kursgegenstand.
+
+Chat-Grundlagen setzen wir voraus, Dev-Wissen nicht.
+
+> Danach ist ein Bot schnell gebaut — wenn klar ist, was unter ihm läuft.
 
 <!-- notes:
 CHRISTIAN oder TOBIAS (~90 s). Erwartungsmanagement aus der JLU-Erfahrung (09/2026):
