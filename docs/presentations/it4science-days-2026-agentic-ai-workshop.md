@@ -223,14 +223,11 @@ Wrap-Up greift sie auf. Zeit hart timen (Erwartungs-Folie braucht 90 s).
 
 - **ein Research-Repo** mit laufender Pipeline
 - **einen Spec-Change**, live umgesetzt
-- **Kriterien** für Modelle und Harnesses statt Trendlisten
+- **Werkzeuge** für Modelle und Harnesses statt Trendlisten
 
-Was nicht geliefert wird: der fertige Bot. Assistenten bauen wir keine — Agenten steuern wir.
-Der Unterschied ist der Kursgegenstand.
+Was nicht geliefert wird: der fertige Bot. 
 
-Chat-Grundlagen setzen wir voraus, Dev-Wissen nicht.
-
-> Danach ist ein Bot schnell gebaut — wenn klar ist, was unter ihm läuft.
+> Wir bauen keine autonomen Assistenten, sondern steuern die Agenten selbst.
 
 <!-- notes:
 CHRISTIAN oder TOBIAS (~90 s). Erwartungsmanagement aus der JLU-Erfahrung (09/2026):
@@ -784,6 +781,44 @@ Kriterium ist Autonomie, nicht die Oberfläche.
 
 </div>
 </div>
+
+---
+
+<!-- _class: smaller -->
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## pi als Plattform: Extensions statt Features
+
+| Kategorie | Beispiele (Auswahl) |
+|----------|---------------------|
+| Skills | superpowers (TDD, Debugging) · CVE-Scanner · AGENTS.md-Audit |
+| Agenten & Orchestrierung | subagents (Council-Modus) · until-done (Ziel-Schleife) · plan-mode · evaluate (Gegenspieler-Prüfung) |
+| Output-Stil | caveman (knapp) · ponytail (minimal) |
+| UI | webui · desktop-ui · glimpseui (native Dialoge) · chrome |
+| Werkzeuge & Suche | mcp-Adapter (LibreOffice, n8n) · websearch · searxng |
+| Absicherung | tool-repair · retry · permission-system · secrets · quotas · rtk |
+
+> Der Kern bleibt klein — alles andere ist nachrüstbar.
+
+<div style="font-size:15px; color:#9a9a9a; margin-top:4px;">
+26 Extensions · eigene pi-Installation, Stand 09/2026
+</div>
+
+<!-- notes:
+TOBIAS (~90 s). Beleg für „Adapt pi, nicht umgekehrt": der Kern bleibt minimal,
+die Fähigkeiten kommen als Extensions. Überschneidungen zur Tooling-Folie
+(superpowers, rtk, ponytail, caveman) sind Absicht — dieselben Werkzeuge,
+hier aus Plattform-Sicht.
+
+Vollständige Liste (eigene Installation):
+- Skills: github.com/obra/superpowers · @firstpick/pi-skill-vulnerability-scanner (CVE) · @testzugang/pi-audit-agents-md (AGENTS.md-Review)
+- Agenten: pi-subagents (Subagent-Tool + Council) · pi-subagent-model-selection · pi-until-done (autonome Zielschleife) · @narumitw/pi-plan-mode · pi-evaluate (adversarieller Post-Run-Check)
+- Output-Stil: @fgladisch/pi-caveman · @dietrichgebert/ponytail
+- UI: @khimaros/pi-webui · pi-desktop-ui · glimpseui (native Dialoge/Diagramme) · pi-chrome
+- Tools/Suche: pi-mcp-adapter (MCP-Gateway; Server: libreoffice, n8n) · @mammothb/pi-websearch · pi-searxng-search · pi-skillful
+- Absicherung: pi-tool-repair · @monotykamary/pi-retry · pi-permission-system · @smallbatchcode/pi-slash-command-guard · pi-secrets · @latentminds/pi-quotas · @sherif-fanous/pi-rtk · pi-continue
+-->
 
 <!-- notes:
 TOBIAS — Timing (20 min): 12 min Vergleich inkl. Live-Demo — derselbe Prompt in
