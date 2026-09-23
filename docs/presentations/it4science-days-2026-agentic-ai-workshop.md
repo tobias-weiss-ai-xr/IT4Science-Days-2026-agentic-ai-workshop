@@ -837,17 +837,17 @@ verlaesst, Open Source sei hier eine ideologische Entscheidung.
 
 | Kategorie | Beispiele (Auswahl) |
 |----------|---------------------|
-| Skills | superpowers (TDD, Debugging) · CVE-Scanner · AGENTS.md-Audit |
-| Agenten & Orchestrierung | subagents (Council-Modus) · until-done (Ziel-Schleife) · plan-mode · evaluate (Gegenspieler-Prüfung) |
-| Output-Stil | caveman (knapp) · ponytail (minimal) |
-| UI | webui · desktop-ui · glimpseui (native Dialoge) · chrome |
-| Werkzeuge & Suche | mcp-Adapter (LibreOffice, n8n) · websearch · searxng |
-| Absicherung | tool-repair · retry · permission-system · secrets · quotas · rtk |
+| Skills | [superpowers](https://github.com/obra/superpowers) (TDD, Debugging) · [CVE-Scanner](https://www.npmjs.com/package/@firstpick/pi-skill-vulnerability-scanner) · [AGENTS.md-Audit](https://www.npmjs.com/package/@testzugang/pi-audit-agents-md) |
+| Agenten & Orchestrierung | [subagents](https://www.npmjs.com/package/pi-subagents) (Council-Modus) · [until-done](https://www.npmjs.com/package/pi-until-done) (Ziel-Schleife) · [plan-mode](https://www.npmjs.com/package/@narumitw/pi-plan-mode) · [evaluate](https://www.npmjs.com/package/pi-evaluate) (Gegenspieler-Prüfung) |
+| Output-Stil | [caveman](https://www.npmjs.com/package/@fgladisch/pi-caveman) (knapp) · [ponytail](https://www.npmjs.com/package/@dietrichgebert/ponytail) (minimal) |
+| UI | [webui](https://www.npmjs.com/package/@khimaros/pi-webui) · [desktop-ui](https://www.npmjs.com/package/pi-desktop-ui) · [glimpseui](https://www.npmjs.com/package/glimpseui) (native Dialoge) · [chrome](https://www.npmjs.com/package/pi-chrome) |
+| Werkzeuge & Suche | [mcp-Adapter](https://www.npmjs.com/package/pi-mcp-adapter) (LibreOffice, n8n) · [websearch](https://www.npmjs.com/package/@mammothb/pi-websearch) · [searxng](https://www.npmjs.com/package/pi-searxng-search) |
+| Absicherung | [tool-repair](https://www.npmjs.com/package/pi-tool-repair) · [retry](https://www.npmjs.com/package/@monotykamary/pi-retry) · [permission-system](https://www.npmjs.com/package/pi-permission-system) · [secrets](https://www.npmjs.com/package/pi-secrets) · [quotas](https://www.npmjs.com/package/@latentminds/pi-quotas) · [rtk](https://www.npmjs.com/package/@sherif-fanous/pi-rtk) |
 
 > Der Kern bleibt klein — alles andere ist nachrüstbar.
 
 <div style="font-size:15px; color:#9a9a9a; margin-top:4px;">
-<a href="https://pi.dev/packages">26 Packages · pi.dev/packages</a> · eigene Installation, Stand 09/2026
+26 Packages · <a href="https://pi.dev/packages">pi.dev/packages</a> · eigene Installation, Stand 09/2026
 </div>
 
 <!-- notes:
