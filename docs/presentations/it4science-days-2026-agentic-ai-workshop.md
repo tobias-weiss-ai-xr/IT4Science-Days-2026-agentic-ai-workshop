@@ -929,6 +929,8 @@ Pause 10:10–10:20.
 <!-- notes:
 TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: Wie Teilnehmende mit
 skeleton-research ihre eigene Forschung unterstützen. Tobias führt das Repo.
+Timing: Modes 2 · Übung 1a 5 · 1b-Einführung 3 · Pipeline 2 · Jump-Start 8 (live) ·
+Agent-Unterstützung 2 · AGENTS.md 3.
 -->
 
 ---
@@ -952,24 +954,46 @@ Für Ungeduldige: Build-Mode sofort, aber Plan vorher lesen lassen.
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-## skeleton-research: Ein Fork für Ihre Forschung
+## Übung 1a: Naive Suche nach Forschungsinfos
+
+Ihr Thema X aus dem Blitzlicht — 5 Minuten, so wie immer:
+
+- Chat-Assistent, Suchmaschine, Scholar — das übliche Vorgehen
+- Sammeln, was kommt: Links, Behauptungen, ein Text-Haufen
+- Dabei merken: Was ist geprüft? Zitierbar? Wiederholbar?
+
+> Nach 5 Minuten Stopp — Ergebnis parken, wir holen es gleich wieder hervor.
+
+<!-- notes:
+TOBIAS (~5 min Übung). JLU-Lektion: da abholen, wo die Leute stehen — das ist
+absichtlich die Chat-GUI-Stufe der Spektrum-Folie. Kein Tool-Zwang: nehmen, was
+installiert ist. Timer sichtbar machen. ROAMER (Christian): Starthilfe, über die
+Schulter schauen. Pointe nicht vorwegnehmen: 1b validiert genau diese Treffer.
+-->
+
+---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## Übung 1b: Ihr Thema X als Spec — skeleton-research
 
 **Jeder verlässt den Raum mit einem eigenen, CI-validierten Research-Repo.**
 
+Gleiche Frage wie in 1a — aber Spec statt Sammel-Haufen.
+
 - **Literatur-Corpus als reiner Text**: `papers.yaml` = Source of Truth.
 - **Eine Config** (`config/taxonomy.yaml`) steuert alles.
-- Pipeline: **validieren → generieren → Stats → Reports**.
-- **CI** (Prüf-Pipeline) holt wöchentlich neue Papers → **GitHub Pages**.
+- **CI** (Prüf-Pipeline) holt wöchentlich neue Papers → **GitHub Pages** (Pipeline-Details: nächste Folie).
 
 ```bash
-git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research
-cd my-research
+git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research && cd my-research
 ```
 
 <!-- notes:
-TOBIAS — Kernnutzen: “Wie unterstützt das meine Forschung?” Ein Repo = strukturierter,
+TOBIAS (~3 min). Kontrast zu 1a jetzt explizit machen: dieselbe Frage, andere
+Methodik — aus dem Sammel-Haufen wird eine geprüfte Struktur.
+Kernnutzen: „Wie unterstützt das meine Forschung?“ Ein Repo = strukturierter,
 reproduzierbarer, auto-validierter Stand des Literaturwissens. CI macht es lebendig.
-Danach: config/taxonomy.yaml anpassen, papers.yaml seeden, Pipeline laufen lassen.
 -->
 
 ---
@@ -1008,8 +1032,8 @@ papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.
 ## Jump-Start in 5 Schritten
 
 1. **Forken**: `skeleton-research` klonen.
-2. **Taxonomie setzen**: `config/taxonomy.yaml`, nur `categories:` anpassen.
-3. **Seeden**: Start-Papers in `papers.yaml` (echte URLs!).
+2. **Taxonomie setzen**: `config/taxonomy.yaml` — Ihre Kategorien für Thema X.
+3. **Seeden**: 3–5 Treffer aus Ihrer 1a-Sammlung in `papers.yaml` (echte URLs!) — die Validierung entscheidet, was überlebt.
 4. **Pipeline**: `python scripts/pipeline.py`, validiert & generiert.
 5. **Pushen**: CI validiert & deployed auf GitHub Pages.
 
