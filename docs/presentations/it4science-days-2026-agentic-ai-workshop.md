@@ -204,7 +204,7 @@ Ton: nicht als Kunststück erzählen. Die Methode ist der Held, nicht der Sprech
 
 ## Ihre Reihe: Blitzlicht
 
-- **Name · Fachrichtung · eine Aufgabe**, die agentisch für Sie arbeiten soll.
+- **Name · Fachrichtung · ein Thema**, zu dem ein Agent für Sie eine Literaturrecherche durchführen soll.
 - ≤ 30 Sekunden je Person, wir sammeln Wünsche an die Whiteboard-Wand.
 - Diese Wünsche checken wir am Ende gegen die Outcomes.
 
