@@ -28,7 +28,7 @@ assessment, CS specials).
 |---|---|---|---|---|
 | Hook/framing | Ankommen, Beispiele, Blitzlicht | 09:00–09:15 | 8 % | C / T |
 | Concept | Grundlagen, FM, Toolbox | 09:15–10:10 | 31 % ⚠️ | C / T, dann T / C |
-| Guided practice | Anwendung 1: Thema X erst naiv, dann agentisch im eigenen Harness (Übung 1) | 10:20–10:45 | 14 % | T / C |
+| Guided practice | Anwendung 1: Thema X direkt agentisch im eigenen Harness — ohne Spec (Übung 1) | 10:20–10:45 | 14 % | T / C |
 | Concept kompakt | Spezifikation & Token | 10:45–11:00 | 8 % | C+T / — |
 | Independent practice | Anwendung 2: Thema X via Spec aufs Demo-Repo (skeleton-research + OpenSpec-Change, gemergte Übung 2) | 11:00–11:25 | 14 % | C / T |
 | Debrief | Outcomes, Q&A, Wrap | 11:30–12:00 | 17 % | T / C |
@@ -45,12 +45,12 @@ feste Uhrzeiten. Diese Minutie ist die interne Referenz. Folien-Nummern = Marp.
 | 09:30–09:50 | Foundation Models: Entwicklungen · Katalog · Praxis-Einordnung | 12–14 | C+T | Live-Checks 5 |
 | 09:50–10:10 | Toolbox: Harness-Entscheider · Chat→Terminal · Zwei Harnesses (Live-Demo) · pi · M1 Thumb-Vote | 15–19 | T (+C: kommerziell 2) | Vergleich 12 · Mapping 3 · pi 2 |
 | 10:10–10:20 | ☕ Pause (M2 Stop-Light um 10:08) | 20 | — | |
-| 10:20–10:45 | Anwendung 1: Modes · Übung 1 (naiv 5 + agentische Runde 10) · Agent-Unterstützung · AGENTS.md | 21–25 | T (C roamt) | Modes 2 · Übung 15 · Agent 2 · AGENTS 3 · Puffer 3 |
-| 10:45–11:00 | Theorie: Spec (Drei Ebenen · Schulen · Showcase) + Token | 26–30 | C+T | Showcase kürzbar bei Zeitnot |
-| 11:00–11:25 | Anwendung 2: skeleton · Pipeline · Jump-Start (M3 Fehlschlag) · OpenSpec-Change · Messen | 31–36 | C (T roamt) | skeleton 3 · Pipeline 2 · Jump-Start 8 · Change 8 · Messen 2 |
-| 11:25–11:30 | ☕ Pause | 37 | — | |
-| 11:30–11:45 | Outcomes: TN zeigen (M5 Think-Pair-Share, M6 Whiteboard-Revisit) | 38–39 | T | |
-| 11:45–12:00 | Q&A · Muster übertragen · Resources · Danke | 40–43 | T+C | |
+| 10:20–10:45 | Anwendung 1: Modes · Übung 1 (direkt agentisch, ohne Spec) · AGENTS.md | 21–24 | T (C roamt) | Modes 2 · Übung 1 15 · AGENTS 3 · Puffer 5 |
+| 10:45–11:00 | Theorie: Spec (Drei Ebenen · Schulen · Showcase) + Token | 25–29 | C+T | Showcase kürzbar bei Zeitnot |
+| 11:00–11:25 | Anwendung 2: skeleton · Pipeline · Jump-Start (M3 Fehlschlag) · OpenSpec-Change · Messen | 30–35 | C (T roamt) | skeleton 3 · Pipeline 2 · Jump-Start 8 · Change 8 · Messen 2 |
+| 11:25–11:30 | ☕ Pause | 36 | — | |
+| 11:30–11:45 | Outcomes: TN zeigen (M5 Think-Pair-Share, M6 Whiteboard-Revisit) | 37–38 | T | |
+| 11:45–12:00 | Q&A · Muster übertragen · Resources · Danke | 39–42 | T+C | |
 
 ⚠️ Concept-Anteil liegt über der Empfehlung (15–20 %). Kompensation: die
 Concept-Blöcke interaktiv halten (Maßnahmen M1, M3) statt kürzen — Agenda bleibt stabil.
@@ -73,8 +73,8 @@ in den Köpfen der Referenten.
 |---|---|---|---|
 | M1 | 09:50–10:10 (nach pi-Folie) | **Thumb-Vote**: „Wer würde sofort eines dieser Tools installieren?“ — Momentaufnahme, sichtbare Hände | 04, 05 |
 | M2 | 10:08 (vor Pause 1) | **Stop-Light**: rot/gelb/grün — „Wo stehen Sie nach dem Toolbox-Block?“ Wer rot: in der Pause 1:1 | 02, 05 |
-| M3 | 11:00–11:25 (Anw2, Jump-Start) | **Geplanter Fehlschlag**: live eine generierte Datei editieren → Pipeline rot → Ursache zeigen → restore. Der Moment mit der höchsten Behaltensleistung | 33, 34 |
-| M4 | 10:43 (Ende Anw1) | **1-Minuten-Rekap**: jede TN schreibt einen Satz: „Der Agent war besser/schlechter als die naive Suche, weil …“ | 24 |
+| M3 | 11:00–11:25 (Anw2, Jump-Start) | **Geplanter Fehlschlag**: live eine generierte Datei editieren → Pipeline rot → Ursache zeigen → restore. Der Moment mit der höchsten Behaltensleistung | 32, 33 |
+| M4 | 10:43 (Ende Anw1) | **1-Minuten-Rekap**: jede TN schreibt einen Satz: „Ohne Spec war der Agenten-Lauf …“ — roh, unaufgeräumt, Quellen unklar | 23 |
 | M5 | 11:28 (Start Outcomes) | **Think-Pair-Share**: erst 2 min mit Nachbar:in über Ergebnis sprechen, dann Freiwillige — senkt die Barriere | 02, 03 |
 | M6 | 11:30–11:45 (Outcomes) | **Whiteboard-Revisit**: Blitzlicht-Wünsche durchgehen — welche wurden heute adressiert? (= Post-Assessment gegen die Prä-Erhebung) | 04, 05 |
 | M7 | 11:55 (Wrap) | **Exit-Ticket**: „Was nehmen Sie mit? Was ist noch unklar?" (Zettel oder QR) | 05 |

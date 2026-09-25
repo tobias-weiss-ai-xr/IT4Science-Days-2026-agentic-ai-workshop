@@ -954,12 +954,12 @@ Pause 10:10–10:20.
 Teil 1 von 2 · Teil 2 (via Spec) folgt nach dem Theorie-Block
 
 <!-- notes:
-TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: Thema X
-erst naiv, dann agentisch im eigenen Harness erleben — der Kontrast trägt den Vormittag.
-Bogen der Anwendung: Teil 1 hier (Thema X erst naiv, dann agentisch), dann Theorie-Block
-(Spec Driven & Token), Teil 2 = dasselbe Thema via Spec auf Demo-Repo aufsetzen
-(skeleton-research + OpenSpec-Change, gemergte Übung 2).
-Timing: Modes 2 · Übung 1 (naive + agentische Runde) 15 · Agent-Unterstützung 2 · AGENTS.md 3.
+TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: direkt
+agentisch los — aber ohne Spec. Der Kontrast (ohne Spec vs. mit Spec in Übung 2) trägt den Vormittag.
+Bogen der Anwendung: Teil 1 hier (Thema X agentisch im eigenen Harness, ohne Spec),
+dann Theorie-Block (Spec Driven & Token), Teil 2 = dasselbe Thema via Spec auf
+Demo-Repo aufsetzen (skeleton-research + OpenSpec-Change, gemergte Übung 2).
+Timing: Modes 2 · Übung 1 (agentisch, ohne Spec) 15 · Agent-Unterstützung 2 · AGENTS.md 3.
 -->
 
 ---
@@ -983,30 +983,9 @@ Für Ungeduldige: Build-Mode sofort, aber Plan vorher lesen lassen.
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-## Übung 1: Naive Suche nach Forschungsinfos
+## Übung 1: Direkt agentisch — ohne Spec
 
-Ihr Thema X aus dem Blitzlicht — 5 Minuten, so wie immer:
-
-- Chat-Assistent, Suchmaschine, Scholar — das übliche Vorgehen
-- Sammeln, was kommt: Links, Behauptungen, ein Text-Haufen
-- Dabei merken: Was ist geprüft? Zitierbar? Wiederholbar?
-
-> Nach 5 Minuten Stopp — Ergebnis parken, wir holen es gleich wieder hervor.
-
-<!-- notes:
-TOBIAS (~5 min Übung). JLU-Lektion: da abholen, wo die Leute stehen — das ist
-absichtlich die Chat-GUI-Stufe der Spektrum-Folie. Kein Tool-Zwang: nehmen, was
-installiert ist. Timer sichtbar machen. ROAMER (Christian): Starthilfe, über die
-Schulter schauen. Pointe nicht vorwegnehmen: Übung 2 validiert genau diese Treffer.
--->
-
----
-
-<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-
-## Wie der Agent Ihre Forschung unterstützt
-
-**Agentische Runde (~10 min)**: dieselbe Frage aus Übung 1 — jetzt im Agenten (opencode / pi mit SAIA). Was verändert sich?
+**~15 Minuten** im Agenten (opencode / pi mit SAIA): stellen Sie Ihr Thema X aus dem Blitzlicht. Was kommt dabei heraus?
 
 | Der Agent übernimmt | heißt konkret |
 |---|---|
@@ -1020,10 +999,12 @@ Schulter schauen. Pointe nicht vorwegnehmen: Übung 2 validiert genau diese Tref
 <!-- notes:
 TOBIAS — das ist der eigentliche Wert: nicht das Repo selbst, sondern dass der
 Agent die Pflege übernimmt, während der Mensch die Qualität kuratiert.
-Agentische Runde (~10 min): TN stellen dieselbe Frage aus Übung 1 ihrem Agenten
-(opencode/pi, SAIA-Modelle). Roamer: Starthilfe beim Start des Harness.
-Vergleichs-Punkte am Ende einsammeln: Quellen geprüft? Ergebnis speicherbar/
-wiederholbar? Aufwand vs. naive Runde? — das füttert die Theorie-Brücke.
+Übung 1 (~15 min): TN stellen Thema X direkt ihrem Agenten (opencode/pi,
+SAIA-Modelle) — ohne Spec, purer Prompt. Kein Tool-Zwang: wem der Harness nicht
+startet, arbeitet mit Nachbar:in zusammen. Timer sichtbar machen. Roamer:
+Starthilfe beim Harness-Start.
+Am Ende einsammeln: Quellen geprüft? zitierbar? Wiederholbar der Lauf?
+Treffer parken — Übung 2 seedet damit, und die Prüfung entscheidet, was überlebt.
 Script-Mapping für Rückfragen: Discovery = arXiv/OpenAlex/dblp/Crossref/EUPMC
 + Code-Hosts, Einordnen = Taxonomie-Zuordnung, Prüfen = validate_papers.py,
 Berichten = generate_readme.py / generate_reports.py / trend_scanner.py /
@@ -1316,7 +1297,7 @@ papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.
 
 1. **Kopie holen**: das Demo-Repo wird Ihres.
 2. **Themenfeld setzen**: Ihre Ordnung für Thema X.
-3. **Seeden**: 3–5 Treffer aus Ihrer Übung-1-Sammlung — die Prüfung entscheidet, was überlebt.
+3. **Seeden**: 3–5 Treffer aus Ihrer Übung-1-Runde — die Prüfung entscheidet, was überlebt.
 4. **Laufen lassen**: prüfen, erzeugen, berichten.
 5. **Veröffentlichen**: das Ergebnis geht online — und bleibt am Leben.
 
