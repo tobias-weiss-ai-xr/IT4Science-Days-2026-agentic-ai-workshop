@@ -205,6 +205,7 @@ Ton: nicht als Kunststück erzählen. Die Methode ist der Held, nicht der Sprech
 ## Ihre Reihe: Blitzlicht
 
 - **Name · Fachrichtung · ein Thema**, zu dem ein Agent für Sie eine Literaturrecherche durchführen soll.
+- **Selbsteinschätzung KI**: eher Anfänger oder eher Fortgeschritten?
 - ≤ 30 Sekunden je Person, wir sammeln Wünsche an die Whiteboard-Wand.
 - Diese Wünsche checken wir am Ende gegen die Outcomes.
 
@@ -213,6 +214,9 @@ Ton: nicht als Kunststück erzählen. Die Methode ist der Held, nicht der Sprech
 <!-- notes:
 CHRISTIAN — moderiert (~3 min). Die gesammelten Wünsche sichtbar notieren —
 Wrap-Up greift sie auf. Zeit hart timen (Erwartungs-Folie braucht 90 s).
+Selbsteinschätzung mit Handzeichen oder kurz mündlich — kein Werturteil,
+mit Abstufung wird die Roamer-Rolle gezielt: Fortgeschrittene kriegen
+Vertiefung, Anfänger Start-Hilfe.
 -->
 
 ---
