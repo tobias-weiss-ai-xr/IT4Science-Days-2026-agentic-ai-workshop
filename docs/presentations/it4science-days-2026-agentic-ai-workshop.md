@@ -90,19 +90,19 @@ style: |
   }
   .unix strong { color: #8ab8ff; }
 
-  .spectrum { display: flex; flex-direction: column; gap: 5px; margin-top: 6px; }
-  .s-row { display: flex; align-items: center; gap: 14px; background: #252525; border-radius: 10px; padding: 5px 16px; }
-  .s-num { font-size: 1.2em; font-weight: 800; color: #8a8a95; min-width: 28px; text-align: center; }
-  .s-body { flex: 1; }
-  .s-title { font-weight: 700; font-size: 0.86em; }
-  .s-desc { font-size: 0.74em; color: #b8b8c0; }
-  .s-dots { font-size: 0.8em; letter-spacing: 3px; color: #5a5a66; white-space: nowrap; }
+  .spectrum { display: flex; align-items: stretch; gap: 6px; margin-top: 16px; }
+  .s-row { flex: 1; display: flex; flex-direction: column; background: #252525; border-radius: 10px; padding: 10px 10px 8px; text-align: center; }
+  .s-arrow { align-self: center; font-size: 1.4em; color: #5a5a66; padding: 0 1px; }
+  .s-icon { font-size: 1.5em; line-height: 1.1; }
+  .s-title { font-weight: 700; font-size: 0.82em; margin-top: 5px; }
+  .s-desc { font-size: 0.66em; color: #b8b8c0; margin-top: 4px; flex: 1; }
+  .s-dots { font-size: 0.78em; letter-spacing: 3px; color: #5a5a66; margin-top: 7px; white-space: nowrap; }
   .s-goal { background: #1a2f52; border: 1px solid #3b6fc4; }
-  .s-goal .s-num, .s-goal .s-dots { color: #8ab8ff; }
+  .s-goal .s-dots { color: #8ab8ff; }
   .s-goal .s-desc { color: #b8c4d8; }
-  .s-chip { font-size: 0.6em; background: #3b6fc4; color: #ffffff; border-radius: 8px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; }
-  .s-label { display: flex; justify-content: flex-end; font-size: 0.6em; color: #8a8a95; padding-right: 10px; }
-  .s-quote { margin-top: 6px; border-left: 4px solid #3b6fc4; background: #252525; border-radius: 0 10px 10px 0; padding: 7px 14px; font-size: 0.82em; }
+  .s-chip { font-size: 0.55em; background: #3b6fc4; color: #ffffff; border-radius: 8px; padding: 2px 8px; margin-top: 6px; font-weight: 400; }
+  .s-label { text-align: center; font-size: 0.6em; color: #8a8a95; margin-top: 8px; }
+  .s-quote { margin-top: 10px; border-left: 4px solid #3b6fc4; background: #252525; border-radius: 0 10px 10px 0; padding: 8px 14px; font-size: 0.84em; }
   blockquote {
     background: #242424;
     border-left: 4px solid #666;
@@ -747,44 +747,43 @@ Die Harnesses nach Einsatz gegenüberstellen (kein Ranking).
 <div class="spectrum">
 
 <div class="s-row">
-  <div class="s-num">1</div>
-  <div class="s-body">
-    <div class="s-title">💬 Chat-GUI</div>
-    <div class="s-desc">ein Fenster, ein Gespräch — Ergebnisse übertragen Sie von Hand</div>
-  </div>
+  <div class="s-icon">💬</div>
+  <div class="s-title">Chat-GUI</div>
+  <div class="s-desc">ein Fenster, ein Gespräch — Ergebnisse übertragen Sie von Hand</div>
   <div class="s-dots">●○○○</div>
 </div>
 
+<div class="s-arrow">→</div>
+
 <div class="s-row">
-  <div class="s-num">2</div>
-  <div class="s-body">
-    <div class="s-title">🤖 Assistent / Bot</div>
-    <div class="s-desc">vorgefertigte Fähigkeiten, begrenzter Zugriff („Persona“)</div>
-  </div>
+  <div class="s-icon">🤖</div>
+  <div class="s-title">Assistent / Bot</div>
+  <div class="s-desc">vorgefertigte Fähigkeiten, begrenzter Zugriff („Persona“)</div>
   <div class="s-dots">●●○○</div>
 </div>
 
+<div class="s-arrow">→</div>
+
 <div class="s-row">
-  <div class="s-num">3</div>
-  <div class="s-body">
-    <div class="s-title">🧠 Agent im Harness</div>
-    <div class="s-desc">liest &amp; schreibt Dateien, ruft Werkzeuge, entscheidet den nächsten Schritt selbst</div>
-  </div>
+  <div class="s-icon">🧠</div>
+  <div class="s-title">Agent im Harness</div>
+  <div class="s-desc">liest &amp; schreibt Dateien, ruft Werkzeuge, entscheidet selbst den nächsten Schritt</div>
   <div class="s-dots">●●●○</div>
 </div>
 
+<div class="s-arrow">→</div>
+
 <div class="s-row s-goal">
-  <div class="s-num">4</div>
-  <div class="s-body">
-    <div class="s-title">🔄 Workflows &amp; CI<span class="s-chip">Ziel des Vormittags</span></div>
-    <div class="s-desc">mehrere Agenten, Specs, Pipeline</div>
-  </div>
+  <div class="s-icon">🔄</div>
+  <div class="s-title">Workflows &amp; CI</div>
+  <div class="s-desc">mehrere Agenten, Specs, Pipeline</div>
   <div class="s-dots">●●●●</div>
+  <div class="s-chip">Ziel des Vormittags</div>
 </div>
 
-<div class="s-label">Autonomie: selbst entscheiden, selbst handeln →</div>
-
 </div>
+
+<div class="s-label">Autonomie wächst nach rechts: selbst entscheiden, selbst handeln</div>
 
 <div class="s-quote">
 <strong>Agentisch ist nicht das Terminal — es ist die Autonomie.</strong><br>
@@ -955,12 +954,12 @@ Pause 10:10–10:20.
 Teil 1 von 2 · Teil 2 (via Spec) folgt nach dem Theorie-Block
 
 <!-- notes:
-TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: Wie Teilnehmende mit
-skeleton-research ihre eigene Forschung unterstützen. Tobias führt das Repo.
-Bogen der Anwendung: Teil 1 hier (Thema X selbst agentisch), dann Theorie-Block
-(Spec Driven & Token), Teil 2 = dasselbe Thema via Spec auf DEMO Repo aufsetzen.
-Timing: Modes 2 · Übung 1a 5 · 1b-Einführung 3 · Pipeline 2 · Jump-Start 8 (live) ·
-Agent-Unterstützung 2 · AGENTS.md 3.
+TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: Thema X
+erst naiv, dann agentisch im eigenen Harness erleben — der Kontrast trägt den Vormittag.
+Bogen der Anwendung: Teil 1 hier (Thema X erst naiv, dann agentisch), dann Theorie-Block
+(Spec Driven & Token), Teil 2 = dasselbe Thema via Spec auf Demo-Repo aufsetzen
+(skeleton-research + OpenSpec-Change, gemergte Übung 2).
+Timing: Modes 2 · Übung 1 (naive + agentische Runde) 15 · Agent-Unterstützung 2 · AGENTS.md 3.
 -->
 
 ---
@@ -984,7 +983,7 @@ Für Ungeduldige: Build-Mode sofort, aber Plan vorher lesen lassen.
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-## Übung 1a: Naive Suche nach Forschungsinfos
+## Übung 1: Naive Suche nach Forschungsinfos
 
 Ihr Thema X aus dem Blitzlicht — 5 Minuten, so wie immer:
 
@@ -998,79 +997,7 @@ Ihr Thema X aus dem Blitzlicht — 5 Minuten, so wie immer:
 TOBIAS (~5 min Übung). JLU-Lektion: da abholen, wo die Leute stehen — das ist
 absichtlich die Chat-GUI-Stufe der Spektrum-Folie. Kein Tool-Zwang: nehmen, was
 installiert ist. Timer sichtbar machen. ROAMER (Christian): Starthilfe, über die
-Schulter schauen. Pointe nicht vorwegnehmen: 1b validiert genau diese Treffer.
--->
-
----
-
-<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-
-## Übung 1b: Ihr Thema X als Spec — skeleton-research
-
-**Jeder verlässt den Raum mit einem eigenen, CI-validierten Research-Repo.**
-
-Gleiche Frage wie in 1a — aber Spec statt Sammel-Haufen.
-
-- **Corpus statt Haufen**: das Wissen zum Thema als geprüfter Text-Bestand.
-- **Regeln statt Handarbeit**: prüfen, erzeugen, berichten — als eine Pipeline.
-- **Lebendig statt Momentaufnahme**: der Dienst erweitert und prüft wöchentlich selbst.
-
-<!-- notes:
-TOBIAS (~3 min). Kontrast zu 1a jetzt explizit machen: dieselbe Frage, andere
-Methodik — aus dem Sammel-Haufen wird eine geprüfte Struktur.
-Konkretes (live zeigen, nicht vorlesen): Corpus = papers.yaml (Source of Truth),
-Steuerung = config/taxonomy.yaml, wöchentlicher Abonnement-Dienst = CI → GitHub Pages.
-Start: git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research && cd my-research
-Kernnutzen: „Wie unterstützt das meine Forschung?“ Ein Repo = strukturierter,
-reproduzierbarer, auto-validierter Stand des Literaturwissens. CI macht es lebendig.
--->
-
----
-
-<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-
-## Die Pipeline: jede Stufe hat einen Zweck
-
-<div style="text-align:center; font-size:1.4em; margin: 0.2em 0 0.4em 0;">
-<strong>Sammeln → Prüfen → Erzeugen → Veröffentlichen</strong>
-</div>
-
-<div class="unix"><strong>Ein Tool, ein Job.</strong> Jedes Skript tut genau eine Sache
-(validate / generate / stats / reports), und sie komponieren sich zur Pipeline.</div>
-<div class="unix"><strong>Text ist die Schnittstelle.</strong> YAML + Markdown, kein GUI nötig.
-Ein Mensch kann genauso lesen wie ein Agent.</div>
-<div class="unix"><strong>Die Pipeline ist der Richter.</strong> Vom Agenten erzeugte Edits müssen
-die Validierung bestehen, objektiv und nicht nach Meinung.</div>
-
-<!-- notes:
-TOBIAS — der Unix-Geist wird durch die Struktur gezeigt, nicht benannt:
-ein Tool/ein Job, Text als Schnittstelle, Pipeline als objektiver Richter.
-Konkretes Mapping für die Live-Demo: Sammeln = papers.yaml + Discovery
-(arXiv, OpenAlex, dblp, Crossref, EUPMC), Prüfen = validate (exit 0 oder rot),
-Erzeugen = README/Stats/Reports, Veröffentlichen = CI → GitHub Pages.
-papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.
--->
-
----
-
-<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-
-## Jump-Start in 5 Schritten
-
-1. **Kopie holen**: das Demo-Repo wird Ihres.
-2. **Themenfeld setzen**: Ihre Ordnung für Thema X.
-3. **Seeden**: 3–5 Treffer aus Ihrer 1a-Sammlung — die Prüfung entscheidet, was überlebt.
-4. **Laufen lassen**: prüfen, erzeugen, berichten.
-5. **Veröffentlichen**: das Ergebnis geht online — und bleibt am Leben.
-
-> **Was die Pipeline erzeugt, wird nie von Hand geändert** — es regeneriert sich aus dem Corpus.
-
-<!-- notes:
-TOBIAS — live zeigen. Konkretes Mapping: (1) Fork/Klon von skeleton-research,
-(2) config/taxonomy.yaml → nur categories: anpassen (id + name + description),
-(3) Start-Papers in papers.yaml — echte URLs, (4) python scripts/pipeline.py,
-(5) Push → CI validiert & deployed. Wichtig: „Niemals generierte Dateien editieren“
-(README.md, docs/papers.json, reports) — sie werden regeneriert: Lösche & Regeneriere.
+Schulter schauen. Pointe nicht vorwegnehmen: Übung 2 validiert genau diese Treffer.
 -->
 
 ---
@@ -1078,6 +1005,8 @@ TOBIAS — live zeigen. Konkretes Mapping: (1) Fork/Klon von skeleton-research,
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## Wie der Agent Ihre Forschung unterstützt
+
+**Agentische Runde (~10 min)**: dieselbe Frage aus Übung 1 — jetzt im Agenten (opencode / pi mit SAIA). Was verändert sich?
 
 | Der Agent übernimmt | heißt konkret |
 |---|---|
@@ -1091,6 +1020,10 @@ TOBIAS — live zeigen. Konkretes Mapping: (1) Fork/Klon von skeleton-research,
 <!-- notes:
 TOBIAS — das ist der eigentliche Wert: nicht das Repo selbst, sondern dass der
 Agent die Pflege übernimmt, während der Mensch die Qualität kuratiert.
+Agentische Runde (~10 min): TN stellen dieselbe Frage aus Übung 1 ihrem Agenten
+(opencode/pi, SAIA-Modelle). Roamer: Starthilfe beim Start des Harness.
+Vergleichs-Punkte am Ende einsammeln: Quellen geprüft? Ergebnis speicherbar/
+wiederholbar? Aufwand vs. naive Runde? — das füttert die Theorie-Brücke.
 Script-Mapping für Rückfragen: Discovery = arXiv/OpenAlex/dblp/Crossref/EUPMC
 + Code-Hosts, Einordnen = Taxonomie-Zuordnung, Prüfen = validate_papers.py,
 Berichten = generate_readme.py / generate_reports.py / trend_scanner.py /
@@ -1315,7 +1248,10 @@ Kontext-Berechnungen über Schritte; Kompaktion = alten Kontext zusammenfassen/v
 
 <!-- notes:
 CHRISTIAN. Block 6, 11:00 bis 11:25, Christian fuehrt, Tobias unterstuetzt am Platz.
-Praktische Uebung im eigenen Research-Repository aus Anwendung 1.
+Ablauf: Demo-Repo skeleton-research forken (Kopie holen), Thema X aus Übung 1
+rein (Seeden), Pipeline, dann OpenSpec-Change "thema-x" obendrauf — eine
+durchgaengige Übung: erst das Repo, dann die Spec darauf.
+Timing: skeleton-Einführung 3 · Pipeline 2 · Jump-Start 8 (live) · OpenSpec-Change 8 · Messen 2.
 Vor dem Start ansagen, dass niemand fertig werden muss. Ziel ist, die Struktur
 einmal selbst geschrieben zu haben, nicht ein fertiges Werkzeug.
 Beide Referenten gehen durch den Raum. Erfahrungsgemaess scheitert der Einstieg
@@ -1325,6 +1261,78 @@ seltener am Verstaendnis als an der Installation.
 ---
 
 <div class="speaker speaker-christian">👤 Christian Uhl</div>
+
+## Ihr Thema X als Spec — skeleton-research
+
+**Jeder verlässt den Raum mit einem eigenen, CI-validierten Research-Repo.**
+
+Gleiche Frage wie in Übung 1 — aber Spec statt Sammel-Haufen.
+
+- **Corpus statt Haufen**: das Wissen zum Thema als geprüfter Text-Bestand.
+- **Regeln statt Handarbeit**: prüfen, erzeugen, berichten — als eine Pipeline.
+- **Lebendig statt Momentaufnahme**: der Dienst erweitert und prüft wöchentlich selbst.
+
+<!-- notes:
+TOBIAS (~3 min). Kontrast zu Übung 1 jetzt explizit machen: dieselbe Frage, andere
+Methodik — aus dem Sammel-Haufen wird eine geprüfte Struktur.
+Konkretes (live zeigen, nicht vorlesen): Corpus = papers.yaml (Source of Truth),
+Steuerung = config/taxonomy.yaml, wöchentlicher Abonnement-Dienst = CI → GitHub Pages.
+Start: git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research && cd my-research
+Kernnutzen: „Wie unterstützt das meine Forschung?“ Ein Repo = strukturierter,
+reproduzierbarer, auto-validierter Stand des Literaturwissens. CI macht es lebendig.
+-->
+
+---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## Die Pipeline: jede Stufe hat einen Zweck
+
+<div style="text-align:center; font-size:1.4em; margin: 0.2em 0 0.4em 0;">
+<strong>Sammeln → Prüfen → Erzeugen → Veröffentlichen</strong>
+</div>
+
+<div class="unix"><strong>Ein Tool, ein Job.</strong> Jedes Skript tut genau eine Sache
+(validate / generate / stats / reports), und sie komponieren sich zur Pipeline.</div>
+<div class="unix"><strong>Text ist die Schnittstelle.</strong> YAML + Markdown, kein GUI nötig.
+Ein Mensch kann genauso lesen wie ein Agent.</div>
+<div class="unix"><strong>Die Pipeline ist der Richter.</strong> Vom Agenten erzeugte Edits müssen
+die Validierung bestehen, objektiv und nicht nach Meinung.</div>
+
+<!-- notes:
+TOBIAS — der Unix-Geist wird durch die Struktur gezeigt, nicht benannt:
+ein Tool/ein Job, Text als Schnittstelle, Pipeline als objektiver Richter.
+Konkretes Mapping für die Live-Demo: Sammeln = papers.yaml + Discovery
+(arXiv, OpenAlex, dblp, Crossref, EUPMC), Prüfen = validate (exit 0 oder rot),
+Erzeugen = README/Stats/Reports, Veröffentlichen = CI → GitHub Pages.
+papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.
+-->
+
+---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
+
+## Jump-Start in 5 Schritten
+
+1. **Kopie holen**: das Demo-Repo wird Ihres.
+2. **Themenfeld setzen**: Ihre Ordnung für Thema X.
+3. **Seeden**: 3–5 Treffer aus Ihrer Übung-1-Sammlung — die Prüfung entscheidet, was überlebt.
+4. **Laufen lassen**: prüfen, erzeugen, berichten.
+5. **Veröffentlichen**: das Ergebnis geht online — und bleibt am Leben.
+
+> **Was die Pipeline erzeugt, wird nie von Hand geändert** — es regeneriert sich aus dem Corpus.
+
+<!-- notes:
+TOBIAS — live zeigen. Konkretes Mapping: (1) Fork/Klon von skeleton-research,
+(2) config/taxonomy.yaml → nur categories: anpassen (id + name + description),
+(3) Start-Papers in papers.yaml — echte URLs, (4) python scripts/pipeline.py,
+(5) Push → CI validiert & deployed. Wichtig: „Niemals generierte Dateien editieren“
+(README.md, docs/papers.json, reports) — sie werden regeneriert: Lösche & Regeneriere.
+-->
+
+---
+
+<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
 ## Übung 2: Ihre eigene Auswertung
 
