@@ -904,9 +904,8 @@ verlaesst, Open Source sei hier eine ideologische Entscheidung.
 
 <!-- notes:
 TOBIAS (~90 s). Beleg für „Adapt pi, nicht umgekehrt": der Kern bleibt minimal,
-die Fähigkeiten kommen als Packages. Überschneidungen zur Tooling-Folie
-(superpowers, rtk, ponytail, caveman) sind Absicht — dieselben Werkzeuge,
-hier aus Plattform-Sicht.
+die Fähigkeiten kommen als Packages. superpowers, rtk, ponytail, caveman laufen
+gleich auf der nächsten Tooling-Folie als Token-Hebel weiter.
 
 Vollständige Liste (eigene Installation):
 - Skills: github.com/obra/superpowers · @firstpick/pi-skill-vulnerability-scanner (CVE) · @testzugang/pi-audit-agents-md (AGENTS.md-Review)
@@ -942,18 +941,16 @@ pi steckt dahinter, wie dieser Workshop entstanden ist.
 | **SAIA-Plugins** | GWDG Chat-AI-Modelle für pi · OpenCode · zot, Auto-Registrierung |
 | **oh-my-opencode** | Routing je Aufgabe, AST-Grep, Background-Agents |
 | **skeleton-research** | Forkbares Corpus-Skeleton, Hands-on in Anwendung 1 |
-| **Superpowers** | TDD, Debugging, Review als Routinen |
-| **rtk** | Filtert Tool-Output: **−60–90 % Input-Token** |
-| **ponytail / caveman** | Skills: minimale Lösungen, knappe Prosa |
 | **Ollama / vLLM / llama.cpp** | Lokales Modell-Serving |
 
-> **Das Modell ist das Gehirn, die Workflows sind der Muskel.**
+> **Das Modell ist das Gehirn, die Workflows sind der Muskel.** Skills wie superpowers, rtk, ponytail, caveman stehen auf der pi-Folie.
 
 <!-- notes:
-TOBIAS — Tooling-Landschaft ranken. OpenSpec ist die Brücke zu Block 5 (Spec & Token).
+TOBIAS — kompakt halten, kein Ranking. OpenSpec ist die Brücke zu Block 5 (Spec & Token).
 oh-my-opencode leitet innerhalb von Block 5 zum Token-Teil über.
-rtk + ponytail/caveman als Token-Hebel vorwegnehmen: „Output filtern, knapp reden,
-minimal bauen — Zahlen dazu gleich im Token-Teil.“
+Token-Hebel (rtk −60–90 %, ponytail/caveman) kurz auf der pi-Folie zeigen —
+„Zahlen dazu gleich im Token-Teil."
+skeleton-research = Brücke zu Anwendung 1 (nach der Pause).
 -->
 
 ---
