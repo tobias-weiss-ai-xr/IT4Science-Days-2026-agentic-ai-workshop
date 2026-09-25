@@ -979,7 +979,7 @@ Gleiche Frage wie in 1a — aber Spec statt Sammel-Haufen.
 
 - **Literatur-Corpus als reiner Text**: `papers.yaml` = Source of Truth.
 - **Eine Config** (`config/taxonomy.yaml`) steuert alles.
-- **CI** (Prüf-Pipeline) holt wöchentlich neue Papers → **GitHub Pages** (Pipeline-Details: nächste Folie).
+- **CI** (Prüf-Pipeline) holt wöchentlich neue Papers → **GitHub Pages**.
 
 ```bash
 git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research && cd my-research
@@ -1237,7 +1237,7 @@ sehen eine echte, vollständige Spec/Change/Tasks-Struktur und können sie nachb
 
 **Routing**: das richtige Modell pro Aufgabe
 - omO: benannte Agents → Modell je Kategorie.
-- SAIA-Aliase: `best-for-coding`, `budget`, `fastest`.
+- LiteLLM-Gateway: ein Endpunkt, viele Modelle — Wahl nach Aufgabe.
 
 **Caching & Kontext-Hygiene**
 - Prompt-/KV-Caching, Kompaktion: nur behalten, was zählt.
@@ -1256,9 +1256,10 @@ pi-memory / Knowledge Graph persistieren Erfahrung außerhalb des Kontexts.</div
 </div>
 
 <!-- notes:
-TOBIAS — Block 5 · ~7 min: 4 min Routing (Live: SAIA-Alias-Wahl für dieselbe
-Aufgabe — best-for-coding → Qwen3-Coder-Next, best-for-agentic → GLM 4.7,
-budget → DeepSeek V4 Flash; omO: Sisyphus/Prometheus/Oracle je Kategorie),
+TOBIAS — Block 5 · ~7 min: 4 min Routing (Live: dieselbe Aufgabe über
+zwei SAIA-Modelle — saia/qwen3-coder-next für Code, saia/glm-4.7 für
+Agentic-Aufgaben, saia/deepseek-v4-flash-0731 als Budget-Wahl;
+omO: Sisyphus/Prometheus/Oracle je Kategorie),
 2 min Caching/Kontext-Hygiene (kleiner, präziser Kontext = weniger Wiederholung),
 1 min Prinzipien → Brücke zu Anwendung 2 („Ihre Spec ist auch Token-Optimierung:
 der Contract ersetzt Wiederholung"). Glossar: KV-Cache = Modell merkt sich

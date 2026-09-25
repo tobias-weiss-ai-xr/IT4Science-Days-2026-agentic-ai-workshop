@@ -6037,7 +6037,7 @@ pre code {
 <ul>
 <li><strong>Literatur-Corpus als reiner Text</strong>: <code>papers.yaml</code> = Source of Truth.</li>
 <li><strong>Eine Config</strong> (<code>config/taxonomy.yaml</code>) steuert alles.</li>
-<li><strong>CI</strong> (Prüf-Pipeline) holt wöchentlich neue Papers → <strong>GitHub Pages</strong> (Pipeline-Details: nächste Folie).</li>
+<li><strong>CI</strong> (Prüf-Pipeline) holt wöchentlich neue Papers → <strong>GitHub Pages</strong>.</li>
 </ul>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research &amp;&amp; <span class="hljs-built_in">cd</span> my-research
 </code></pre>
@@ -8210,7 +8210,7 @@ pre code {
 <p><strong>Routing</strong>: das richtige Modell pro Aufgabe</p>
 <ul>
 <li>omO: benannte Agents → Modell je Kategorie.</li>
-<li>SAIA-Aliase: <code>best-for-coding</code>, <code>budget</code>, <code>fastest</code>.</li>
+<li>LiteLLM-Gateway: ein Endpunkt, viele Modelle — Wahl nach Aufgabe.</li>
 </ul>
 <p><strong>Caching &amp; Kontext-Hygiene</strong></p>
 <ul>
@@ -11004,9 +11004,10 @@ nicht um einen Werkzeugvergleich.
     weiterentwickelt wird. Das ist der Grund, kein Werturteil.</p></div><div class="bespoke-marp-note" data-index="32" tabindex="0"><p>notes:
 TOBIAS — der fertige Change als Referenz für den Hands-on-Block 6. Die Teilnehmenden
 sehen eine echte, vollständige Spec/Change/Tasks-Struktur und können sie nachbauen.</p></div><div class="bespoke-marp-note" data-index="33" tabindex="0"><p>notes:
-TOBIAS — Block 5 · ~7 min: 4 min Routing (Live: SAIA-Alias-Wahl für dieselbe
-Aufgabe — best-for-coding → Qwen3-Coder-Next, best-for-agentic → GLM 4.7,
-budget → DeepSeek V4 Flash; omO: Sisyphus/Prometheus/Oracle je Kategorie),
+TOBIAS — Block 5 · ~7 min: 4 min Routing (Live: dieselbe Aufgabe über
+zwei SAIA-Modelle — saia/qwen3-coder-next für Code, saia/glm-4.7 für
+Agentic-Aufgaben, saia/deepseek-v4-flash-0731 als Budget-Wahl;
+omO: Sisyphus/Prometheus/Oracle je Kategorie),
 2 min Caching/Kontext-Hygiene (kleiner, präziser Kontext = weniger Wiederholung),
 1 min Prinzipien → Brücke zu Anwendung 2 („Ihre Spec ist auch Token-Optimierung:
 der Contract ersetzt Wiederholung&quot;). Glossar: KV-Cache = Modell merkt sich
