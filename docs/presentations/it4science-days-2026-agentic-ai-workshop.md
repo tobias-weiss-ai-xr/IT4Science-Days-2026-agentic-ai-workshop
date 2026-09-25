@@ -812,7 +812,7 @@ Kriterium ist Autonomie, nicht die Oberfläche.
 
 **1. OpenCode**: der Allrounder
 - Agent im Terminal (CLI/TUI), Modell je Agent.
-- LSP, Plugins, Skills, MCP.
+- LSP, Plugins, Skills, MCP — omO: Routing je Aufgabe, AST-Grep, Background-Agents.
 
 **2. pi**: das Minimal-Harness
 - Skills · Prompt-Templates · Packages · Themes.
@@ -842,8 +842,11 @@ Quelle: eigene Erfassung
 
 <!-- notes:
 TOBIAS (~4 min): die beiden offenen Harnesses nach Einsatz gegenüberstellen; die rechte
-Spalte liest sich als Entscheidungshilfe. OmO-Details (AST-Grep, Background-Agents) stehen
-auf der Tooling-Folie. Danach CHRISTIAN (~2 min): kommerzielle
+Spalte liest sich als Entscheidungshilfe. Ergänzend erwähnen: SAIA-Plugins =
+GWDG Chat-AI-Modelle für pi · OpenCode · zot (Auto-Registrierung, institutsseitiger
+Zugang); lokales Serving (Ollama, vLLM, llama.cpp) als Souveränitäts-Option.
+Merksatz: Das Modell ist das Gehirn, die Workflows sind der Muskel.
+Danach CHRISTIAN (~2 min): kommerzielle
 Gegenprobe (Zeile unten rechts), damit niemand den Raum mit dem Eindruck
 verlaesst, Open Source sei hier eine ideologische Entscheidung.
 
@@ -904,8 +907,8 @@ verlaesst, Open Source sei hier eine ideologische Entscheidung.
 
 <!-- notes:
 TOBIAS (~90 s). Beleg für „Adapt pi, nicht umgekehrt": der Kern bleibt minimal,
-die Fähigkeiten kommen als Packages. superpowers, rtk, ponytail, caveman laufen
-gleich auf der nächsten Tooling-Folie als Token-Hebel weiter.
+die Fähigkeiten kommen als Packages. superpowers, rtk, ponytail, caveman sind die
+Token-Hebel — Zahlen dazu in Block 5.
 
 Vollständige Liste (eigene Installation):
 - Skills: github.com/obra/superpowers · @firstpick/pi-skill-vulnerability-scanner (CVE) · @testzugang/pi-audit-agents-md (AGENTS.md-Review)
@@ -916,41 +919,16 @@ Vollständige Liste (eigene Installation):
 -->
 
 <!-- notes:
-TOBIAS — Timing (20 min): 12 min Vergleich inkl. Live-Demo — derselbe Prompt in
-allen dreien, Ergebnis-Differenz zeigen: „gleiche Modelle, unterschiedliche
-Ergebnisse“ wird bewiesen, nicht behauptet. 3 min Ranking. Danach Tooling-Folie.
+TOBIAS — Timing (17 min): 12 min Vergleich inkl. Live-Demo — derselbe Prompt in
+beiden, Ergebnis-Differenz zeigen: „gleiche Modelle, unterschiedliche
+Ergebnisse“ wird bewiesen, nicht behauptet. 3 min Einsatz-Mapping, dann pi-Folie.
 Details: OpenCode mit OmO → AST-Grep (25 Sprachen), parallele Background-Agents.
 Glossar für Nicht-Devs (Zielgruppe Postdocs): LSP = Language Server (Code-Verständnis
 im Editor), MCP = Model Context Protocol, AST-Grep = strukturelle Code-Suche.
-pi: nichts eingebacken, alles baubar. zot: Extensions, Slash-Commands,
-`zot "prompt"` · `zot -p` · `zot rpc` — RPC für eigene Automation.
-Ranking: OpenCode Tagesgeschäft, pi minimal & erweiterbar, zot Skripting/RPC.
+pi: nichts eingebacken, alles baubar.
+Einsatz: OpenCode Tagesgeschäft, pi minimal & erweiterbar.
 **Claude Code** (kommerziell) als Vergleichsmaßstab, Open-Source spielt oben mit.
 pi steckt dahinter, wie dieser Workshop entstanden ist.
--->
-
----
-
-<div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-
-## Weiteres Agentic-Tooling
-
-| Tool | Funktion |
-|------|----------|
-| **OpenSpec** | Delta-Specs als Agenten-Prompts |
-| **SAIA-Plugins** | GWDG Chat-AI-Modelle für pi · OpenCode · zot, Auto-Registrierung |
-| **oh-my-opencode** | Routing je Aufgabe, AST-Grep, Background-Agents |
-| **skeleton-research** | Forkbares Corpus-Skeleton, Hands-on in Anwendung 1 |
-| **Ollama / vLLM / llama.cpp** | Lokales Modell-Serving |
-
-> **Das Modell ist das Gehirn, die Workflows sind der Muskel.** Skills wie superpowers, rtk, ponytail, caveman stehen auf der pi-Folie.
-
-<!-- notes:
-TOBIAS — kompakt halten, kein Ranking. OpenSpec ist die Brücke zu Block 5 (Spec & Token).
-oh-my-opencode leitet innerhalb von Block 5 zum Token-Teil über.
-Token-Hebel (rtk −60–90 %, ponytail/caveman) kurz auf der pi-Folie zeigen —
-„Zahlen dazu gleich im Token-Teil."
-skeleton-research = Brücke zu Anwendung 1 (nach der Pause).
 -->
 
 ---
