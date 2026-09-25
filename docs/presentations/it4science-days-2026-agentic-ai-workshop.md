@@ -208,7 +208,7 @@ Ton: nicht als Kunststück erzählen. Die Methode ist der Held, nicht der Sprech
 - ≤ 30 Sekunden je Person, wir sammeln Wünsche an die Whiteboard-Wand.
 - Diese Wünsche checken wir am Ende gegen die Outcomes.
 
-> Bei großen Runden: 5–6 Stichworte aus dem Raum, Rest per Karte/Zettel.
+> Bei großen Runden: 5–6 Stichproben aus dem Raum, Rest per Karte/Zettel.
 
 <!-- notes:
 CHRISTIAN — moderiert (~3 min). Die gesammelten Wünsche sichtbar notieren —
