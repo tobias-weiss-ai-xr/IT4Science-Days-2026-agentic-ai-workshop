@@ -59,19 +59,19 @@ Der ganze Workshop folgt einer Pyramide, die wir später live anwenden:
 
 ## Agenda (3h, 09:00–12:00)
 
-| Zeit | Block | Dauer | Verantwortung |
-|------|-------|-------|---------------|
-| 09:00–09:15 | Ankommen, Vorstellung — **Praxisbeispiele der Referenten** (wie wir agentic AI nutzen) + **TN-Vorstellungsrunde**, Ablauf | 15 min | Christian |
-| 09:15–09:30 | Grundlagen & Definition — Was ist agentisches Arbeiten? | 15 min | Christian |
-| 09:30–09:50 | Aktuelle Entwicklungen bei den Foundation Modellen | 20 min | Christian + Tobias |
-| 09:50–10:10 | Open-Source Toolbox — Harnesses (OpenCode, pi, zot) + Tooling | 20 min | Tobias + Christian |
-| 10:10–10:20 | ☕ Pause | 10 min | — |
-| 10:20–10:45 | **Anwendung 1: Eigenes Research Repo** — [skeleton-research](https://github.com/tobias-weiss-ai-xr/skeleton-research), Git, Harness | 25 min | Tobias |
-| 10:45–11:00 | Spec Driven & Token-optimized Development — kompakt: Anforderungen als Treiber, Modell-Routing, Caching | 15 min | Christian + Tobias |
-| 11:00–11:25 | **Anwendung 2: Spec selbst anwenden** (im Research Repo) | 25 min | Christian |
-| 11:25–11:30 | ☕ Pause | 5 min | — |
-| 11:30–11:45 | **Outcomes** — TN präsentieren ihre Ergebnisse | 15 min | Tobias |
-| 11:45–12:00 | Q&A, Diskussion, Wrap Up | 15 min | Tobias |
+| Block | Verantwortung |
+|-------|---------------|
+| Ankommen, Vorstellung — **Praxisbeispiele der Referenten** (wie wir agentic AI nutzen) + **TN-Vorstellungsrunde**, Ablauf | Christian |
+| Grundlagen & Definition — Was ist agentisches Arbeiten? | Christian |
+| Aktuelle Entwicklungen bei den Foundation Modellen | Christian + Tobias |
+| Open-Source Toolbox — Harnesses (OpenCode, pi) + Tooling | Tobias + Christian |
+| ☕ **Pause 10:10–10:20** | — |
+| **Anwendung 1: Eigenes Research Repo** — [skeleton-research](https://github.com/tobias-weiss-ai-xr/skeleton-research), Git, Harness | Tobias |
+| Spec Driven & Token-optimized Development — kompakt: Anforderungen als Treiber, Modell-Routing, Caching | Christian + Tobias |
+| **Anwendung 2: Spec selbst anwenden** (im Research Repo) | Christian |
+| ☕ **Pause 11:25–11:30** | — |
+| **Outcomes** — TN präsentieren ihre Ergebnisse | Tobias |
+| Q&A, Diskussion, Wrap Up | Tobias |
 
 **Lernlogik der Reihenfolge:**
 Einstieg mit zwei **Praxisbeispielen** der Referenten und **TN-Vorstellungsrunde** (Wünsche sammeln) → Grundlage → Werkzeuge → **sofort selbst anwenden (Research Repo)** → Vertiefung kompakt (Spec & Token) → **Spec selbst anwenden** → **Outcomes präsentieren** → Austausch.

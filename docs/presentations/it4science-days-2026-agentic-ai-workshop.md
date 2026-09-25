@@ -245,19 +245,19 @@ waren Agent-Aufgaben, keine Bot-Wünsche").
 
 # Agenda (3h)
 
-| Zeit | Block | Dauer | Wer |
-|------|-------|-------|-----|
-| 09:00–09:15 | Ankommen, Vorstellung (Praxisbeispiele + TN-Runde), Ablauf | 15 min | Christian |
-| 09:15–09:30 | Grundlagen & Definition | 15 min | Christian |
-| 09:30–09:50 | Foundation Models: aktuelle Entwicklungen | 20 min | Christian + Tobias |
-| 09:50–10:10 | Open-Source Toolbox | 20 min | Tobias + Christian |
-| 10:10–10:20 | ☕ Pause | 10 min | |
-| 10:20–10:45 | Anwendung 1: Eigenes Research-Repo | 25 min | Tobias |
-| 10:45–11:00 | Spec Driven & Token-optimized Development | 15 min | Christian + Tobias |
-| 11:00–11:25 | Anwendung 2: Spec selbst anwenden | 25 min | Christian |
-| 11:25–11:30 | ☕ Pause | 5 min | |
-| 11:30–11:45 | Outcomes: TN präsentieren ihre Ergebnisse | 15 min | Tobias |
-| 11:45–12:00 | Q&A, Diskussion, Wrap Up | 15 min | Tobias |
+| Block | Wer |
+|-------|-----|
+| Ankommen, Vorstellung (Praxisbeispiele + TN-Runde), Ablauf | Christian |
+| Grundlagen & Definition | Christian |
+| Foundation Models: aktuelle Entwicklungen | Christian + Tobias |
+| Open-Source Toolbox | Tobias + Christian |
+| ☕ **Pause 10:10–10:20** | |
+| Anwendung 1: Eigenes Research-Repo | Tobias |
+| Spec Driven & Token-optimized Development | Christian + Tobias |
+| Anwendung 2: Spec selbst anwenden | Christian |
+| ☕ **Pause 11:25–11:30** | |
+| Outcomes: TN präsentieren ihre Ergebnisse | Tobias |
+| Q&A, Diskussion, Wrap Up | Tobias |
 
 <!-- notes:
 Agenda auf 1 min durchgehen. Zwei Hands-on-Blöcke: (1) eigenes Research-Repo,
