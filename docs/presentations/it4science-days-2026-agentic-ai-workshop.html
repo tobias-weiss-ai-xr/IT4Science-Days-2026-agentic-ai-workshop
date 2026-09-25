@@ -6013,12 +6013,10 @@ pre code {
 <p><strong>Jeder verlässt den Raum mit einem eigenen, CI-validierten Research-Repo.</strong></p>
 <p>Gleiche Frage wie in 1a — aber Spec statt Sammel-Haufen.</p>
 <ul>
-<li><strong>Literatur-Corpus als reiner Text</strong>: <code>papers.yaml</code> = Source of Truth.</li>
-<li><strong>Eine Config</strong> (<code>config/taxonomy.yaml</code>) steuert alles.</li>
-<li><strong>CI</strong> (Prüf-Pipeline) holt wöchentlich neue Papers → <strong>GitHub Pages</strong>.</li>
+<li><strong>Corpus statt Haufen</strong>: das Wissen zum Thema als geprüfter Text-Bestand.</li>
+<li><strong>Regeln statt Handarbeit</strong>: prüfen, erzeugen, berichten — als eine Pipeline.</li>
+<li><strong>Lebendig statt Momentaufnahme</strong>: der Dienst erweitert und prüft wöchentlich selbst.</li>
 </ul>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research &amp;&amp; <span class="hljs-built_in">cd</span> my-research
-</code></pre>
 <footer>IT4Science Days 2026 · Agentic AI Workshop</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-footer="IT4Science Days 2026 · Agentic AI Workshop" data-theme="default" data-style="section {
@@ -6241,15 +6239,10 @@ pre code {
 .rank { color: #ffd88a; font-weight: 700; }
 ;" data-marpit-pagination-total="44">
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-<h2 id="die-pipeline-jede-datei-hat-einen-zweck">Die Pipeline: jede Datei hat einen Zweck</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>config/taxonomy.yaml  ──►  papers.yaml  ──►  validate ──►  generate_readme
-                                                  │             │
-                             standard_stats ◄─────┘             ▼
-                                                  │        generate_reports
-                                                   ▼              │
-                                              CI pass/fail        ▼
-                                                            docs/ (GitHub Pages)
-</code></pre>
+<h2 id="die-pipeline-jede-stufe-hat-einen-zweck">Die Pipeline: jede Stufe hat einen Zweck</h2>
+<div>
+<strong>Sammeln → Prüfen → Erzeugen → Veröffentlichen</strong>
+</div>
 <div class="unix"><strong>Ein Tool, ein Job.</strong> Jedes Skript tut genau eine Sache
 (validate / generate / stats / reports), und sie komponieren sich zur Pipeline.</div>
 <div class="unix"><strong>Text ist die Schnittstelle.</strong> YAML + Markdown, kein GUI nötig.
@@ -6480,14 +6473,14 @@ pre code {
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 <h2 id="jump-start-in-5-schritten">Jump-Start in 5 Schritten</h2>
 <ol>
-<li><strong>Forken</strong>: <code>skeleton-research</code> klonen.</li>
-<li><strong>Taxonomie setzen</strong>: <code>config/taxonomy.yaml</code> — Ihre Kategorien für Thema X.</li>
-<li><strong>Seeden</strong>: 3–5 Treffer aus Ihrer 1a-Sammlung in <code>papers.yaml</code> (echte URLs!) — die Validierung entscheidet, was überlebt.</li>
-<li><strong>Pipeline</strong>: <code>python scripts/pipeline.py</code>, validiert &amp; generiert.</li>
-<li><strong>Pushen</strong>: CI validiert &amp; deployed auf GitHub Pages.</li>
+<li><strong>Kopie holen</strong>: das Demo-Repo wird Ihres.</li>
+<li><strong>Themenfeld setzen</strong>: Ihre Ordnung für Thema X.</li>
+<li><strong>Seeden</strong>: 3–5 Treffer aus Ihrer 1a-Sammlung — die Prüfung entscheidet, was überlebt.</li>
+<li><strong>Laufen lassen</strong>: prüfen, erzeugen, berichten.</li>
+<li><strong>Veröffentlichen</strong>: das Ergebnis geht online — und bleibt am Leben.</li>
 </ol>
 <blockquote>
-<p><strong>Nie generierte Dateien von Hand editieren</strong>, sie regenerieren sich aus <code>papers.yaml</code>.</p>
+<p><strong>Was die Pipeline erzeugt, wird nie von Hand geändert</strong> — es regeneriert sich aus dem Corpus.</p>
 </blockquote>
 <footer>IT4Science Days 2026 · Agentic AI Workshop</footer>
 </section>
@@ -6715,39 +6708,31 @@ pre code {
 <table>
 <thead>
 <tr>
-<th>Agentische Aufgabe</th>
-<th>Werkzeug im Repo</th>
+<th>Der Agent übernimmt</th>
+<th>heißt konkret</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Neue Papers entdecken</td>
-<td>Discovery: arXiv, OpenAlex, dblp, Crossref, EUPMC + Code-Hosts</td>
+<td>Entdecken</td>
+<td>neue Veröffentlichungen zu Thema X aufspüren</td>
 </tr>
 <tr>
-<td>Dem Topic zuordnen</td>
-<td>automatische Taxonomie-Zuordnung</td>
+<td>Einordnen</td>
+<td>Funde den Themenfeldern zuordnen</td>
 </tr>
 <tr>
-<td>Validiert halten</td>
-<td><code>validate_papers.py</code>: echte URLs, Schema, keine Erfindungen</td>
+<td>Prüfen</td>
+<td>Quellen verifizieren, Erfindungen aussortieren</td>
 </tr>
 <tr>
-<td>README &amp; Berichte</td>
-<td><code>generate_readme.py</code>, <code>generate_reports.py</code></td>
-</tr>
-<tr>
-<td>Trends &amp; Zeitgeist</td>
-<td><code>trend_scanner.py</code>, <code>landscape_analyzer.py</code>, <code>topic_planner.py</code></td>
-</tr>
-<tr>
-<td>Kurz-Briefings</td>
-<td><code>brief_generator.py</code></td>
+<td>Berichten</td>
+<td>Überblick, Trends, Kurz-Briefings pflegen</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>Sie kuratieren, der Agent erledigt das Rauschen.</strong> CI hält den Corpus gesund: wöchentlich ein Discovery-PR (Änderungsvorschlag).</p>
+<p><strong>Sie kuratieren, der Agent erledigt das Rauschen.</strong> Der Wartungsdienst läuft mit: wöchentlich ein Änderungsvorschlag statt manueller Pflege.</p>
 </blockquote>
 <footer>IT4Science Days 2026 · Agentic AI Workshop</footer>
 </section>
@@ -6972,13 +6957,12 @@ pre code {
 ;" data-marpit-pagination-total="44">
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 <h2 id="agentsmd-der-contract-f%C3%BCr-den-agenten">AGENTS.md: der Contract für den Agenten</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-yaml"><span class="hljs-comment"># AGENTS.md (Auszug)</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">NEVER</span> <span class="hljs-string">edit</span> <span class="hljs-string">README.md</span> <span class="hljs-string">—</span> <span class="hljs-string">it</span> <span class="hljs-string">is</span> <span class="hljs-string">auto-generated</span> <span class="hljs-string">from</span> <span class="hljs-string">papers.yaml.</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">NEVER</span> <span class="hljs-string">edit</span> <span class="hljs-string">docs/papers.json,</span> <span class="hljs-string">statistics.json</span> <span class="hljs-string">or</span> <span class="hljs-string">docs/research/*.md</span> <span class="hljs-string">by</span> <span class="hljs-string">hand.</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">NEVER</span> <span class="hljs-string">invent</span> <span class="hljs-string">papers;</span> <span class="hljs-string">every</span> <span class="hljs-string">entry</span> <span class="hljs-string">MUST</span> <span class="hljs-string">have</span> <span class="hljs-string">a</span> <span class="hljs-string">real,</span> <span class="hljs-string">resolvable</span> <span class="hljs-string">URL.</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">After</span> <span class="hljs-string">ANY</span> <span class="hljs-string">papers.yaml</span> <span class="hljs-string">change,</span> <span class="hljs-string">ALWAYS</span> <span class="hljs-string">re-run</span> <span class="hljs-string">the</span> <span class="hljs-string">full</span> <span class="hljs-string">pipeline.</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">Validate</span> <span class="hljs-string">(exit</span> <span class="hljs-number">0</span><span class="hljs-string">)</span> <span class="hljs-string">before</span> <span class="hljs-string">committing.</span>
-</code></pre>
+<p>Die Regeln, die der Agent unterschreibt:</p>
+<ul>
+<li><strong>Erzeugtes wird nie von Hand geändert</strong> — die Pipeline regeneriert es.</li>
+<li><strong>Nichts wird erfunden</strong> — jede Quelle muss real auflösbar sein.</li>
+<li><strong>Nach jeder Änderung: komplette Prüfung</strong>, erst dann Commit.</li>
+</ul>
 <div class="unix"><strong>Die Spec ist der Vertrag.</strong> Der Agent wird nicht im Prompt
 gefragt, sondern per Datei geführt: stabil, wiederholbar, review-bar.
 Zuwiderhandlungen deckt die Pipeline objektiv auf.</div>
@@ -10910,19 +10894,37 @@ installiert ist. Timer sichtbar machen. ROAMER (Christian): Starthilfe, über di
 Schulter schauen. Pointe nicht vorwegnehmen: 1b validiert genau diese Treffer.</p></div><div class="bespoke-marp-note" data-index="24" tabindex="0"><p>notes:
 TOBIAS (~3 min). Kontrast zu 1a jetzt explizit machen: dieselbe Frage, andere
 Methodik — aus dem Sammel-Haufen wird eine geprüfte Struktur.
+Konkretes (live zeigen, nicht vorlesen): Corpus = papers.yaml (Source of Truth),
+Steuerung = config/taxonomy.yaml, wöchentlicher Abonnement-Dienst = CI → GitHub Pages.
+Start: git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research &amp;&amp; cd my-research
 Kernnutzen: „Wie unterstützt das meine Forschung?“ Ein Repo = strukturierter,
 reproduzierbarer, auto-validierter Stand des Literaturwissens. CI macht es lebendig.</p></div><div class="bespoke-marp-note" data-index="25" tabindex="0"><p>notes:
 TOBIAS — der Unix-Geist wird durch die Struktur gezeigt, nicht benannt:
 ein Tool/ein Job, Text als Schnittstelle, Pipeline als objektiver Richter.
+Konkretes Mapping für die Live-Demo: Sammeln = papers.yaml + Discovery
+(arXiv, OpenAlex, dblp, Crossref, EUPMC), Prüfen = validate (exit 0 oder rot),
+Erzeugen = README/Stats/Reports, Veröffentlichen = CI → GitHub Pages.
 papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.</p></div><div class="bespoke-marp-note" data-index="26" tabindex="0"><p>notes:
-TOBIAS — live zeigen. Wichtig: „Niemals generierte Dateien editieren“ (README.md,
-docs/papers.json, reports) — sie werden regeneriert. Das ist “Lösche &amp; Regeneriere”.
-YAML-Beispiel Schritt 2: `categories: - id: agentic-ai` (id + name + description).</p></div><div class="bespoke-marp-note" data-index="27" tabindex="0"><p>notes:
+TOBIAS — live zeigen. Konkretes Mapping: (1) Fork/Klon von skeleton-research,
+(2) config/taxonomy.yaml → nur categories: anpassen (id + name + description),
+(3) Start-Papers in papers.yaml — echte URLs, (4) python scripts/pipeline.py,
+(5) Push → CI validiert &amp; deployed. Wichtig: „Niemals generierte Dateien editieren“
+(README.md, docs/papers.json, reports) — sie werden regeneriert: Lösche &amp; Regeneriere.</p></div><div class="bespoke-marp-note" data-index="27" tabindex="0"><p>notes:
 TOBIAS — das ist der eigentliche Wert: nicht das Repo selbst, sondern dass der
-Agent die Pflege (Discovery, Validierung, Trends) übernimmt, während der Mensch
-die Qualität kuratiert. Der Mensch bleibt in der Verantwortung.</p></div><div class="bespoke-marp-note" data-index="28" tabindex="0"><p>notes:
+Agent die Pflege übernimmt, während der Mensch die Qualität kuratiert.
+Script-Mapping für Rückfragen: Discovery = arXiv/OpenAlex/dblp/Crossref/EUPMC
++ Code-Hosts, Einordnen = Taxonomie-Zuordnung, Prüfen = validate_papers.py,
+Berichten = generate_readme.py / generate_reports.py / trend_scanner.py /
+landscape_analyzer.py / topic_planner.py / brief_generator.py.
+Der Mensch bleibt in der Verantwortung.</p></div><div class="bespoke-marp-note" data-index="28" tabindex="0"><p>notes:
 TOBIAS — AGENTS.md = die &quot;Contract&quot;-Ebene der Pyramide. Kein Gespräch pro Session,
-kein Wiedereinlernen — die Regeln liegen im Repo. Die Pipeline erzwingt sie.</p></div><div class="bespoke-marp-note" data-index="29" tabindex="0"><p>notes:
+kein Wiedereinlernen — die Regeln liegen im Repo. Die Pipeline erzwingt sie.
+Live-Auszug aus der Datei:
+  - NEVER edit README.md — it is auto-generated from papers.yaml.
+  - NEVER edit docs/papers.json, statistics.json or docs/research/*.md by hand.
+  - NEVER invent papers; every entry MUST have a real, resolvable URL.
+  - After ANY papers.yaml change, ALWAYS re-run the full pipeline.
+  - Validate (exit 0) before committing.</p></div><div class="bespoke-marp-note" data-index="29" tabindex="0"><p>notes:
 CHRISTIAN und TOBIAS. Block 5, 10:45 bis 11:00, zwei Themen in einem Block.
 Aufteilung: Christian der Spezifikationsteil, Tobias der Token-Teil. Das
 Showcase-Beispiel ist kuerzbar, wenn die Zeit knapp wird.

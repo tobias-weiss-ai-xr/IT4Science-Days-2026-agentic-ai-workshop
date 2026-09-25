@@ -985,17 +985,16 @@ Schulter schauen. Pointe nicht vorwegnehmen: 1b validiert genau diese Treffer.
 
 Gleiche Frage wie in 1a — aber Spec statt Sammel-Haufen.
 
-- **Literatur-Corpus als reiner Text**: `papers.yaml` = Source of Truth.
-- **Eine Config** (`config/taxonomy.yaml`) steuert alles.
-- **CI** (Prüf-Pipeline) holt wöchentlich neue Papers → **GitHub Pages**.
-
-```bash
-git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research && cd my-research
-```
+- **Corpus statt Haufen**: das Wissen zum Thema als geprüfter Text-Bestand.
+- **Regeln statt Handarbeit**: prüfen, erzeugen, berichten — als eine Pipeline.
+- **Lebendig statt Momentaufnahme**: der Dienst erweitert und prüft wöchentlich selbst.
 
 <!-- notes:
 TOBIAS (~3 min). Kontrast zu 1a jetzt explizit machen: dieselbe Frage, andere
 Methodik — aus dem Sammel-Haufen wird eine geprüfte Struktur.
+Konkretes (live zeigen, nicht vorlesen): Corpus = papers.yaml (Source of Truth),
+Steuerung = config/taxonomy.yaml, wöchentlicher Abonnement-Dienst = CI → GitHub Pages.
+Start: git clone https://github.com/tobias-weiss-ai-xr/skeleton-research.git my-research && cd my-research
 Kernnutzen: „Wie unterstützt das meine Forschung?“ Ein Repo = strukturierter,
 reproduzierbarer, auto-validierter Stand des Literaturwissens. CI macht es lebendig.
 -->
@@ -1004,17 +1003,11 @@ reproduzierbarer, auto-validierter Stand des Literaturwissens. CI macht es leben
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-## Die Pipeline: jede Datei hat einen Zweck
+## Die Pipeline: jede Stufe hat einen Zweck
 
-```
-config/taxonomy.yaml  ──►  papers.yaml  ──►  validate ──►  generate_readme
-                                                  │             │
-                             standard_stats ◄─────┘             ▼
-                                                  │        generate_reports
-                                                   ▼              │
-                                              CI pass/fail        ▼
-                                                            docs/ (GitHub Pages)
-```
+<div style="text-align:center; font-size:1.4em; margin: 0.2em 0 0.4em 0;">
+<strong>Sammeln → Prüfen → Erzeugen → Veröffentlichen</strong>
+</div>
 
 <div class="unix"><strong>Ein Tool, ein Job.</strong> Jedes Skript tut genau eine Sache
 (validate / generate / stats / reports), und sie komponieren sich zur Pipeline.</div>
@@ -1026,6 +1019,9 @@ die Validierung bestehen, objektiv und nicht nach Meinung.</div>
 <!-- notes:
 TOBIAS — der Unix-Geist wird durch die Struktur gezeigt, nicht benannt:
 ein Tool/ein Job, Text als Schnittstelle, Pipeline als objektiver Richter.
+Konkretes Mapping für die Live-Demo: Sammeln = papers.yaml + Discovery
+(arXiv, OpenAlex, dblp, Crossref, EUPMC), Prüfen = validate (exit 0 oder rot),
+Erzeugen = README/Stats/Reports, Veröffentlichen = CI → GitHub Pages.
 papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.
 -->
 
@@ -1035,18 +1031,20 @@ papers.yaml = Spec, Pipeline = Contract, CI = Test → die Pyramide in Aktion.
 
 ## Jump-Start in 5 Schritten
 
-1. **Forken**: `skeleton-research` klonen.
-2. **Taxonomie setzen**: `config/taxonomy.yaml` — Ihre Kategorien für Thema X.
-3. **Seeden**: 3–5 Treffer aus Ihrer 1a-Sammlung in `papers.yaml` (echte URLs!) — die Validierung entscheidet, was überlebt.
-4. **Pipeline**: `python scripts/pipeline.py`, validiert & generiert.
-5. **Pushen**: CI validiert & deployed auf GitHub Pages.
+1. **Kopie holen**: das Demo-Repo wird Ihres.
+2. **Themenfeld setzen**: Ihre Ordnung für Thema X.
+3. **Seeden**: 3–5 Treffer aus Ihrer 1a-Sammlung — die Prüfung entscheidet, was überlebt.
+4. **Laufen lassen**: prüfen, erzeugen, berichten.
+5. **Veröffentlichen**: das Ergebnis geht online — und bleibt am Leben.
 
-> **Nie generierte Dateien von Hand editieren**, sie regenerieren sich aus `papers.yaml`.
+> **Was die Pipeline erzeugt, wird nie von Hand geändert** — es regeneriert sich aus dem Corpus.
 
 <!-- notes:
-TOBIAS — live zeigen. Wichtig: „Niemals generierte Dateien editieren“ (README.md,
-docs/papers.json, reports) — sie werden regeneriert. Das ist “Lösche & Regeneriere”.
-YAML-Beispiel Schritt 2: `categories: - id: agentic-ai` (id + name + description).
+TOBIAS — live zeigen. Konkretes Mapping: (1) Fork/Klon von skeleton-research,
+(2) config/taxonomy.yaml → nur categories: anpassen (id + name + description),
+(3) Start-Papers in papers.yaml — echte URLs, (4) python scripts/pipeline.py,
+(5) Push → CI validiert & deployed. Wichtig: „Niemals generierte Dateien editieren“
+(README.md, docs/papers.json, reports) — sie werden regeneriert: Lösche & Regeneriere.
 -->
 
 ---
@@ -1055,21 +1053,23 @@ YAML-Beispiel Schritt 2: `categories: - id: agentic-ai` (id + name + description
 
 ## Wie der Agent Ihre Forschung unterstützt
 
-| Agentische Aufgabe | Werkzeug im Repo |
-|--------------------|------------------|
-| Neue Papers entdecken | Discovery: arXiv, OpenAlex, dblp, Crossref, EUPMC + Code-Hosts |
-| Dem Topic zuordnen | automatische Taxonomie-Zuordnung |
-| Validiert halten | `validate_papers.py`: echte URLs, Schema, keine Erfindungen |
-| README & Berichte | `generate_readme.py`, `generate_reports.py` |
-| Trends & Zeitgeist | `trend_scanner.py`, `landscape_analyzer.py`, `topic_planner.py` |
-| Kurz-Briefings | `brief_generator.py` |
+| Der Agent übernimmt | heißt konkret |
+|---|---|
+| Entdecken | neue Veröffentlichungen zu Thema X aufspüren |
+| Einordnen | Funde den Themenfeldern zuordnen |
+| Prüfen | Quellen verifizieren, Erfindungen aussortieren |
+| Berichten | Überblick, Trends, Kurz-Briefings pflegen |
 
-> **Sie kuratieren, der Agent erledigt das Rauschen.** CI hält den Corpus gesund: wöchentlich ein Discovery-PR (Änderungsvorschlag).
+> **Sie kuratieren, der Agent erledigt das Rauschen.** Der Wartungsdienst läuft mit: wöchentlich ein Änderungsvorschlag statt manueller Pflege.
 
 <!-- notes:
 TOBIAS — das ist der eigentliche Wert: nicht das Repo selbst, sondern dass der
-Agent die Pflege (Discovery, Validierung, Trends) übernimmt, während der Mensch
-die Qualität kuratiert. Der Mensch bleibt in der Verantwortung.
+Agent die Pflege übernimmt, während der Mensch die Qualität kuratiert.
+Script-Mapping für Rückfragen: Discovery = arXiv/OpenAlex/dblp/Crossref/EUPMC
++ Code-Hosts, Einordnen = Taxonomie-Zuordnung, Prüfen = validate_papers.py,
+Berichten = generate_readme.py / generate_reports.py / trend_scanner.py /
+landscape_analyzer.py / topic_planner.py / brief_generator.py.
+Der Mensch bleibt in der Verantwortung.
 -->
 
 ---
@@ -1078,14 +1078,11 @@ die Qualität kuratiert. Der Mensch bleibt in der Verantwortung.
 
 ## AGENTS.md: der Contract für den Agenten
 
-```yaml
-# AGENTS.md (Auszug)
-- NEVER edit README.md — it is auto-generated from papers.yaml.
-- NEVER edit docs/papers.json, statistics.json or docs/research/*.md by hand.
-- NEVER invent papers; every entry MUST have a real, resolvable URL.
-- After ANY papers.yaml change, ALWAYS re-run the full pipeline.
-- Validate (exit 0) before committing.
-```
+Die Regeln, die der Agent unterschreibt:
+
+- **Erzeugtes wird nie von Hand geändert** — die Pipeline regeneriert es.
+- **Nichts wird erfunden** — jede Quelle muss real auflösbar sein.
+- **Nach jeder Änderung: komplette Prüfung**, erst dann Commit.
 
 <div class="unix"><strong>Die Spec ist der Vertrag.</strong> Der Agent wird nicht im Prompt
 gefragt, sondern per Datei geführt: stabil, wiederholbar, review-bar.
@@ -1094,6 +1091,12 @@ Zuwiderhandlungen deckt die Pipeline objektiv auf.</div>
 <!-- notes:
 TOBIAS — AGENTS.md = die "Contract"-Ebene der Pyramide. Kein Gespräch pro Session,
 kein Wiedereinlernen — die Regeln liegen im Repo. Die Pipeline erzwingt sie.
+Live-Auszug aus der Datei:
+  - NEVER edit README.md — it is auto-generated from papers.yaml.
+  - NEVER edit docs/papers.json, statistics.json or docs/research/*.md by hand.
+  - NEVER invent papers; every entry MUST have a real, resolvable URL.
+  - After ANY papers.yaml change, ALWAYS re-run the full pipeline.
+  - Validate (exit 0) before committing.
 -->
 
 ---
