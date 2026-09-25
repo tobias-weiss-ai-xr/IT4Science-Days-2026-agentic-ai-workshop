@@ -11,6 +11,7 @@
 > **Diese README ist die einzige Quelle der Wahrheit für den Ablauf.** Die Marp-Folien liegen unter `docs/presentations/`.
 > Nach jeder Folien-Änderung: `./build.sh` — rendert das Deck und prüft die Fußzeilen-Überlappung (muss PASS liefern).
 > `./build.sh --list` gibt zusätzlich das Folienverzeichnis mit Nummern aus. Einmalig nötig: `npm install -g @marp-team/marp-cli`.
+> Vollständiger Ablauf (Branch → Build-Gate → Merge → beide Remotes): siehe [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
