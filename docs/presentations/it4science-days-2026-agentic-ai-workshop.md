@@ -89,6 +89,20 @@ style: |
     margin: 6px 0;
   }
   .unix strong { color: #8ab8ff; }
+
+  .spectrum { display: flex; flex-direction: column; gap: 5px; margin-top: 6px; }
+  .s-row { display: flex; align-items: center; gap: 14px; background: #252525; border-radius: 10px; padding: 5px 16px; }
+  .s-num { font-size: 1.2em; font-weight: 800; color: #8a8a95; min-width: 28px; text-align: center; }
+  .s-body { flex: 1; }
+  .s-title { font-weight: 700; font-size: 0.86em; }
+  .s-desc { font-size: 0.74em; color: #b8b8c0; }
+  .s-dots { font-size: 0.8em; letter-spacing: 3px; color: #5a5a66; white-space: nowrap; }
+  .s-goal { background: #1a2f52; border: 1px solid #3b6fc4; }
+  .s-goal .s-num, .s-goal .s-dots { color: #8ab8ff; }
+  .s-goal .s-desc { color: #b8c4d8; }
+  .s-chip { font-size: 0.6em; background: #3b6fc4; color: #ffffff; border-radius: 8px; padding: 2px 8px; margin-left: 8px; vertical-align: middle; }
+  .s-label { display: flex; justify-content: flex-end; font-size: 0.6em; color: #8a8a95; padding-right: 10px; }
+  .s-quote { margin-top: 6px; border-left: 4px solid #3b6fc4; background: #252525; border-radius: 0 10px 10px 0; padding: 7px 14px; font-size: 0.82em; }
   blockquote {
     background: #242424;
     border-left: 4px solid #666;
@@ -251,7 +265,7 @@ waren Agent-Aufgaben, keine Bot-Wünsche").
 
 | Block | Wer |
 |-------|-----|
-| Ankommen, Vorstellung (Praxisbeispiele + TN-Runde), Ablauf | Christian |
+| Ankommen, Vorstellung (Praxisbeispiele + TN-Runde), Ablauf | Christian + Tobias |
 | Grundlagen & Definition | Christian |
 | Foundation Models: aktuelle Entwicklungen | Christian + Tobias |
 | Open-Source Toolbox | Tobias + Christian |
@@ -261,7 +275,7 @@ waren Agent-Aufgaben, keine Bot-Wünsche").
 | Anwendung 2: Ihr Thema via Spec aufs Demo-Repo | Christian |
 | ☕ **Pause 11:25–11:30** | |
 | Outcomes: TN präsentieren ihre Ergebnisse | Tobias |
-| Q&A, Diskussion, Wrap Up | Tobias |
+| Q&A, Diskussion, Wrap Up | Christian + Tobias |
 
 <!-- notes:
 Agenda auf 1 min durchgehen. Zwei Hands-on-Blöcke: (1) eigenes Research-Repo,
@@ -730,13 +744,52 @@ Die Harnesses nach Einsatz gegenüberstellen (kein Ranking).
 
 ## Von der Chat-Webseite zum Terminal-Agenten
 
-**1. Chat-GUI** — ein Fenster, ein Gespräch; Sie übertragen Ergebnisse von Hand
-**2. Assistent / Bot** — vorgefertigte Fähigkeiten, begrenzter Zugriff („Persona")
-**3. Agent im Harness** — liest & schreibt Dateien, ruft Werkzeuge, entscheidet den nächsten Schritt selbst
-**4. Workflows & CI** — mehrere Agenten, Specs, Pipeline: das Ziel des Vormittags
+<div class="spectrum">
 
-> **Agentisch ist nicht das Terminal — es ist die Autonomie**: selbst entscheiden, selbst handeln.
-> Auch eine GUI kann agentisch sein; das Terminal ist heute der reifste Ort dafür: prüfbar, wiederholbar, automatisierbar.
+<div class="s-row">
+  <div class="s-num">1</div>
+  <div class="s-body">
+    <div class="s-title">💬 Chat-GUI</div>
+    <div class="s-desc">ein Fenster, ein Gespräch — Ergebnisse übertragen Sie von Hand</div>
+  </div>
+  <div class="s-dots">●○○○</div>
+</div>
+
+<div class="s-row">
+  <div class="s-num">2</div>
+  <div class="s-body">
+    <div class="s-title">🤖 Assistent / Bot</div>
+    <div class="s-desc">vorgefertigte Fähigkeiten, begrenzter Zugriff („Persona“)</div>
+  </div>
+  <div class="s-dots">●●○○</div>
+</div>
+
+<div class="s-row">
+  <div class="s-num">3</div>
+  <div class="s-body">
+    <div class="s-title">🧠 Agent im Harness</div>
+    <div class="s-desc">liest &amp; schreibt Dateien, ruft Werkzeuge, entscheidet den nächsten Schritt selbst</div>
+  </div>
+  <div class="s-dots">●●●○</div>
+</div>
+
+<div class="s-row s-goal">
+  <div class="s-num">4</div>
+  <div class="s-body">
+    <div class="s-title">🔄 Workflows &amp; CI<span class="s-chip">Ziel des Vormittags</span></div>
+    <div class="s-desc">mehrere Agenten, Specs, Pipeline</div>
+  </div>
+  <div class="s-dots">●●●●</div>
+</div>
+
+<div class="s-label">Autonomie: selbst entscheiden, selbst handeln →</div>
+
+</div>
+
+<div class="s-quote">
+<strong>Agentisch ist nicht das Terminal — es ist die Autonomie.</strong><br>
+Auch eine GUI kann agentisch sein; das Terminal ist heute der reifste Ort dafür: prüfbar, wiederholbar, automatisierbar.
+</div>
 
 <!-- notes:
 TOBIAS (~2 min). Aus der JLU-Erfahrung: „Was ist agentisch an OpenCode mit geladenem
@@ -839,9 +892,8 @@ verlaesst, Open Source sei hier eine ideologische Entscheidung.
 |----------|---------------------|
 | Skills | [superpowers](https://github.com/obra/superpowers) (TDD, Debugging) · [CVE-Scanner](https://www.npmjs.com/package/@firstpick/pi-skill-vulnerability-scanner) · [AGENTS.md-Audit](https://www.npmjs.com/package/@testzugang/pi-audit-agents-md) |
 | Agenten & Orchestrierung | [subagents](https://www.npmjs.com/package/pi-subagents) (Council-Modus) · [until-done](https://www.npmjs.com/package/pi-until-done) (Ziel-Schleife) · [plan-mode](https://www.npmjs.com/package/@narumitw/pi-plan-mode) · [evaluate](https://www.npmjs.com/package/pi-evaluate) (Gegenspieler-Prüfung) |
-| Output-Stil | [caveman](https://www.npmjs.com/package/@fgladisch/pi-caveman) (knapp) · [ponytail](https://www.npmjs.com/package/@dietrichgebert/ponytail) (minimal) |
+| Output-Stil, Werkzeuge & Suche | [caveman](https://www.npmjs.com/package/@fgladisch/pi-caveman) (knapp) · [ponytail](https://www.npmjs.com/package/@dietrichgebert/ponytail) (minimal) · [mcp-Adapter](https://www.npmjs.com/package/pi-mcp-adapter) (LibreOffice, n8n) · [websearch](https://www.npmjs.com/package/@mammothb/pi-websearch) · [searxng](https://www.npmjs.com/package/pi-searxng-search) |
 | UI | [webui](https://www.npmjs.com/package/@khimaros/pi-webui) · [desktop-ui](https://www.npmjs.com/package/pi-desktop-ui) · [glimpseui](https://www.npmjs.com/package/glimpseui) (native Dialoge) · [chrome](https://www.npmjs.com/package/pi-chrome) |
-| Werkzeuge & Suche | [mcp-Adapter](https://www.npmjs.com/package/pi-mcp-adapter) (LibreOffice, n8n) · [websearch](https://www.npmjs.com/package/@mammothb/pi-websearch) · [searxng](https://www.npmjs.com/package/pi-searxng-search) |
 | Absicherung | [tool-repair](https://www.npmjs.com/package/pi-tool-repair) · [retry](https://www.npmjs.com/package/@monotykamary/pi-retry) · [permission-system](https://www.npmjs.com/package/pi-permission-system) · [secrets](https://www.npmjs.com/package/pi-secrets) · [quotas](https://www.npmjs.com/package/@latentminds/pi-quotas) · [rtk](https://www.npmjs.com/package/@sherif-fanous/pi-rtk) |
 
 > Der Kern bleibt klein — alles andere ist nachrüstbar.
@@ -859,9 +911,8 @@ hier aus Plattform-Sicht.
 Vollständige Liste (eigene Installation):
 - Skills: github.com/obra/superpowers · @firstpick/pi-skill-vulnerability-scanner (CVE) · @testzugang/pi-audit-agents-md (AGENTS.md-Review)
 - Agenten: pi-subagents (Subagent-Tool + Council) · pi-subagent-model-selection · pi-until-done (autonome Zielschleife) · @narumitw/pi-plan-mode · pi-evaluate (adversarieller Post-Run-Check)
-- Output-Stil: @fgladisch/pi-caveman · @dietrichgebert/ponytail
+- Stil/Tools/Suche: @fgladisch/pi-caveman · @dietrichgebert/ponytail · pi-mcp-adapter (MCP-Gateway; Server: libreoffice, n8n) · @mammothb/pi-websearch · pi-searxng-search · pi-skillful
 - UI: @khimaros/pi-webui · pi-desktop-ui · glimpseui (native Dialoge/Diagramme) · pi-chrome
-- Tools/Suche: pi-mcp-adapter (MCP-Gateway; Server: libreoffice, n8n) · @mammothb/pi-websearch · pi-searxng-search · pi-skillful
 - Absicherung: pi-tool-repair · @monotykamary/pi-retry · pi-permission-system · @smallbatchcode/pi-slash-command-guard · pi-secrets · @latentminds/pi-quotas · @sherif-fanous/pi-rtk · pi-continue
 -->
 
