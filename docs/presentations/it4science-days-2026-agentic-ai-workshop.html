@@ -3146,7 +3146,7 @@ pre code {
 </div>
 </div>
 <blockquote>
-<p>SAIA-Katalog (09/2026): GLM 4.7 · Qwen3.8 · DevStral 2 · DeepSeek V4 Flash · Llama 3.1 8B, geroutet über Aliase (<code>best-for-*</code> / <code>budget</code> / <code>fastest</code>).</p>
+<p>SAIA-Katalog (09/2026): GLM 4.7 · GLM 5.3 Flash · Qwen 3.5 (122–397B MoE) · Qwen 3.6 35B · Qwen3.8 27B · Qwen3-Coder-Next · Devstral 2 · DeepSeek V4 Flash · GPT-OSS 120B · Gemma 4 31B</p>
 </blockquote>
 <footer>IT4Science Days 2026 · Agentic AI Workshop</footer>
 </section>
@@ -4330,7 +4330,7 @@ pre code {
 }
 .rank { color: #ffd88a; font-weight: 700; }
 ;" data-marpit-pagination-total="44"><div class="speaker speaker-tobias">👤 Tobias Weiß</div>
-<h2 id="drei-harnesses-im-vergleich">Drei Harnesses im Vergleich</h2>
+<h2 id="zwei-harnesses-im-vergleich">Zwei Harnesses im Vergleich</h2>
 <div class="columns smaller">
 <div>
 <p><strong>1. OpenCode</strong>: der Allrounder</p>
@@ -4343,37 +4343,24 @@ pre code {
 <li>Skills · Prompt-Templates · Packages · Themes.</li>
 <li>„Adapt pi, nicht umgekehrt“.</li>
 </ul>
-<p><strong>3. zot</strong>: das schlanke Agent-Harness</p>
-<ul>
-<li>Single-Binary (Go), TUI + JSON-RPC (fernsteuerbar) + MCP.</li>
-<li>Ollama/llama.cpp → lokale Modelle, souverän.</li>
-</ul>
 </div>
 <div>
-<p><strong>Ranking nach Einsatz:</strong></p>
+<p><strong>Einsatz entscheidet:</strong></p>
 <table>
 <thead>
 <tr>
-<th>Platz</th>
-<th>Tool</th>
-<th>Für</th>
+<th>Einsatz</th>
+<th>Harness</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td>tägliche Coding-Agents, Modell-Routing</td>
 <td><strong>OpenCode</strong></td>
-<td>tägliche Coding-Agents, Routing</td>
 </tr>
 <tr>
-<td>2</td>
-<td><strong>pi</strong></td>
 <td>kontrollierte, minimalistische Workflows</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>zot</strong></td>
-<td>RPC/Headless-Integration, eigene Automation</td>
+<td><strong>pi</strong></td>
 </tr>
 </tbody>
 </table>
@@ -10756,12 +10743,13 @@ planen, verifizieren, korrigieren.
 (2) 200K → 1M+ (Gemini 3.1 Pro): ganze Codebases &amp; Specs im Kontext → echte Agenten.
 (3) Model Context Protocol entkoppelt Modell ↔ Tool.
 (4) Strukturierte Ausgaben, parallele Tool-Calls, Multi-Agent — Produktionsreife.
-(5) Qwen 3.6/3.5 (MoE), GLM 4.7/5, DeepSeek V4, GPT-OSS, Llama, Gemma 4 —
-für viele Tasks reicht ein kleines Modell.
+(5) Qwen 3.5/3.6 (MoE bis 397B), Qwen3.8 27B, GLM 4.7/5.3, Devstral 2, DeepSeek V4,
+GPT-OSS 120B, Gemma 4 31B, Mistral Medium 3.5 — kleine Modelle heute eher
+30B-Klasse statt 8B (SAIA-Modelle laut eigener pi-Config). Für viele Tasks reicht ein kleines Modell.
 (6) Ollama, vLLM, llama.cpp auf eigener Hardware. MPG-Bezug: sensible
 Forschungsdaten → lokale Modelle (DSGVO); GWDG/SAIA-Zugang existiert institutsseitig.
 TOBIAS nach #5/#6 (2 min Praxis-Sicht): SAIA-Katalog — welche Modelle wirklich
-laufen, Routing über Aliase → vertieft in Block 5.</p></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>notes:
+laufen (eigene pi-Config, Stand 09/2026) → vertieft in Block 5.</p></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>notes:
 CHRISTIAN. Diese Folie beantwortet die Frage, die im Raum tatsaechlich gestellt
 wird: Welches Modell soll ich denn nun nehmen? Bewusst nicht auf agentisches
 Arbeiten beschraenkt, der Raum arbeitet auch schreibend und auswertend.
@@ -10854,14 +10842,14 @@ Wenn die Modellwahl so von der Aufgabe abhaengt, worauf kommt es dann wirklich a
     unterschiedliche Ergebnisse liefert. Uebergabesatz: Was das konkret bedeutet,
     zeigt Tobias jetzt am lebenden Objekt.</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>notes:
 TOBIAS — Block 3 · 09:50–10:10 (20 min), Lead. Christian ergänzt.
-Die Harnesses nach Stage/Use-Case ranken.</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>notes:
+Die Harnesses nach Einsatz gegenüberstellen (kein Ranking).</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>notes:
 TOBIAS (~2 min). Aus der JLU-Erfahrung: „Was ist agentisch an OpenCode mit geladenem
 Skill?&quot; — Antwort: der Skill allein ist es nicht; die Schleife aus Entscheiden +
 Handeln ist es. Brücke zur Begriffe-Folie: Agent = Modell bestimmt die nächsten
 Schritte. GUI-Punkt (Christian) aufgreifen: auch opencode-GUI ist agentisch —
 Kriterium ist Autonomie, nicht die Oberfläche.</p></div><div class="bespoke-marp-note" data-index="17" tabindex="0"><p>notes:
-TOBIAS (~4 min): die drei offenen Harnesses nach Einsatz ranken; die rechte Spalte
-liest sich als Entscheidungshilfe. OmO-Details (AST-Grep, Background-Agents) stehen
+TOBIAS (~4 min): die beiden offenen Harnesses nach Einsatz gegenüberstellen; die rechte
+Spalte liest sich als Entscheidungshilfe. OmO-Details (AST-Grep, Background-Agents) stehen
 auf der Tooling-Folie. Danach CHRISTIAN (~2 min): kommerzielle
 Gegenprobe (Zeile unten rechts), damit niemand den Raum mit dem Eindruck
 verlaesst, Open Source sei hier eine ideologische Entscheidung.

@@ -552,7 +552,7 @@ Tooling-/Souveränitäts-Sicht. Thema nach Relevanz gerankt.
 </div>
 </div>
 
-> SAIA-Katalog (09/2026): GLM 4.7 · Qwen3.8 · DevStral 2 · DeepSeek V4 Flash · Llama 3.1 8B, geroutet über Aliase (`best-for-*` / `budget` / `fastest`).
+> SAIA-Katalog (09/2026): GLM 4.7 · GLM 5.3 Flash · Qwen 3.5 (122–397B MoE) · Qwen 3.6 35B · Qwen3.8 27B · Qwen3-Coder-Next · Devstral 2 · DeepSeek V4 Flash · GPT-OSS 120B · Gemma 4 31B
 
 <!-- notes:
 CHRISTIAN — Ranking 1–6, je ~1 min. Details pro Punkt:
@@ -561,12 +561,13 @@ planen, verifizieren, korrigieren.
 (2) 200K → 1M+ (Gemini 3.1 Pro): ganze Codebases & Specs im Kontext → echte Agenten.
 (3) Model Context Protocol entkoppelt Modell ↔ Tool.
 (4) Strukturierte Ausgaben, parallele Tool-Calls, Multi-Agent — Produktionsreife.
-(5) Qwen 3.6/3.5 (MoE), GLM 4.7/5, DeepSeek V4, GPT-OSS, Llama, Gemma 4 —
-für viele Tasks reicht ein kleines Modell.
+(5) Qwen 3.5/3.6 (MoE bis 397B), Qwen3.8 27B, GLM 4.7/5.3, Devstral 2, DeepSeek V4,
+GPT-OSS 120B, Gemma 4 31B, Mistral Medium 3.5 — kleine Modelle heute eher
+30B-Klasse statt 8B (SAIA-Modelle laut eigener pi-Config). Für viele Tasks reicht ein kleines Modell.
 (6) Ollama, vLLM, llama.cpp auf eigener Hardware. MPG-Bezug: sensible
 Forschungsdaten → lokale Modelle (DSGVO); GWDG/SAIA-Zugang existiert institutsseitig.
 TOBIAS nach #5/#6 (2 min Praxis-Sicht): SAIA-Katalog — welche Modelle wirklich
-laufen, Routing über Aliase → vertieft in Block 5.
+laufen (eigene pi-Config, Stand 09/2026) → vertieft in Block 5.
 -->
 
 ---
@@ -716,7 +717,7 @@ Wenn die Modellwahl so von der Aufgabe abhaengt, worauf kommt es dann wirklich a
 
 <!-- notes:
 TOBIAS — Block 3 · 09:50–10:10 (20 min), Lead. Christian ergänzt.
-Die Harnesses nach Stage/Use-Case ranken.
+Die Harnesses nach Einsatz gegenüberstellen (kein Ranking).
 -->
 
 ---
@@ -747,7 +748,7 @@ Kriterium ist Autonomie, nicht die Oberfläche.
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-## Drei Harnesses im Vergleich
+## Zwei Harnesses im Vergleich
 
 <div class="columns smaller">
 <div>
@@ -760,20 +761,15 @@ Kriterium ist Autonomie, nicht die Oberfläche.
 - Skills · Prompt-Templates · Packages · Themes.
 - „Adapt pi, nicht umgekehrt“.
 
-**3. zot**: das schlanke Agent-Harness
-- Single-Binary (Go), TUI + JSON-RPC (fernsteuerbar) + MCP.
-- Ollama/llama.cpp → lokale Modelle, souverän.
-
 </div>
 <div>
 
-**Ranking nach Einsatz:**
+**Einsatz entscheidet:**
 
-| Platz | Tool | Für |
-|-------|------|-----|
-| 1 | **OpenCode** | tägliche Coding-Agents, Routing |
-| 2 | **pi** | kontrollierte, minimalistische Workflows |
-| 3 | **zot** | RPC/Headless-Integration, eigene Automation |
+| Einsatz | Harness |
+|---------|---------|
+| tägliche Coding-Agents, Modell-Routing | **OpenCode** |
+| kontrollierte, minimalistische Workflows | **pi** |
 
 > Ein **Harness ist die Steuerungsebene**: gleiche Modelle, unterschiedliche Ergebnisse, je nach Harness.
 
@@ -788,8 +784,8 @@ Quelle: eigene Erfassung
 </div>
 
 <!-- notes:
-TOBIAS (~4 min): die drei offenen Harnesses nach Einsatz ranken; die rechte Spalte
-liest sich als Entscheidungshilfe. OmO-Details (AST-Grep, Background-Agents) stehen
+TOBIAS (~4 min): die beiden offenen Harnesses nach Einsatz gegenüberstellen; die rechte
+Spalte liest sich als Entscheidungshilfe. OmO-Details (AST-Grep, Background-Agents) stehen
 auf der Tooling-Folie. Danach CHRISTIAN (~2 min): kommerzielle
 Gegenprobe (Zeile unten rechts), damit niemand den Raum mit dem Eindruck
 verlaesst, Open Source sei hier eine ideologische Entscheidung.

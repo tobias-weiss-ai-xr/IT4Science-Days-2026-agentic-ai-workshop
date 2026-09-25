@@ -5,8 +5,10 @@
 > oh-my-opencode-Features, agent-*-research-Corpora.
 >
 > **Korrektur 09/2026 (wissenschaftliche Prüfung):** SAIA-Katalog = Open-Modelle
-> (GLM 4.7, Qwen3.8, Qwen3-Coder-Next, DevStral 2, DeepSeek V4 Flash, Llama 3.1 8B;
-> Routing-Aliase `best-for-*`/`budget`/`fastest` laut SAIA-Plugin-opencode.json).
+> (GLM 4.7, GLM 5.3 Flash, Qwen 3.5 122B/397B, Qwen 3.6 35B, Qwen3.8 27B, Qwen3-Coder-Next,
+> DevStral 2, DeepSeek V4 Flash, GPT-OSS 120B, Gemma 4 31B, Mistral Medium 3.5, Apertus 70B;
+> Stand 09/2026 laut eigener pi-Config — Routing-Aliase auf dem LiteLLM-Gateway
+> nicht mehr vorhanden, Alias-Klausel aus dem Deck entfernt).
 > OpenCode: kein LiteLLM-Routing, kein "30+ parallele Agents" belegt — AST-Grep/
 > Background-Agents stammen aus dem omO-Plugin ("5+ parallel").
 > zot = zot.sh (patriceckhart/zot): Go-Single-Binary, TUI+JSON-RPC, MCP,
@@ -33,7 +35,7 @@
 | DevStral 2 (123B) | open weights, agentic | 131K | Mistral, coding-orientiert |
 | Mistral Medium 3.5 (128B) | open weights, agentic | 131K | General + tool use |
 | GPT-OSS 120B | open weights | 131K | Open-Weights-GPT |
-| Llama 3.1 8B / Apertus 70B | open weights, klein | 32–131K | Lokal, Ollama-tauglich |
+| Qwen3-30B-A3B / Gemma 4 31B / Apertus 70B | open weights, klein (30B-Klasse) | 32–131K | Lokal, Ollama-tauglich |
 | Kimi K2.5 | proprietär, coding | 262K | Lange Kontexte, Coding |
 | Grok Code Fast 1 | proprietär, coder | — | Schnelle Codebase-Exploration |
 | MiniMax M2.7 | proprietär | — | Docs/Library-Analyse |
