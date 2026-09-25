@@ -252,9 +252,9 @@ waren Agent-Aufgaben, keine Bot-Wünsche").
 | Foundation Models: aktuelle Entwicklungen | Christian + Tobias |
 | Open-Source Toolbox | Tobias + Christian |
 | ☕ **Pause 10:10–10:20** | |
-| Anwendung 1: Eigenes Research-Repo | Tobias |
+| Anwendung 1: Ihr Thema selbst agentisch bearbeiten | Tobias |
 | Spec Driven & Token-optimized Development | Christian + Tobias |
-| Anwendung 2: Spec selbst anwenden | Christian |
+| Anwendung 2: Ihr Thema via Spec aufs Demo-Repo | Christian |
 | ☕ **Pause 11:25–11:30** | |
 | Outcomes: TN präsentieren ihre Ergebnisse | Tobias |
 | Q&A, Diskussion, Wrap Up | Tobias |
@@ -920,11 +920,15 @@ Pause 10:10–10:20.
 
 <div class="speaker speaker-tobias">👤 Tobias Weiß</div>
 
-# Anwendung 1: Eigenes Research-Repo
+# Anwendung 1: Ihr Thema X — selbst agentisch bearbeiten
+
+Teil 1 von 2 · Teil 2 (via Spec) folgt nach dem Theorie-Block
 
 <!-- notes:
 TOBIAS — Block 4 · 10:20–10:45 (25 min), Lead (Christian unterstützt). Herzstück: Wie Teilnehmende mit
 skeleton-research ihre eigene Forschung unterstützen. Tobias führt das Repo.
+Bogen der Anwendung: Teil 1 hier (Thema X selbst agentisch), dann Theorie-Block
+(Spec Driven & Token), Teil 2 = dasselbe Thema via Spec auf DEMO Repo aufsetzen.
 Timing: Modes 2 · Übung 1a 5 · 1b-Einführung 3 · Pipeline 2 · Jump-Start 8 (live) ·
 Agent-Unterstützung 2 · AGENTS.md 3.
 -->
@@ -1272,9 +1276,9 @@ Kontext-Berechnungen über Schritte; Kompaktion = alten Kontext zusammenfassen/v
 
 <div class="speaker speaker-christian">👤 Christian Uhl</div>
 
-# Anwendung 2: Ihre eigene Spezifikation
+# Anwendung 2: Ihr Thema X — via Spec aufs Demo-Repo
 
-## Von einem Satz zu einer überprüften Änderung
+## Von einem Satz zu einer überprüften Änderung — auf Ihrem Repo aus Teil 1
 
 <!-- notes:
 CHRISTIAN. Block 6, 11:00 bis 11:25, Christian fuehrt, Tobias unterstuetzt am Platz.
@@ -1291,13 +1295,13 @@ seltener am Verstaendnis als an der Installation.
 
 ## Übung 2: Ihre eigene Auswertung
 
-- **Ziel**: eine überprüfbare Anforderung und eine Aufgabenliste dazu.
+- **Ziel**: eine überprüfbare Anforderung für Ihr Thema X — auf dem Repo aus Teil 1.
 - **Klein halten**: eine Auswertung, eine Kennzahl. Nicht das ganze Vorhaben.
 - **Fertig heißt**: die Prüfung läuft durch. Nicht: der Agent meldet Vollzug.
 
 ```bash
 npm install -g openspec            # falls noch nicht vorhanden
-openspec new change trend-auswertung
+openspec new change thema-x        # Ihr Thema aus Teil 1
 openspec validate --changes        # entscheidet, ob es zählt
 ```
 

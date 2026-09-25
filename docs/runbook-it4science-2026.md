@@ -28,9 +28,9 @@ assessment, CS specials).
 |---|---|---|---|---|
 | Hook/framing | Ankommen, Beispiele, Blitzlicht | 09:00–09:15 | 8 % | C / T |
 | Concept | Grundlagen, FM, Toolbox | 09:15–10:10 | 31 % ⚠️ | C / T, dann T / C |
-| Guided practice | Anwendung 1 (1a naive Suche → 1b skeleton-research per Spec) | 10:20–10:45 | 14 % | T / C |
+| Guided practice | Anwendung 1 Teil 1: Thema X selbst agentisch (1a naive Suche → 1b skeleton-research) | 10:20–10:45 | 14 % | T / C |
 | Concept kompakt | Spezifikation & Token | 10:45–11:00 | 8 % | C+T / — |
-| Independent practice | Anwendung 2 (eigene Spec) | 11:00–11:25 | 14 % | C / T |
+| Independent practice | Anwendung 2 Teil 2: Thema X via Spec aufs eigene Demo-Repo | 11:00–11:25 | 14 % | C / T |
 | Debrief | Outcomes, Q&A, Wrap | 11:30–12:00 | 17 % | T / C |
 
 ⚠️ Concept-Anteil liegt über der Empfehlung (15–20 %). Kompensation: die

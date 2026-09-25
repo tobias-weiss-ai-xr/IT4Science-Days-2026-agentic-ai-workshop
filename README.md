@@ -66,9 +66,9 @@ Der ganze Workshop folgt einer Pyramide, die wir später live anwenden:
 | Aktuelle Entwicklungen bei den Foundation Modellen | Christian + Tobias |
 | Open-Source Toolbox — Harnesses (OpenCode, pi) + Tooling | Tobias + Christian |
 | ☕ **Pause 10:10–10:20** | — |
-| **Anwendung 1: Eigenes Research Repo** — [skeleton-research](https://github.com/tobias-weiss-ai-xr/skeleton-research), Git, Harness | Tobias |
+| **Anwendung 1: Ihr Thema selbst agentisch bearbeiten** (Teil 1 von 2) — [skeleton-research](https://github.com/tobias-weiss-ai-xr/skeleton-research), Git, Harness | Tobias |
 | Spec Driven & Token-optimized Development — kompakt: Anforderungen als Treiber, Modell-Routing, Caching | Christian + Tobias |
-| **Anwendung 2: Spec selbst anwenden** (im Research Repo) | Christian |
+| **Anwendung 2: Ihr Thema via Spec aufs Demo-Repo** (Teil 2 von 2, auf dem Repo aus Teil 1) | Christian |
 | ☕ **Pause 11:25–11:30** | — |
 | **Outcomes** — TN präsentieren ihre Ergebnisse | Tobias |
 | Q&A, Diskussion, Wrap Up | Tobias |
