@@ -40,8 +40,7 @@ Tobias Weiß · DevOps, Universität Marburg
 Stand: September 2026
 
 <!-- notes:
-Kurzer Rahmen (1 min): openEDU = Bildungsvariante der souveränen
-Workplace-Suite openDesk. Ein Betrieb für drei Zielgruppen:
+Kurzer Rahmen (1 min): openEDU = souveräne Workplace-Suite. Ein Betrieb für drei Zielgruppen:
 Forschung, Lehre, Verwaltung. Diese Folie nur als Anker stehen lassen.
 -->
 
@@ -53,7 +52,7 @@ Forschung, Lehre, Verwaltung. Diese Folie nur als Anker stehen lassen.
 
 - Mail, Chat, Files, Wiki, Projekte: digitale Grundversorgung wie Strom und Wasser.
 - Souveränität ist keine Haltung, sondern Betrieb — sie entsteht an Ingress, Secrets und Datenbanken.
-- Die Basis heißt openDesk, die Bildungs-Schicht openEDU: Wir erben die Suite — Tenants, HRZ, Groupware bleiben unsere Arbeit.
+- Wir erben die Suite: Tenants, HRZ, Groupware bleiben unsere Arbeit.
 
 > Souveränität entscheidet sich nicht auf Folien, sondern im nächsten Deployment-Commit.
 
@@ -90,7 +89,7 @@ Diese Folie erklärt, warum SSO der zentrale Baustein ist: 8 Dienste,
 die alle dasselbe Identitätsversprechen halten müssen. Das ist der
 Übergang zur Architektur- und SSO-Folie. Komponenten wie im Cluster
 im Einsatz (Client-Namen: xwiki, openproject, intercom, matrix,
-opendesk-opencloud, sogo-Familie, home-portal, admin-home-portal).
+sogo-Familie, home-portal, admin-home-portal).
 -->
 
 ---
@@ -100,7 +99,7 @@ opendesk-opencloud, sogo-Familie, home-portal, admin-home-portal).
 ## Architektur: GitOps mit Erbe
 
 - Der Cluster ist deklariert: Kubernetes (SCS) mit ArgoCD — Abweichungen werden sichtbar.
-- openDesk CE läuft als Git-Submodul; der Upstream-Sprung ist eingespielt.
+- Die Suite läuft als Git-Submodul (Upstream-CE); der Upstream-Sprung ist eingespielt.
 - Darüber die Uni-Schicht mit eigenen Commits für Helmfiles und Umgebungen.
 - MariaDB/Galera und HAProxy — unspektakulär und kritisch.
 
@@ -121,7 +120,7 @@ die Schichten stehen im Text.
 
 ## SSO: das Herzstück, konsolidiert
 
-- Ein Realm (`opendesk`) trägt alle Dienste: jeder OIDC-Client e2e verifiziert, jede Prüfung grün.
+- Ein Realm trägt alle Dienste: jeder OIDC-Client e2e verifiziert, jede Prüfung grün.
 - Home- und Admin-Portal laufen über oauth2-proxy unter `home.openedu.graphwiz.ai`.
 - Logout je Client-Typ gelöst; native Clients gehen eigene Wege.
 - Sessions dauern einen Uni-Tag — der Logout-Knopf entscheidet, nicht der Timer.
@@ -150,7 +149,7 @@ sso-test-User. Näher dran: SSO war über Monate der breite Graben zwischen
 
 <!-- notes:
 tests/sso/test-sso-suite.sh (2026-09-27: 59/0/6). Die 6 Warnungen:
-frontchannel-logout fehlt auf NATIVE-Clients opendesk-opencloud,
+frontchannel-logout fehlt auf NATIVE-Clients opencloud,
 matrix, intercom, sogo — die haben eigene Mechanismen (sogo6-api-*-
 Clients, Intercom-Backchannel). Die beiden Outages 09-05/09-06: Der
 e2e-Portal-Login-Test war der Erste, der rot wurde.
@@ -184,7 +183,7 @@ Incident — so ist die SSO-Suite überhaupt entstanden.
 
 ## Multi-Tenancy: zwei Welten, ein Cluster
 
-- Die Tenants `opendesk-staff` und `opendesk-students` — getrennte Namespaces, eigene SSO-Clients.
+- Staff- und Students-Tenants — getrennte Namespaces, eigene SSO-Clients.
 - SOGo6 je Tenant; Admin-Passwörter leben nur im Cluster, nie im Git.
 - Tenants sind Kundenumgebungen, keine Plattform — deshalb bewusst außerhalb von ArgoCD geführt.
 
@@ -232,8 +231,8 @@ Rebuild-Arbeit; die kalkulieren wir ein, statt uns zu wundern.
 
 <!-- notes:
 2026-09-25: kompletter Web-Stack auf v77986 (Traefik v2 File-Router,
-Legacy-Redirects der 1blu-vHosts). De-Branding-Sweep auf Wunsch: github/codeberg-Links und openDesk-Referenzen aus eigenen
-Sites raus, übrig blieb nur der externe Matrix-Raum #opendesk. Website: Next.js App
+Legacy-Redirects der 1blu-vHosts). De-Branding-Sweep auf Wunsch: github/codeberg-Links aus eigenen
+Sites raus, übrig blieb nur der externe Matrix-Raum. Website: Next.js App
 Router, next-intl (de/en/fr/zh), Vitest; Blog-Artikel u. a. Backup (k8up).
 -->
 
