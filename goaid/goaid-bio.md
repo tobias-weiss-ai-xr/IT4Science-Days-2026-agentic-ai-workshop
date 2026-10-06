@@ -1,7 +1,7 @@
 # Bio — Tobias Weiß
 
-Tobias Weiß is a DevOps engineer at University of Marburg, where he operates openEduSuite — a sovereign groupware suite (mail, files, chat, SSO) on bare-metal Kubernetes for teaching, research and administration.
+Tobias Weiß is a DevOps engineer at University of Marburg. He runs openEduSuite — sovereign groupware (mail, files, chat, SSO) on bare-metal Kubernetes for teaching, research and administration.
 
-He treats AI agents as operating staff, not demos: specs before code, CI as acceptance, fleets for boring-but-important work. He builds and shares the tooling he misses — the pi agent harness with packages like pi-openspec and pi-memory, the agentflow orchestrator, and pi-sandbox, an empirical study on keeping agent keys safe.
+His method: specs before code, CI as acceptance, agents as staff — under contract. He builds the tooling he uses: pi packages (pi-openspec, pi-memory), the agentflow orchestrator, and pi-sandbox, an empirical study on agent key safety.
 
-He teaches the same method in workshops, most recently the IT4Science Days 2026.
+He teaches this method in workshops, most recently at the IT4Science Days 2026.
