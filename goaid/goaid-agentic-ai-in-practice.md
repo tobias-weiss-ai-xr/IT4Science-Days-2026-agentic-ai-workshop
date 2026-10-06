@@ -30,6 +30,7 @@ style: |
     border-left: 4px solid #3b6fc4; color: #c8d8f0;
     font-style: italic; font-size: 24px;
   }
+  a { color: #7fb3ff; }
 ---
 
 <!-- _class: lead -->
@@ -400,12 +401,12 @@ spec repo instead of chat history. Not "an agent replaces me".
 
 ## Resources
 
-- openEduSuite · openedusuite.graphwiz.ai
-- pi · pi.dev — docs: pi.dev/docs
-- pi-openspec · `github.com/tobias-weiss-ai-xr/pi-openspec`
-- pi-sandbox · evidence + threat model
-- agentflow · worktrees + gates
-- Workshop repo · IT4Science-Days-2026-agentic-ai-workshop
+- **openEduSuite** — [openedusuite.graphwiz.ai](https://openedusuite.graphwiz.ai)
+- **pi** — [pi.dev](https://pi.dev) · docs: [pi.dev/docs](https://pi.dev/docs)
+- **pi-openspec** — [github.com/tobias-weiss-ai-xr/pi-openspec](https://github.com/tobias-weiss-ai-xr/pi-openspec)
+- **pi-sandbox** — [github.com/tobias-weiss-ai-xr/pi-sandbox](https://github.com/tobias-weiss-ai-xr/pi-sandbox)
+- **agentflow** — [github.com/tobias-weiss-ai-xr/agentflow](https://github.com/tobias-weiss-ai-xr/agentflow)
+- **Workshop repo** — [github.com/tobias-weiss-ai-xr/IT4Science-Days-2026-agentic-ai-workshop](https://github.com/tobias-weiss-ai-xr/IT4Science-Days-2026-agentic-ai-workshop)
 
 <!-- notes:
 (30 s) Do not read aloud. Everything named here is public and
