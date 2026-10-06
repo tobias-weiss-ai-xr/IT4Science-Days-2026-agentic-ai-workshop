@@ -121,18 +121,65 @@ my workstation — hence the contract.
 
 ---
 
-## The pyramid: Spec · Contract · Test
+## pi in 60 seconds
 
-- **Spec** — WHAT is to be built: requirement + acceptance criteria.
-- **Contract** — WHAT the agent orients itself by: `AGENTS.md`, repo conventions, boundaries.
-- **Test** — WHEN it is correct: CI, e2e suites, footer checks.
+```bash
+curl -fsSL https://pi.dev/install.sh | sh          # macOS / Linux
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+```
 
-> Every level is text in the repo — that makes work repeatable instead of heroic.
+- **v1.0** (Oct 2026): fullscreen TUI · codemode −40% prompt tokens · image generation · hardened MCP OAuth.
+- **Ctrl+L** — switch models mid-session · **Ctrl+P** cycles favorites · **Shift+Tab** cycles thinking level.
+- Provider-agnostic: subscriptions, API keys or local models · `/hotkeys` lists every shortcut.
 
 <!-- notes:
-(2 min) Core slide of the method. All three levels live in the git
-repo, not in heads or chats. Transition: "How do you get from this
-pyramid to a running workflow? → OpenSpec."
+(1.5 min) Install is two lines — live-demoable. v1.0 released
+2026-10-01, currently 1.0.2. Ctrl+L is THE shortcut to demo: switch
+model mid-task — cheap model for research, strong model for the fix.
+If someone asks "which key does X": run /hotkeys live. Nix users:
+nix run github:earendil-works/pi/stable.
+-->
+
+---
+
+## "Can the agent leak my keys?" — pi-sandbox
+
+- An empirical study, not vibes: escape-attempt probes + a real exfiltration test across sandbox variants — evidence committed in the repo.
+- The *recommended* Docker setup only stops **accidental** leaks — a malicious agent exfiltrates the one key you pass in.
+- The *hardened* flags as documented don't run pi at all — `--read-only` breaks the session directory.
+- What does work: seccomp + noexec (egress cut), non-root without network (local models), gVisor, secrets-broker — the real key never enters the sandbox.
+
+> Sandboxing is a measurement, not a checkbox. `github.com/tobias-weiss-ai-xr/pi-sandbox`
+
+<!-- notes:
+(2 min) This slide earns trust with the ops audience: we TESTED the
+isolation instead of trusting docs. Two headline findings:
+(1) recommended setup = safe against accidents only; (2) documented
+hardening crashes pi. What survives: seccomp/noexec, non-root +
+no-network, gVisor, and the secrets-broker pattern. THREAT_MODEL.md
+has the full matrix with evidence links.
+-->
+
+---
+
+<!-- _class: smaller -->
+
+## The pyramid: Spec · Contract · Test
+
+| Level | Says | Example 1: domain cutover | Example 2: SSO test suite |
+|---|---|---|---|
+| **Spec** | WHAT + acceptance | "Swap home.openedu → suite.graphwiz.ai; guards: 157 + 8 manifests untouched" | "All 15 SSO clients verified e2e: login, logout, scopes" |
+| **Contract** | HOW the agent works | `AGENTS.md`: plan-mode before production; the script must be idempotent | `AGENTS.md`: every warning is a documented decision — "whatever" does not exist |
+| **Test** | WHEN it is right | Re-run = no diff (idempotency proof) | `tests/sso`: 59 checks green → merge |
+
+> Every level is text in the repo — work becomes repeatable instead of heroic.
+
+<!-- notes:
+(3 min) Core slide — read the table column by column with ONE story
+each: column 1 = Case 1 (domain cutover), column 2 = Case 4 (SSO
+suite). Point out: all three levels live in git, not in heads or
+chats. Transition: "How do you get from this pyramid to a running
+workflow? → OpenSpec."
 -->
 
 ---
@@ -153,6 +200,25 @@ Spec (OpenSpec) → Contract (AGENTS.md) → Agent (pi)
 proposal by human or agent, refinement in dialogue, then work through
 tasks. Key point: "archive" updates the specs — that is how the docs
 stay in sync with the system.
+-->
+
+---
+
+## OpenSpec × pi: the agent lives in the spec
+
+- **pi-openspec** — `pi install npm:openspec-pi` — deep OpenSpec integration as a pi package.
+- Native `openspec` tool: the agent queries `status`, `validate`, `show`, `archive` **during the task** — no copy-pasting specs.
+- Auto-context: `openspec context` is injected into the system prompt at session start — invalidated when the spec tree changes.
+- The workflow as slash commands: `/opsx-new`, `/opsx-apply`, `/opsx-verify`, `/opsx-archive` — plus matching skills.
+
+> The spec is not a document next to the agent — it is the agent's operating context.
+
+<!-- notes:
+(1.5 min) Closes the loop between method and harness: the Spec→
+Contract workflow is wired directly into pi. Fresh session in a repo
+with openspec/ starts already knowing the change state (auto-injected
+context). /opsx-verify before commit is the habit to copy: validate
++ doctor health sweep. Requires OpenSpec CLI >= 1.9 on PATH.
 -->
 
 ---
@@ -238,16 +304,35 @@ Message to the audience: start with tasks like this, not with
 ## Case 4 · An agent fleet with acceptance gates
 
 - The SSO test suite (**59 checks, 15 clients e2e**) was built in batches: parallel workers, isolated git worktrees.
-- Every task had exact acceptance criteria; merge only on green — otherwise the fleet runner discards it.
+- Every task had exact acceptance criteria; merge only on green — otherwise the runner discards it.
 - Fleet = spec at scale: write contracts once, distribute many small orders.
 
 > Not one super-agent — many small orders with tests. Scalable, cheap, auditable.
 
 <!-- notes:
-(3 min) taskfleet: tasks.json + workers.json, isolated worktrees,
-automatic merge only with green gates. This is how the e2e checks for
-all SSO clients were built — logout per client type, session TTL,
-scopes. A human would have spent weeks clicking through this.
+(2 min) The tool here is agentflow (next slide). This is how the e2e
+checks for all SSO clients were built — logout per client type,
+session TTL, scopes. A human would have spent weeks clicking through
+this.
+-->
+
+---
+
+## The tool behind the fleet: agentflow (`af`)
+
+- Small Rust orchestrator: declarative `tasks.json` + `workers.json` → parallel LLM workers, each in an **isolated git worktree**.
+- Merge only after the task's **acceptance gate** (shell command, exit 0) — retries get a fresh branch and the error history added to the prompt.
+- Measured routing: every attempt leaves a receipt; free workers are picked by UCB1 (track record + exploration) — visible in `af cost`.
+- Thin by design: it drives `git` and any OpenAI-compatible agent CLI (default: **pi**) — 71 tests, no network in CI.
+
+> Contracts once, many small orders — the runner enforces the gates. `github.com/tobias-weiss-ai-xr/agentflow`
+
+<!-- notes:
+(2 min) Concrete demo path: af run --dry-run shows the dispatch plan,
+af status is the live board, af cost shows per-worker trust. Failure
+memory is the underrated feature: retries list earlier errors so the
+agent does not repeat them. This is the generalization of Case 4 —
+the same pattern now runs as a product tool.
 -->
 
 ---
@@ -291,15 +376,16 @@ spec repo instead of chat history.
 ## Resources
 
 - **openEduSuite** — `openedusuite.graphwiz.ai` · portal: `openedu.graphwiz.ai`
-- **Workshop repo** (IT4Science Days 2026, 3h deck + exercises) — GitHub/Codeberg: `IT4Science-Days-2026-agentic-ai-workshop`
-- **Tools:** pi (terminal agent) · OpenSpec (spec workflow) · taskfleet (agent fleet) · ArgoCD (GitOps)
-
-Everything is tangible: repos, specs, test suites — no slide magic.
+- **pi** — `pi.dev` · install: `curl -fsSL https://pi.dev/install.sh | sh`
+- **pi-openspec** — `github.com/tobias-weiss-ai-xr/pi-openspec` (`pi install npm:openspec-pi`)
+- **pi-sandbox** — `github.com/tobias-weiss-ai-xr/pi-sandbox` · sandbox evidence + threat model
+- **agentflow** — `github.com/tobias-weiss-ai-xr/agentflow` · parallel LLM tasks on worktrees, acceptance gates
+- **Workshop repo** (3h deck + exercises) — GitHub/Codeberg: `IT4Science-Days-2026-agentic-ai-workshop`
 
 <!-- notes:
-(30 s) Do not read aloud. Note: the workshop deck (3h version) is
-public — anyone who wants to go deeper can do the exercises
-themselves.
+(30 s) Do not read aloud. Everything named here is public and
+tangible: repos, specs, test suites — no slide magic. The workshop
+deck (3h version) is public too — deeper dive = do the exercises.
 -->
 
 ---

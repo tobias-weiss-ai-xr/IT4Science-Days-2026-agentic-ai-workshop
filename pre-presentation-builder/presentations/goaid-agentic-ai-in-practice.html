@@ -60,7 +60,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
 <h1 id="agentic-ai-in-practice">Agentic AI in Practice</h1>
 <h2 id="from-spec-to-productive-workflow">From Spec to Productive Workflow</h2>
 <p>Tobias Weiß · DevOps, University of Marburg</p>
@@ -119,7 +119,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
 <h2 id="where-i-come-from-an-operation-not-a-lab">Where I come from: an operation, not a lab</h2>
 <ul>
 <li>openEduSuite: sovereign groupware suite for teaching, research, administration — on bare-metal Kubernetes.</li>
@@ -183,7 +183,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
 <h2 id="roadmap--30-minutes-three-blocks">Roadmap — 30 minutes, three blocks</h2>
 <table>
 <thead>
@@ -266,7 +266,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
 <h2 id="agentic-%E2%89%A0-chat">Agentic ≠ chat</h2>
 <ul>
 <li>Chat: question → answer. Agent: <strong>goal → plan → tools → result → feedback.</strong></li>
@@ -330,7 +330,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
 <h2 id="the-harness-determines-what-the-model-can-achieve">The harness determines what the model can achieve</h2>
 <ul>
 <li>Same model, different frame: chat window vs. terminal agent with file, git and cluster access.</li>
@@ -394,16 +394,16 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="the-pyramid-spec--contract--test">The pyramid: Spec · Contract · Test</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="pi-in-60-seconds">pi in 60 seconds</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-bash">curl -fsSL https://pi.dev/install.sh | sh          <span class="hljs-comment"># macOS / Linux</span>
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+</code></pre>
 <ul>
-<li><strong>Spec</strong> — WHAT is to be built: requirement + acceptance criteria.</li>
-<li><strong>Contract</strong> — WHAT the agent orients itself by: <code>AGENTS.md</code>, repo conventions, boundaries.</li>
-<li><strong>Test</strong> — WHEN it is correct: CI, e2e suites, footer checks.</li>
+<li><strong>v1.0</strong> (Oct 2026): fullscreen TUI · codemode −40% prompt tokens · image generation · hardened MCP OAuth.</li>
+<li><strong>Ctrl+L</strong> — switch models mid-session · <strong>Ctrl+P</strong> cycles favorites · <strong>Shift+Tab</strong> cycles thinking level.</li>
+<li>Provider-agnostic: subscriptions, API keys or local models · <code>/hotkeys</code> lists every shortcut.</li>
 </ul>
-<blockquote>
-<p>Every level is text in the repo — that makes work repeatable instead of heroic.</p>
-</blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
@@ -458,16 +458,17 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="from-spec-to-change-openspec">From spec to change: OpenSpec</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="can-the-agent-leak-my-keys--pi-sandbox">&quot;Can the agent leak my keys?&quot; — pi-sandbox</h2>
 <ul>
-<li>A <strong>change</strong> = proposal + spec delta + tasks — versioned in the repo, readable by human <em>and</em> agent.</li>
-<li>The agent implements task by task; the human reviews and <strong>archives</strong>.</li>
-<li>Archived means: the spec on main is the new state — <strong>documentation is the product</strong>, not a by-product.</li>
+<li>An empirical study, not vibes: escape-attempt probes + a real exfiltration test across sandbox variants — evidence committed in the repo.</li>
+<li>The <em>recommended</em> Docker setup only stops <strong>accidental</strong> leaks — a malicious agent exfiltrates the one key you pass in.</li>
+<li>The <em>hardened</em> flags as documented don't run pi at all — <code>--read-only</code> breaks the session directory.</li>
+<li>What does work: seccomp + noexec (egress cut), non-root without network (local models), gVisor, secrets-broker — the real key never enters the sandbox.</li>
 </ul>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-text">Spec (OpenSpec) → Contract (AGENTS.md) → Agent (pi)
-      → Verify (tests/CI) → Operate (ArgoCD)
-</code></pre>
+<blockquote>
+<p>Sandboxing is a measurement, not a checkbox. <code>github.com/tobias-weiss-ai-xr/pi-sandbox</code></p>
+</blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-class="smaller" data-theme="default" data-style="section {
@@ -522,53 +523,41 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="the-stage-openedusuite-on-one-slide">The stage: openEduSuite on one slide</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="the-pyramid-spec--contract--test">The pyramid: Spec · Contract · Test</h2>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Service</th>
-<th></th>
-<th>Component</th>
-<th>Service</th>
+<th>Level</th>
+<th>Says</th>
+<th>Example 1: domain cutover</th>
+<th>Example 2: SSO test suite</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Identity</td>
-<td><strong>Keycloak</strong> (SSO)</td>
-<td></td>
-<td>Chat</td>
-<td><strong>Matrix/Synapse</strong></td>
+<td><strong>Spec</strong></td>
+<td>WHAT + acceptance</td>
+<td>&quot;Swap home.openedu → suite.graphwiz.ai; guards: 157 + 8 manifests untouched&quot;</td>
+<td>&quot;All 15 SSO clients verified e2e: login, logout, scopes&quot;</td>
 </tr>
 <tr>
-<td>Groupware</td>
-<td><strong>SOGo</strong></td>
-<td></td>
-<td>Projects</td>
-<td><strong>OpenProject</strong></td>
+<td><strong>Contract</strong></td>
+<td>HOW the agent works</td>
+<td><code>AGENTS.md</code>: plan-mode before production; the script must be idempotent</td>
+<td><code>AGENTS.md</code>: every warning is a documented decision — &quot;whatever&quot; does not exist</td>
 </tr>
 <tr>
-<td>Files</td>
-<td><strong>OpenCloud</strong></td>
-<td></td>
-<td>Video</td>
-<td><strong>Jitsi/Intercom</strong></td>
-</tr>
-<tr>
-<td>Wiki</td>
-<td><strong>XWiki</strong></td>
-<td></td>
-<td>Portal</td>
-<td><strong>collab-dashboard</strong></td>
+<td><strong>Test</strong></td>
+<td>WHEN it is right</td>
+<td>Re-run = no diff (idempotency proof)</td>
+<td><code>tests/sso</code>: 59 checks green → merge</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>GitOps: <strong>ArgoCD</strong> reconciles the cluster; bare metal (SCS), MariaDB/Galera, HAProxy.</li>
-<li>Agents work on this production system — hence: <strong>spec before execution, test as acceptance.</strong></li>
-</ul>
+<blockquote>
+<p>Every level is text in the repo — work becomes repeatable instead of heroic.</p>
+</blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
@@ -623,16 +612,16 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="case-1--domain-migration-of-the-whole-suite--as-a-spec">Case 1 · Domain migration of the whole suite — as a spec</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="from-spec-to-change-openspec">From spec to change: OpenSpec</h2>
 <ul>
-<li>Starting point: cutover <code>home.openedu</code> → <code>suite.graphwiz.ai</code> — ingresses, certificates, OAuth redirects, mail domains across the whole stack.</li>
-<li>Human writes the <strong>contract</strong>: swap script idempotent, guard counters (157 + 8 manifests must <em>not</em> be touched), Keycloak redirects, Let's Encrypt wildcard.</li>
-<li>Agent implements <code>bootstrap-domain-swap.sh</code> — acceptance criteria green, only then execution.</li>
+<li>A <strong>change</strong> = proposal + spec delta + tasks — versioned in the repo, readable by human <em>and</em> agent.</li>
+<li>The agent implements task by task; the human reviews and <strong>archives</strong>.</li>
+<li>Archived means: the spec on main is the new state — <strong>documentation is the product</strong>, not a by-product.</li>
 </ul>
-<blockquote>
-<p>A nerve-racking cutover becomes routine: you can simply run the script again.</p>
-</blockquote>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-text">Spec (OpenSpec) → Contract (AGENTS.md) → Agent (pi)
+      → Verify (tests/CI) → Operate (ArgoCD)
+</code></pre>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
@@ -687,19 +676,20 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="case-2--sso-mystery-white-page-after-login">Case 2 · SSO mystery: white page after login</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="openspec-%C3%97-pi-the-agent-lives-in-the-spec">OpenSpec × pi: the agent lives in the spec</h2>
 <ul>
-<li>Symptom: SOGo webmail shows a <strong>white page</strong> after SAML login — three root causes in a row.</li>
-<li>Agent in plan mode: hypotheses → probes (metadata dump, ACS URL, TLS hop at the ingress) → fix → test.</li>
-<li>Second case, same pattern: Stalwart XOAUTH2 broke on a dead OIDC issuer inside a directory object.</li>
+<li><strong>pi-openspec</strong> — <code>pi install npm:openspec-pi</code> — deep OpenSpec integration as a pi package.</li>
+<li>Native <code>openspec</code> tool: the agent queries <code>status</code>, <code>validate</code>, <code>show</code>, <code>archive</code> <strong>during the task</strong> — no copy-pasting specs.</li>
+<li>Auto-context: <code>openspec context</code> is injected into the system prompt at session start — invalidated when the spec tree changes.</li>
+<li>The workflow as slash commands: <code>/opsx-new</code>, <code>/opsx-apply</code>, <code>/opsx-verify</code>, <code>/opsx-archive</code> — plus matching skills.</li>
 </ul>
 <blockquote>
-<p>Debugging is the best agentic use case: symptom in, root-cause chain out — with a log you can reread.</p>
+<p>The spec is not a document next to the agent — it is the agent's operating context.</p>
 </blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-class="smaller" data-theme="default" data-style="section {
   background-color: #1a1a1a;
   color: #e8e8e8;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -725,7 +715,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-" lang="de-DE" data-marpit-pagination="11" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--theme:default;--style:section {
+" lang="de-DE" class="smaller" data-marpit-pagination="11" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--class:smaller;--theme:default;--style:section {
   background-color: #1a1a1a;
   color: #e8e8e8;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -751,16 +741,53 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="case-3--fix-all-making-drift-visible">Case 3 · &quot;Fix-all&quot;: making drift visible</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="the-stage-openedusuite-on-one-slide">The stage: openEduSuite on one slide</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Service</th>
+<th></th>
+<th>Component</th>
+<th>Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td><strong>Keycloak</strong> (SSO)</td>
+<td></td>
+<td>Chat</td>
+<td><strong>Matrix/Synapse</strong></td>
+</tr>
+<tr>
+<td>Groupware</td>
+<td><strong>SOGo</strong></td>
+<td></td>
+<td>Projects</td>
+<td><strong>OpenProject</strong></td>
+</tr>
+<tr>
+<td>Files</td>
+<td><strong>OpenCloud</strong></td>
+<td></td>
+<td>Video</td>
+<td><strong>Jitsi/Intercom</strong></td>
+</tr>
+<tr>
+<td>Wiki</td>
+<td><strong>XWiki</strong></td>
+<td></td>
+<td>Portal</td>
+<td><strong>collab-dashboard</strong></td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Pattern: k8s directories with <strong>no</strong> ArgoCD app — tenant mail, LLM, XWiki; legacy from the imperative-apply era.</li>
-<li>Orders with acceptance criteria: every app under GitOps, every diff explained, nothing implicit.</li>
-<li>Side finding: <code>k8s/llm</code> — the model serving is part of the same suite.</li>
+<li>GitOps: <strong>ArgoCD</strong> reconciles the cluster; bare metal (SCS), MariaDB/Galera, HAProxy.</li>
+<li>Agents work on this production system — hence: <strong>spec before execution, test as acceptance.</strong></li>
 </ul>
-<blockquote>
-<p>Agents are great at the tedious work of whole directories — if the definition of done is in the contract.</p>
-</blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
@@ -815,15 +842,15 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="case-4--an-agent-fleet-with-acceptance-gates">Case 4 · An agent fleet with acceptance gates</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="case-1--domain-migration-of-the-whole-suite--as-a-spec">Case 1 · Domain migration of the whole suite — as a spec</h2>
 <ul>
-<li>The SSO test suite (<strong>59 checks, 15 clients e2e</strong>) was built in batches: parallel workers, isolated git worktrees.</li>
-<li>Every task had exact acceptance criteria; merge only on green — otherwise the fleet runner discards it.</li>
-<li>Fleet = spec at scale: write contracts once, distribute many small orders.</li>
+<li>Starting point: cutover <code>home.openedu</code> → <code>suite.graphwiz.ai</code> — ingresses, certificates, OAuth redirects, mail domains across the whole stack.</li>
+<li>Human writes the <strong>contract</strong>: swap script idempotent, guard counters (157 + 8 manifests must <em>not</em> be touched), Keycloak redirects, Let's Encrypt wildcard.</li>
+<li>Agent implements <code>bootstrap-domain-swap.sh</code> — acceptance criteria green, only then execution.</li>
 </ul>
 <blockquote>
-<p>Not one super-agent — many small orders with tests. Scalable, cheap, auditable.</p>
+<p>A nerve-racking cutover becomes routine: you can simply run the script again.</p>
 </blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
@@ -879,15 +906,15 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="what-the-operation-learned">What the operation learned</h2>
+;" data-marpit-pagination-total="20">
+<h2 id="case-2--sso-mystery-white-page-after-login">Case 2 · SSO mystery: white page after login</h2>
 <ul>
-<li><strong>Tight specs over big contexts:</strong> fewer tokens, same quality — the spec is the compressor.</li>
-<li><strong>Manage expectations:</strong> agents do not deliver finished bots — they need contracts and tests.</li>
-<li><strong>Test first:</strong> every incident becomes a test. Every warning in the suite is a documented decision.</li>
+<li>Symptom: SOGo webmail shows a <strong>white page</strong> after SAML login — three root causes in a row.</li>
+<li>Agent in plan mode: hypotheses → probes (metadata dump, ACS URL, TLS hop at the ingress) → fix → test.</li>
+<li>Second case, same pattern: Stalwart XOAUTH2 broke on a dead OIDC issuer inside a directory object.</li>
 </ul>
 <blockquote>
-<p>Trust is good. Verification is cheaper.</p>
+<p>Debugging is the best agentic use case: symptom in, root-cause chain out — with a log you can reread.</p>
 </blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
@@ -943,16 +970,15 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
-<h2 id="the-pattern-applied-to-your-project">The pattern, applied to your project</h2>
-<ol>
-<li><strong>Contract first:</strong> <code>AGENTS.md</code> in the repo — what the agent may do, where the facts live.</li>
-<li><strong>Spec change before code:</strong> small tasks with acceptance criteria — proposal → tasks → apply → archive.</li>
-<li><strong>CI is the acceptance:</strong> green = done. The agent may repeat itself; you review the result.</li>
-<li><strong>Memory across sessions:</strong> decisions land in the repo and in memory — not in the chat history.</li>
-</ol>
+;" data-marpit-pagination-total="20">
+<h2 id="case-3--fix-all-making-drift-visible">Case 3 · &quot;Fix-all&quot;: making drift visible</h2>
+<ul>
+<li>Pattern: k8s directories with <strong>no</strong> ArgoCD app — tenant mail, LLM, XWiki; legacy from the imperative-apply era.</li>
+<li>Orders with acceptance criteria: every app under GitOps, every diff explained, nothing implicit.</li>
+<li>Side finding: <code>k8s/llm</code> — the model serving is part of the same suite.</li>
+</ul>
 <blockquote>
-<p>Start with one boring, important task. Not with the experiment &quot;an agent replaces me&quot;.</p>
+<p>Agents are great at the tedious work of whole directories — if the definition of done is in the contract.</p>
 </blockquote>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
@@ -1008,17 +1034,277 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
+<h2 id="case-4--an-agent-fleet-with-acceptance-gates">Case 4 · An agent fleet with acceptance gates</h2>
+<ul>
+<li>The SSO test suite (<strong>59 checks, 15 clients e2e</strong>) was built in batches: parallel workers, isolated git worktrees.</li>
+<li>Every task had exact acceptance criteria; merge only on green — otherwise the runner discards it.</li>
+<li>Fleet = spec at scale: write contracts once, distribute many small orders.</li>
+</ul>
+<blockquote>
+<p>Not one super-agent — many small orders with tests. Scalable, cheap, auditable.</p>
+</blockquote>
+<footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+" lang="de-DE" data-marpit-pagination="16" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--theme:default;--style:section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+;" data-marpit-pagination-total="20">
+<h2 id="the-tool-behind-the-fleet-agentflow-af">The tool behind the fleet: agentflow (<code>af</code>)</h2>
+<ul>
+<li>Small Rust orchestrator: declarative <code>tasks.json</code> + <code>workers.json</code> → parallel LLM workers, each in an <strong>isolated git worktree</strong>.</li>
+<li>Merge only after the task's <strong>acceptance gate</strong> (shell command, exit 0) — retries get a fresh branch and the error history added to the prompt.</li>
+<li>Measured routing: every attempt leaves a receipt; free workers are picked by UCB1 (track record + exploration) — visible in <code>af cost</code>.</li>
+<li>Thin by design: it drives <code>git</code> and any OpenAI-compatible agent CLI (default: <strong>pi</strong>) — 71 tests, no network in CI.</li>
+</ul>
+<blockquote>
+<p>Contracts once, many small orders — the runner enforces the gates. <code>github.com/tobias-weiss-ai-xr/agentflow</code></p>
+</blockquote>
+<footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+" lang="de-DE" data-marpit-pagination="17" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--theme:default;--style:section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+;" data-marpit-pagination-total="20">
+<h2 id="what-the-operation-learned">What the operation learned</h2>
+<ul>
+<li><strong>Tight specs over big contexts:</strong> fewer tokens, same quality — the spec is the compressor.</li>
+<li><strong>Manage expectations:</strong> agents do not deliver finished bots — they need contracts and tests.</li>
+<li><strong>Test first:</strong> every incident becomes a test. Every warning in the suite is a documented decision.</li>
+</ul>
+<blockquote>
+<p>Trust is good. Verification is cheaper.</p>
+</blockquote>
+<footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+" lang="de-DE" data-marpit-pagination="18" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--theme:default;--style:section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+;" data-marpit-pagination-total="20">
+<h2 id="the-pattern-applied-to-your-project">The pattern, applied to your project</h2>
+<ol>
+<li><strong>Contract first:</strong> <code>AGENTS.md</code> in the repo — what the agent may do, where the facts live.</li>
+<li><strong>Spec change before code:</strong> small tasks with acceptance criteria — proposal → tasks → apply → archive.</li>
+<li><strong>CI is the acceptance:</strong> green = done. The agent may repeat itself; you review the result.</li>
+<li><strong>Memory across sessions:</strong> decisions land in the repo and in memory — not in the chat history.</li>
+</ol>
+<blockquote>
+<p>Start with one boring, important task. Not with the experiment &quot;an agent replaces me&quot;.</p>
+</blockquote>
+<footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-theme="default" data-style="section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+" lang="de-DE" data-marpit-pagination="19" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--theme:default;--style:section {
+  background-color: #1a1a1a;
+  color: #e8e8e8;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding-bottom: 64px;
+}
+section.smaller table { font-size: 18px; }
+section.smaller table th, section.smaller table td { padding: 4px 8px; }
+h1, h2, h3 { color: #ffffff; font-weight: 700; }
+table { margin: 0 auto; font-size: 22px; border-collapse: collapse; }
+table th, table td {
+  background-color: #2a2a2a; padding: 6px 11px;
+  border: 1px solid #555; color: #e8e8e8;
+}
+table thead th {
+  background-color: #383838; color: #ffffff; border-bottom: 2px solid #666;
+}
+table tbody tr:nth-child(even) td { background-color: #252525; }
+pre {
+  background: #111; border: 1px solid #444; border-radius: 6px;
+  color: #d8d8d8; font-size: 20px;
+}
+blockquote {
+  border-left: 4px solid #3b6fc4; color: #c8d8f0;
+  font-style: italic; font-size: 24px;
+}
+;" data-marpit-pagination-total="20">
 <h2 id="resources">Resources</h2>
 <ul>
 <li><strong>openEduSuite</strong> — <code>openedusuite.graphwiz.ai</code> · portal: <code>openedu.graphwiz.ai</code></li>
-<li><strong>Workshop repo</strong> (IT4Science Days 2026, 3h deck + exercises) — GitHub/Codeberg: <code>IT4Science-Days-2026-agentic-ai-workshop</code></li>
-<li><strong>Tools:</strong> pi (terminal agent) · OpenSpec (spec workflow) · taskfleet (agent fleet) · ArgoCD (GitOps)</li>
+<li><strong>pi</strong> — <code>pi.dev</code> · install: <code>curl -fsSL https://pi.dev/install.sh | sh</code></li>
+<li><strong>pi-openspec</strong> — <code>github.com/tobias-weiss-ai-xr/pi-openspec</code> (<code>pi install npm:openspec-pi</code>)</li>
+<li><strong>pi-sandbox</strong> — <code>github.com/tobias-weiss-ai-xr/pi-sandbox</code> · sandbox evidence + threat model</li>
+<li><strong>agentflow</strong> — <code>github.com/tobias-weiss-ai-xr/agentflow</code> · parallel LLM tasks on worktrees, acceptance gates</li>
+<li><strong>Workshop repo</strong> (3h deck + exercises) — GitHub/Codeberg: <code>IT4Science-Days-2026-agentic-ai-workshop</code></li>
 </ul>
-<p>Everything is tangible: repos, specs, test suites — no slide magic.</p>
 <footer>GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-class="lead" data-theme="default" data-style="section {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-footer="GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai" data-class="lead" data-theme="default" data-style="section {
   background-color: #1a1a1a;
   color: #e8e8e8;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -1044,7 +1330,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-" lang="de-DE" class="lead" data-marpit-pagination="16" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--class:lead;--theme:default;--style:section {
+" lang="de-DE" class="lead" data-marpit-pagination="20" style="--paginate:true;--footer:GöAID · Agentic AI in Practice · openedusuite.graphwiz.ai;--class:lead;--theme:default;--style:section {
   background-color: #1a1a1a;
   color: #e8e8e8;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -1070,7 +1356,7 @@ blockquote {
   border-left: 4px solid #3b6fc4; color: #c8d8f0;
   font-style: italic; font-size: 24px;
 }
-;" data-marpit-pagination-total="16">
+;" data-marpit-pagination-total="20">
 <h1 id="thank-you">Thank you!</h1>
 <h2 id="questions--10-minutes">Questions? — 10 minutes</h2>
 <p>Tobias Weiß · <code>tobias.weiss@uni-marburg.de</code></p>
@@ -1097,49 +1383,72 @@ feedback): many expect &quot;ready-made bots&quot; — set that term straight he
 runs git, calls MCP tools. Plan mode = consent before any change.
 Important for the ops crowd: the agent has the same rights I have at
 my workstation — hence the contract.</p></div><div class="bespoke-marp-note" data-index="5" tabindex="0"><p>notes:
-(2 min) Core slide of the method. All three levels live in the git
-repo, not in heads or chats. Transition: &quot;How do you get from this
-pyramid to a running workflow? → OpenSpec.&quot;</p></div><div class="bespoke-marp-note" data-index="6" tabindex="0"><p>notes:
+(1.5 min) Install is two lines — live-demoable. v1.0 released
+2026-10-01, currently 1.0.2. Ctrl+L is THE shortcut to demo: switch
+model mid-task — cheap model for research, strong model for the fix.
+If someone asks &quot;which key does X&quot;: run /hotkeys live. Nix users:
+nix run github:earendil-works/pi/stable.</p></div><div class="bespoke-marp-note" data-index="6" tabindex="0"><p>notes:
+(2 min) This slide earns trust with the ops audience: we TESTED the
+isolation instead of trusting docs. Two headline findings:
+(1) recommended setup = safe against accidents only; (2) documented
+hardening crashes pi. What survives: seccomp/noexec, non-root +
+no-network, gVisor, and the secrets-broker pattern. THREAT_MODEL.md
+has the full matrix with evidence links.</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>notes:
+(3 min) Core slide — read the table column by column with ONE story
+each: column 1 = Case 1 (domain cutover), column 2 = Case 4 (SSO
+suite). Point out: all three levels live in git, not in heads or
+chats. Transition: &quot;How do you get from this pyramid to a running
+workflow? → OpenSpec.&quot;</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>notes:
 (2 min) OpenSpec CLI: new change, continue, apply, archive. The flow:
 proposal by human or agent, refinement in dialogue, then work through
 tasks. Key point: &quot;archive&quot; updates the specs — that is how the docs
-stay in sync with the system.</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>notes:
+stay in sync with the system.</p></div><div class="bespoke-marp-note" data-index="9" tabindex="0"><p>notes:
+(1.5 min) Closes the loop between method and harness: the Spec→
+Contract workflow is wired directly into pi. Fresh session in a repo
+with openspec/ starts already knowing the change state (auto-injected
+context). /opsx-verify before commit is the habit to copy: validate
++ doctor health sweep. Requires OpenSpec CLI &gt;= 1.9 on PATH.</p></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>notes:
 (2 min) Locate the audience: anyone running something similar knows
 these components. One login, eight services. The bottom bullet is the
 core tension of this talk: agents with write access on production —
-how do you make that accountable? Answer: the next four cases.</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>notes:
+how do you make that accountable? Answer: the next four cases.</p></div><div class="bespoke-marp-note" data-index="11" tabindex="0"><p>notes:
 (3 min) The point: without a spec this is a week of manual work and
 fear. With a spec: one script with built-in guards. Idempotency is
 the acceptance criterion — a second run changes nothing. Story: on
 the first run a guard check fired (one directory matched too much) —
-exactly what guards are for.</p></div><div class="bespoke-marp-note" data-index="9" tabindex="0"><p>notes:
+exactly what guards are for.</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>notes:
 (3 min) Tell it live; everyone knows white pages. Point 1: repo/deploy
 still hung on old domains + placeholder IdP metadata (by design).
 Point 2: TLS termination at the ingress vs. ACS-URL scheme. The agent
 needed several probes — but every hypothesis was visible. Afterwards
 each root cause became a probe in the test suite. Key line: &quot;Every bug
-found becomes a test before it comes back.&quot;</p></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>notes:
+found becomes a test before it comes back.&quot;</p></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>notes:
 (2 min) This kind of work is boring and important — perfect for
 agents. The human defines: what is &quot;done&quot;? (App exists, sync green,
 no unmanaged manifests left.) The agent works through the list.
 Message to the audience: start with tasks like this, not with
-&quot;write my thesis&quot;.</p></div><div class="bespoke-marp-note" data-index="11" tabindex="0"><p>notes:
-(3 min) taskfleet: tasks.json + workers.json, isolated worktrees,
-automatic merge only with green gates. This is how the e2e checks for
-all SSO clients were built — logout per client type, session TTL,
-scopes. A human would have spent weeks clicking through this.</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>notes:
+&quot;write my thesis&quot;.</p></div><div class="bespoke-marp-note" data-index="14" tabindex="0"><p>notes:
+(2 min) The tool here is agentflow (next slide). This is how the e2e
+checks for all SSO clients were built — logout per client type,
+session TTL, scopes. A human would have spent weeks clicking through
+this.</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>notes:
+(2 min) Concrete demo path: af run --dry-run shows the dispatch plan,
+af status is the live board, af cost shows per-worker trust. Failure
+memory is the underrated feature: retries list earlier errors so the
+agent does not repeat them. This is the generalization of Case 4 —
+the same pattern now runs as a product tool.</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>notes:
 (2 min) The three lessons are deliberately phrased for operations.
 Token case: a tight spec with 5 acceptance criteria beats a
 1000-line prompt. Expectations: from our workshops — people want
 &quot;finished bots&quot; and get a tool with rules. Test first: the SSO suite
-was built exactly this way (59/0/6, every warning discussed).</p></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>notes:
+was built exactly this way (59/0/6, every warning discussed).</p></div><div class="bespoke-marp-note" data-index="17" tabindex="0"><p>notes:
 (2 min) The transfer slide: the audience should be able to do one
 thing tomorrow. Point 1 costs 20 minutes and changes everything —
 the agent reads the contract on every start. Point 4: experiences /
-spec repo instead of chat history.</p></div><div class="bespoke-marp-note" data-index="14" tabindex="0"><p>notes:
-(30 s) Do not read aloud. Note: the workshop deck (3h version) is
-public — anyone who wants to go deeper can do the exercises
-themselves.</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>notes:
+spec repo instead of chat history.</p></div><div class="bespoke-marp-note" data-index="18" tabindex="0"><p>notes:
+(30 s) Do not read aloud. Everything named here is public and
+tangible: repos, specs, test suites — no slide magic. The workshop
+deck (3h version) is public too — deeper dive = do the exercises.</p></div><div class="bespoke-marp-note" data-index="19" tabindex="0"><p>notes:
 (10 min) Q&amp;A. Likely questions: agent permissions/security (→
 contract + plan mode + tests), model choice (→ harness is
 model-agnostic, pi runs with various providers), cost (→ tight specs,
