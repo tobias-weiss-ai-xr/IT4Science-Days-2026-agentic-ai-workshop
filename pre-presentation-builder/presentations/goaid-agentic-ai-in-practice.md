@@ -38,287 +38,285 @@ style: |
 
 ## From Spec to Productive Workflow
 
-Tobias Weiß · DevOps, Universität Marburg
+Tobias Weiß · DevOps, University of Marburg
 
 GöAID Session · Academic Cloud
 
 <!-- notes:
-(1 min) Begrüßung. Satz 1: Ich zeige heute keinen Vortrag ÜBER Agenten,
-sondern einen Betrieb, der VON Agenten gebaut und gefahren wird.
-30 min Inhalt + 10 min Fragen. Sprache: Deutsch, Begriffe Englisch.
+(1 min) Welcome. Sentence 1: This is not a talk ABOUT agents — it is
+the story of an operation that is built and run BY agents.
+30 min of content + 10 min of questions.
 -->
 
 ---
 
-## Wo ich herkomme: ein Betrieb, kein Labor
+## Where I come from: an operation, not a lab
 
-- openEduSuite: souveräne Groupware-Suite für Lehre, Forschung, Verwaltung — auf Bare-Metal-Kubernetes.
-- **AI-infused** heißt bei uns zweierlei: LLM-Dienste *in* der Suite und Agenten *am* Betrieb der Suite.
-- Produktion, keine Demo: echte Postfächer, echte Studierende, echte Ausfälle.
+- openEduSuite: sovereign groupware suite for teaching, research, administration — on bare-metal Kubernetes.
+- **AI-infused** means two things here: LLM services *in* the suite, and agents working *on* the operation.
+- Production, not a demo: real mailboxes, real students, real outages.
 
-> Diese Session ist die Geschichte, wie aus Specs produktive Workflows wurden.
+> This session is the story of how specs turned into productive workflows.
 
 <!-- notes:
-(2 min) Kontext setzen: Uni Marburg, DevOps. Die Suite läuft produktiv
-auf eigenen Bare-Metal-Nodes (SCS-K8s), nicht in einer Public Cloud.
-Zwei Richtungen von "AI-infused": (a) die Suite trägt eigene LLM-/K8s-
-Ressourcen (k8s/llm), (b) der Betrieb selbst wird agentisch gemacht.
-Letzteres ist der Stoff dieses Vortrags.
+(2 min) Set the context: University of Marburg, DevOps. The suite runs
+productively on our own bare-metal nodes (SCS-K8s), not in a public
+cloud. Two directions of "AI-infused": (a) the suite carries its own
+LLM/K8s resources (k8s/llm), (b) the operation itself is done
+agentically — the latter is the subject of this talk.
 -->
 
 ---
 
 <!-- _class: smaller -->
 
-## Fahrplan — 30 Minuten, drei Blöcke
+## Roadmap — 30 minutes, three blocks
 
-| Block | Inhalt | Zeit |
+| Block | Content | Time |
 |---|---|---|
-| 1 · Grundlagen | Was „agentisch" konkret heißt: Modell + Harness + Schleife | ~8 min |
-| 2 · Methode | Spec → Contract → Agent → Verify: die Pipeline | ~10 min |
-| 3 · Praxis | Vier Fälle aus dem openEduSuite-Betrieb | ~12 min |
+| 1 · Foundations | What "agentic" concretely means: model + harness + loop | ~8 min |
+| 2 · Method | Spec → Contract → Agent → Verify: the pipeline | ~10 min |
+| 3 · Practice | Four cases from the openEduSuite operation | ~12 min |
 
-Danach: **10 Minuten Fragen.**
+Afterwards: **10 minutes of questions.**
 
 <!-- notes:
-(30 s) Nur zeigen, nicht vorlesen. Block 3 ist das Herz — die vier
-Fälle sind echte Incidents/Projekte mit Datum und Ergebnis.
+(30 s) Show, don't read. Block 3 is the heart — the four cases are
+real incidents/projects with dates and outcomes.
 -->
 
 ---
 
-## Agentisch ≠ Chat
+## Agentic ≠ chat
 
-- Chat: Frage → Antwort. Agent: **Ziel → Plan → Werkzeuge → Ergebnis → Rückmeldung.**
-- Drei Bausteine: Modell + Werkzeuge (Terminal, Dateien, Git, Cluster) + Schleife (planen, ausführen, prüfen).
-- Der Unterschied sitzt nicht im Modell — sondern im **Harness** drumherum.
+- Chat: question → answer. Agent: **goal → plan → tools → result → feedback.**
+- Three building blocks: model + tools (terminal, files, git, cluster) + loop (plan, act, verify).
+- The difference does not live in the model — it lives in the **harness** around it.
 
-> „Agentic" ist kein Modell-Feature, sondern eine Arbeitsumgebung.
+> "Agentic" is not a model feature, it is a working environment.
 
 <!-- notes:
-(2 min) Erwartungsmanagement: Agenten sind keine fertigen Bots.
-Ein Modell im Chat-Fenster kann keine Datei anfassen. Der Agent =
-Modell im Rahmen, der ihm Werkzeuge und Regeln gibt.
-Erfahrung aus unseren Kursen (JLU-Feedback): Viele erwarten "fertige
-Bots" — diesen Begriff hier sauber setzen.
+(2 min) Expectation management: agents are not finished bots. A model
+in a chat window cannot touch a file. The agent = model inside a frame
+that gives it tools and rules. Lesson from our courses (participant
+feedback): many expect "ready-made bots" — set that term straight here.
 -->
 
 ---
 
-## Das Harness bestimmt, was das Modell erreichen kann
+## The harness determines what the model can achieve
 
-- Gleiches Modell, anderer Rahmen: Chat-Fenster vs. Terminal-Agent mit Datei-, Git- und Cluster-Zugriff.
-- Unser Harness: **pi** — Terminal-Agent, MCP-Werkzeuge, Skills, Speicher über Sitzungen hinweg.
-- **Plan-Mode:** erst lesen und planen, dann schreiben — der Agent zeigt den Plan, bevor er greift.
+- Same model, different frame: chat window vs. terminal agent with file, git and cluster access.
+- Our harness: **pi** — terminal agent, MCP tools, skills, memory across sessions.
+- **Plan mode:** read and plan first, write later — the agent shows the plan before it touches anything.
 
-> Was der Agent darf, steht im Contract — nicht im Bauchgefühl.
+> What the agent may do is written in the contract — not left to gut feeling.
 
 <!-- notes:
-(2 min) pi kurz zeigen oder beschreiben: öffnet Terminals, liest
-Dateien, führt Git aus, ruft MCP-Tools auf. Plan-Mode = Einwilligung
-vor jeder Änderung. Wichtig fürs Publikum aus dem Betrieb: der Agent
-hat dieselben Rechte wie ich am Arbeitsplatz — deshalb Contract.
+(2 min) Briefly show or describe pi: opens terminals, reads files,
+runs git, calls MCP tools. Plan mode = consent before any change.
+Important for the ops crowd: the agent has the same rights I have at
+my workstation — hence the contract.
 -->
 
 ---
 
-## Die Pyramide: Spec · Contract · Test
+## The pyramid: Spec · Contract · Test
 
-- **Spec** — WAS soll gebaut werden: Anforderung + Akzeptanzkriterien.
-- **Contract** — WORAN orientiert sich der Agent: `AGENTS.md`, Repo-Konventionen, Grenzen.
-- **Test** — WANN ist es richtig: CI, e2e-Suiten, Footer-Checks.
+- **Spec** — WHAT is to be built: requirement + acceptance criteria.
+- **Contract** — WHAT the agent orients itself by: `AGENTS.md`, repo conventions, boundaries.
+- **Test** — WHEN it is correct: CI, e2e suites, footer checks.
 
-> Jede Stufe ist Text im Repo — damit wird die Arbeit wiederholbar statt heldenhaft.
+> Every level is text in the repo — that makes work repeatable instead of heroic.
 
 <!-- notes:
-(2 min) Kernfolie der Methode. Die drei Ebenen liegen alle im
-Git-Repo, nicht in Köpfen oder Chats. Überleitung: "Wie kommt man von
-dieser Pyramide zu einem laufenden Workflow? → OpenSpec."
+(2 min) Core slide of the method. All three levels live in the git
+repo, not in heads or chats. Transition: "How do you get from this
+pyramid to a running workflow? → OpenSpec."
 -->
 
 ---
 
-## Von der Spec zum Change: OpenSpec
+## From spec to change: OpenSpec
 
-- Ein **Change** = proposal + spec-delta + tasks — versioniert im Repo, für Mensch *und* Agent lesbar.
-- Der Agent implementiert Task für Task; der Mensch reviewt und **archiviert**.
-- Archiviert heißt: die Spec im main-Zweig ist der neue Stand — **Dokumentation ist das Produkt**, kein Nebenprodukt.
+- A **change** = proposal + spec delta + tasks — versioned in the repo, readable by human *and* agent.
+- The agent implements task by task; the human reviews and **archives**.
+- Archived means: the spec on main is the new state — **documentation is the product**, not a by-product.
 
 ```text
 Spec (OpenSpec) → Contract (AGENTS.md) → Agent (pi)
-      → Verify (Tests/CI) → Operate (ArgoCD)
+      → Verify (tests/CI) → Operate (ArgoCD)
 ```
 
 <!-- notes:
-(2 min) OpenSpec-Kommandozeile: new change, continue, apply, archive.
-Der Ablauf: proposal von Mensch oder Agent, Verfeinerung im Dialog,
-dann tasks abarbeiten. Wichtig: "archive" aktualisiert die Specs —
-so bleibt die Doku synchron mit dem System.
+(2 min) OpenSpec CLI: new change, continue, apply, archive. The flow:
+proposal by human or agent, refinement in dialogue, then work through
+tasks. Key point: "archive" updates the specs — that is how the docs
+stay in sync with the system.
 -->
 
 ---
 
 <!-- _class: smaller -->
 
-## Bühne: openEduSuite in einem Slide
+## The stage: openEduSuite on one slide
 
-| Baustein | Dienst | | Baustein | Dienst |
+| Component | Service | | Component | Service |
 |---|---|---|---|---|
-| Identität | **Keycloak** (SSO) | | Chat | **Matrix/Synapse** |
-| Groupware | **SOGo** | | Projekte | **OpenProject** |
+| Identity | **Keycloak** (SSO) | | Chat | **Matrix/Synapse** |
+| Groupware | **SOGo** | | Projects | **OpenProject** |
 | Files | **OpenCloud** | | Video | **Jitsi/Intercom** |
 | Wiki | **XWiki** | | Portal | **collab-dashboard** |
 
-- GitOps: **ArgoCD** reconciliert den Cluster; Bare-Metal (SCS), MariaDB/Galera, HAProxy.
-- Agenten arbeiten hier am Produktivsystem — deshalb: **Spec vor Ausführung, Test als Abnahme.**
+- GitOps: **ArgoCD** reconciles the cluster; bare metal (SCS), MariaDB/Galera, HAProxy.
+- Agents work on this production system — hence: **spec before execution, test as acceptance.**
 
 <!-- notes:
-(2 min) Publikum verorten: Wer betreibt sowas ähnliches, kennt die
-Bausteine. Ein Login, acht Dienste. Der untere Bullet ist die
-Kernspannung des Vortrags: Agenten mit Schreibrechten am
-Produktivsystem — wie macht man das verantwortbar? Antwort: die
-nächsten vier Fälle.
+(2 min) Locate the audience: anyone running something similar knows
+these components. One login, eight services. The bottom bullet is the
+core tension of this talk: agents with write access on production —
+how do you make that accountable? Answer: the next four cases.
 -->
 
 ---
 
-## Fall 1 · Domain-Wechsel der ganzen Suite — als Spec
+## Case 1 · Domain migration of the whole suite — as a spec
 
-- Ausgangslage: Cutover `home.openedu` → `suite.graphwiz.ai` — Ingresses, Zertifikate, OAuth-Redirects, Mail-Domains im ganzen Stack.
-- Mensch schreibt den **Vertrag**: Swap-Skript idempotent, Guard-Zähler (157 + 8 Manifeste dürfen *nicht* angefasst werden), Keycloak-Redirects, Let's-Encrypt-Wildcard.
-- Agent implementiert `bootstrap-domain-swap.sh` — Prüfkriterien grün, erst dann Ausführung.
+- Starting point: cutover `home.openedu` → `suite.graphwiz.ai` — ingresses, certificates, OAuth redirects, mail domains across the whole stack.
+- Human writes the **contract**: swap script idempotent, guard counters (157 + 8 manifests must *not* be touched), Keycloak redirects, Let's Encrypt wildcard.
+- Agent implements `bootstrap-domain-swap.sh` — acceptance criteria green, only then execution.
 
-> Ein nervöser Cutover wird zur Routine: das Skript darf man einfach nochmal laufen lassen.
+> A nerve-racking cutover becomes routine: you can simply run the script again.
 
 <!-- notes:
-(3 min) Der Witz: ohne Spec wäre das eine Woche Handarbeit mit
-Angst. Mit Spec: ein Skript mit eingebauten Guards. Idempotenz ist
-das Abnahmekriterium — zweites Laufen ändert nichts. Story: beim
-ersten Lauf flog die Guard-Prüfung an (ein Verzeichnis zu viel
-gematcht) — genau dafür sind Guards da.
+(3 min) The point: without a spec this is a week of manual work and
+fear. With a spec: one script with built-in guards. Idempotency is
+the acceptance criterion — a second run changes nothing. Story: on
+the first run a guard check fired (one directory matched too much) —
+exactly what guards are for.
 -->
 
 ---
 
-## Fall 2 · SSO-Rätsel: weiße Seite nach dem Login
+## Case 2 · SSO mystery: white page after login
 
-- Symptom: SOGo-Webmail zeigt nach SAML-Login eine **weiße Seite** — drei Ursachen hintereinander.
-- Agent im Plan-Mode: Hypothesen → Probes (Metadata-Dump, ACS-URL, TLS-Hop am Ingress) → Fix → Test.
-- Zweitfall gleiches Muster: Stalwart-XOAUTH2 brach an einem toten OIDC-Issuer in einem Directory-Objekt.
+- Symptom: SOGo webmail shows a **white page** after SAML login — three root causes in a row.
+- Agent in plan mode: hypotheses → probes (metadata dump, ACS URL, TLS hop at the ingress) → fix → test.
+- Second case, same pattern: Stalwart XOAUTH2 broke on a dead OIDC issuer inside a directory object.
 
-> Debugging ist der beste Agenten-Fall: Symptom rein, Ursachenkette raus — mit Protokoll zum Nachlesen.
+> Debugging is the best agentic use case: symptom in, root-cause chain out — with a log you can reread.
 
 <!-- notes:
-(3 min) live erzählen, das publikum kennt weiße seiten. Punkt 1:
-Repo/Deploy hingen noch an alten Domains + Platzhalter-IdP-Metadaten.
-Punkt 2: TLS-Terminierung am Ingress vs. ACS-URL-Schema. Der Agent
-brauchte mehrere Probes — aber jede Hypothese war sichtbar. Danach
-wurde die Ursache jeweils zur Probe in der Testsuite. Merksatz:
-"Jeder gefundene Fehler wird ein Test, bevor er wiederkommt."
+(3 min) Tell it live; everyone knows white pages. Point 1: repo/deploy
+still hung on old domains + placeholder IdP metadata (by design).
+Point 2: TLS termination at the ingress vs. ACS-URL scheme. The agent
+needed several probes — but every hypothesis was visible. Afterwards
+each root cause became a probe in the test suite. Key line: "Every bug
+found becomes a test before it comes back."
 -->
 
 ---
 
-## Fall 3 · „Fix-All": Drift sichtbar machen
+## Case 3 · "Fix-all": making drift visible
 
-- Muster: k8s-Verzeichnisse, die **kein** ArgoCD-App hatte — Tenant-Mail, LLM, XWiki; Erbe aus der imperativen Apply-Ära.
-- Aufträge mit Abnahmekriterien: jede App unter GitOps, jeder Diff erklärt, nichts implizit.
-- Nebenbefund: `k8s/llm` — der Modellbetrieb ist Teil derselben Suite.
+- Pattern: k8s directories with **no** ArgoCD app — tenant mail, LLM, XWiki; legacy from the imperative-apply era.
+- Orders with acceptance criteria: every app under GitOps, every diff explained, nothing implicit.
+- Side finding: `k8s/llm` — the model serving is part of the same suite.
 
-> Agenten sind gut im Kleinarbeiten ganzer Verzeichnisse — wenn die Definition of Done im Vertrag steht.
+> Agents are great at the tedious work of whole directories — if the definition of done is in the contract.
 
 <!-- notes:
-(2 min) Diese Art Arbeit ist langweilig und wichtig — perfekt für
-Agenten. Mensch definiert: was ist "fertig"? (App existiert, Sync
-grün, kein unmanaged Manifest mehr.) Der Agent arbeitet die Liste
-ab. Botschaft an das Publikum:fangen Sie mit so Aufgaben an, nicht
-mit "schreib meine Bewerbung".
+(2 min) This kind of work is boring and important — perfect for
+agents. The human defines: what is "done"? (App exists, sync green,
+no unmanaged manifests left.) The agent works through the list.
+Message to the audience: start with tasks like this, not with
+"write my thesis".
 -->
 
 ---
 
-## Fall 4 · Agenten-Fleet mit Acceptance-Gates
+## Case 4 · An agent fleet with acceptance gates
 
-- Die SSO-Testsuite (**59 Checks, 15 Clients e2e**) entstand in Batches: parallele Worker, isolierte Git-Worktrees.
-- Jeder Task hatte exakte Akzeptanzkriterien; Merge erst nach grün — sonst verwirft der Fleet-Runner.
-- Fleet = Spec in der Breite: einmal Verträge schreiben, viele kleine Aufträge verteilen.
+- The SSO test suite (**59 checks, 15 clients e2e**) was built in batches: parallel workers, isolated git worktrees.
+- Every task had exact acceptance criteria; merge only on green — otherwise the fleet runner discards it.
+- Fleet = spec at scale: write contracts once, distribute many small orders.
 
-> Nicht ein Super-Agent — viele kleine Aufträge mit Tests. Skalierbar, billig, nachvollziehbar.
+> Not one super-agent — many small orders with tests. Scalable, cheap, auditable.
 
 <!-- notes:
-(3 min) taskfleet: tasks.json + workers.json, isolierte Worktrees,
-automatischer Merge nur bei grünen Gates. Damit wurden die e2e-Checks
-für alle SSO-Clients gebaut — Logout je Client-Typ, Session-TTL,
-Scopes. Ein Mensch hätte da wochenlang geklickt.
+(3 min) taskfleet: tasks.json + workers.json, isolated worktrees,
+automatic merge only with green gates. This is how the e2e checks for
+all SSO clients were built — logout per client type, session TTL,
+scopes. A human would have spent weeks clicking through this.
 -->
 
 ---
 
-## Was der Betrieb daraus gelernt hat
+## What the operation learned
 
-- **Enge Specs statt große Kontexte:** weniger Token, gleiche Qualität — die Spec ist der Kompressor.
-- **Erwartungen steuern:** Agenten liefern keine fertigen Bots — sie brauchen Contract und Tests.
-- **Test zuerst:** jeder Incident wird ein Test. Jede Warnung in der Suite ist ein dokumentierter Beschluss.
+- **Tight specs over big contexts:** fewer tokens, same quality — the spec is the compressor.
+- **Manage expectations:** agents do not deliver finished bots — they need contracts and tests.
+- **Test first:** every incident becomes a test. Every warning in the suite is a documented decision.
 
-> Vertrauen ist gut. Verification ist billiger.
+> Trust is good. Verification is cheaper.
 
 <!-- notes:
-(2 min) Die drei Lektionen sind bewusst betriebsnah formuliert.
-Token-Fall: Eine enge Spec mit 5 Akzeptanzkriterien schlägt einen
-1000-Zeilen-Prompt. Erwartungen: aus unseren Workshops — Menschen
-wollen "fertige Bots", bekommen ein Werkzeug mit Regeln. Test
-zuerst: die SSO-Suite ist genau so entstanden (59/0/6, jede Warnung
-besprochen).
+(2 min) The three lessons are deliberately phrased for operations.
+Token case: a tight spec with 5 acceptance criteria beats a
+1000-line prompt. Expectations: from our workshops — people want
+"finished bots" and get a tool with rules. Test first: the SSO suite
+was built exactly this way (59/0/6, every warning discussed).
 -->
 
 ---
 
-## Das Muster auf Ihr Projekt übertragen
+## The pattern, applied to your project
 
-1. **Contract zuerst:** `AGENTS.md` im Repo — was darf der Agent, wo liegen die Fakten.
-2. **Spec-Change vor Code:** Aufgaben klein, mit Akzeptanzkriterien — proposal → tasks → apply → archive.
-3. **CI ist die Abnahme:** grün = fertig. Der Agent darf wiederholen, Sie prüfen das Ergebnis.
-4. **Speicher über Sitzungen:** Entscheidungen landen im Repo und im Memory — nicht im Chat-Verlauf.
+1. **Contract first:** `AGENTS.md` in the repo — what the agent may do, where the facts live.
+2. **Spec change before code:** small tasks with acceptance criteria — proposal → tasks → apply → archive.
+3. **CI is the acceptance:** green = done. The agent may repeat itself; you review the result.
+4. **Memory across sessions:** decisions land in the repo and in memory — not in the chat history.
 
-> Fangen Sie mit einer langweiligen, wichtigen Aufgabe an. Nicht mit dem Selbstversuch „Agent ersetzt mich".
+> Start with one boring, important task. Not with the experiment "an agent replaces me".
 
 <!-- notes:
-(2 min) Die Übertragungs-Folie: das Publikum soll morgen eine Sache
-machen können. Punkt 1 kostet 20 Minuten und verändert alles — der
-Agent liest den Contract bei jedem Start. Punkt 4: experiences /
-Spec-Repo statt Chat-History.
+(2 min) The transfer slide: the audience should be able to do one
+thing tomorrow. Point 1 costs 20 minutes and changes everything —
+the agent reads the contract on every start. Point 4: experiences /
+spec repo instead of chat history.
 -->
 
 ---
 
 ## Resources
 
-- **openEduSuite** — `openedusuite.graphwiz.ai` · Portal: `openedu.graphwiz.ai`
-- **Workshop-Repo** (IT4Science Days 2026, 3h-Deck + Übungen) — GitHub/Codeberg: `IT4Science-Days-2026-agentic-ai-workshop`
-- **Werkzeuge:** pi (Terminal-Agent) · OpenSpec (Spec-Workflow) · taskfleet (Agenten-Fleet) · ArgoCD (GitOps)
+- **openEduSuite** — `openedusuite.graphwiz.ai` · portal: `openedu.graphwiz.ai`
+- **Workshop repo** (IT4Science Days 2026, 3h deck + exercises) — GitHub/Codeberg: `IT4Science-Days-2026-agentic-ai-workshop`
+- **Tools:** pi (terminal agent) · OpenSpec (spec workflow) · taskfleet (agent fleet) · ArgoCD (GitOps)
 
-Alles Greifbares: Repos, Specs, Testsuiten — keine Folien-Magie.
+Everything is tangible: repos, specs, test suites — no slide magic.
 
 <!-- notes:
-(30 s) Nicht vorlesen. Hinweis: der Workshop-Deck (3h-Version) ist
-öffentlich — wer tiefer einsteigen will, macht die Übungen selbst.
+(30 s) Do not read aloud. Note: the workshop deck (3h version) is
+public — anyone who wants to go deeper can do the exercises
+themselves.
 -->
 
 ---
 
 <!-- _class: lead -->
 
-# Vielen Dank!
+# Thank you!
 
-## Fragen? — 10 Minuten
+## Questions? — 10 minutes
 
 Tobias Weiß · `tobias.weiss@uni-marburg.de`
 
-GöAID · openEduSuite · Uni Marburg
+GöAID · openEduSuite · University of Marburg
 
 <!-- notes:
-(10 min) Q&A. Wahrscheinliche Fragen: Sicherheit/Rechte der Agenten
-(→ Contract + Plan-Mode + Tests), Modellwahl (→ Harness unabhängig,
-pi läuft mit verschiedenen Providern), Kosten (→ enge Specs, kleine
-Aufträge), Einstieg (→ AGENTS.md + eine langweilige Aufgabe).
+(10 min) Q&A. Likely questions: agent permissions/security (→
+contract + plan mode + tests), model choice (→ harness is
+model-agnostic, pi runs with various providers), cost (→ tight specs,
+small orders), getting started (→ AGENTS.md + one boring task).
 -->
