@@ -532,31 +532,32 @@ blockquote {
 <tr>
 <th>Level</th>
 <th>Says</th>
-<th>Domain cutover</th>
-<th>SSO test suite</th>
+<th>Rename every domain</th>
+<th>Prove every login</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Spec</strong></td>
 <td>WHAT + acceptance</td>
-<td>Swap domain, guards 157 + 8</td>
-<td>15 clients e2e</td>
+<td>New domain everywhere, nothing else</td>
+<td>15 services, login + logout</td>
 </tr>
 <tr>
 <td><strong>Contract</strong></td>
 <td>HOW the agent works</td>
-<td>Plan-mode first, idempotent</td>
-<td>Every warning: a decision</td>
+<td>Plan first, rerun-safe script</td>
+<td>Fix, never silence a warning</td>
 </tr>
 <tr>
 <td><strong>Test</strong></td>
 <td>WHEN it's right</td>
-<td>Re-run = no diff</td>
-<td>59 checks green → merge</td>
+<td>Second run = zero diff</td>
+<td>59 automated checks green</td>
 </tr>
 </tbody>
 </table>
+<p>Both are real openEduSuite cases — Cases 1 and 4.</p>
 <blockquote>
 <p>Every level is text in the repo.</p>
 </blockquote>
@@ -1408,11 +1409,14 @@ the session directory). Survivors: seccomp + noexec (egress cut),
 non-root without network (local models), gVisor, secrets-broker —
 the real key never enters the sandbox.
 github.com/tobias-weiss-ai-xr/pi-sandbox · THREAT_MODEL.md</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>notes:
-(2.5 min) Core slide — read the table column by column with ONE story
-each: column 1 = Case 1 (domain cutover), column 2 = Case 4 (SSO
-suite). Point out: all three levels live in git, not in heads or
-chats. Work becomes repeatable instead of heroic. Transition: &quot;How do
-you get from this pyramid to a running workflow? → OpenSpec.&quot;</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>notes:
+(2.5 min) Core slide. The two columns are two EVERYDAY scenarios,
+not project jargon: column 1 = a risky one-time change (we renamed
+all domains in production — Case 1), column 2 = proving a promise
+(login must work for all 15 services — Case 4, the 59-check SSO
+suite). Read the table row by row: same three levels, very different
+changes — that is why it is a method, not a trick. All levels live in
+git, not in heads or chats. Transition: &quot;How do you get from this
+pyramid to a running workflow? → OpenSpec.&quot;</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>notes:
 (1.5 min) OpenSpec CLI: new change, continue, apply, archive. The
 flow: proposal by human or agent, refinement in dialogue, then work
 through tasks. Key point: &quot;archive&quot; updates the specs — that is how

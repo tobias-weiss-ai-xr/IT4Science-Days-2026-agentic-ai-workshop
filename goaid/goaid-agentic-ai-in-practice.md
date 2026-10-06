@@ -172,20 +172,25 @@ github.com/tobias-weiss-ai-xr/pi-sandbox · THREAT_MODEL.md
 
 ## The pyramid: Spec · Contract · Test
 
-| Level | Says | Domain cutover | SSO test suite |
+| Level | Says | Rename every domain | Prove every login |
 |---|---|---|---|
-| **Spec** | WHAT + acceptance | Swap domain, guards 157 + 8 | 15 clients e2e |
-| **Contract** | HOW the agent works | Plan-mode first, idempotent | Every warning: a decision |
-| **Test** | WHEN it's right | Re-run = no diff | 59 checks green → merge |
+| **Spec** | WHAT + acceptance | New domain everywhere, nothing else | 15 services, login + logout |
+| **Contract** | HOW the agent works | Plan first, rerun-safe script | Fix, never silence a warning |
+| **Test** | WHEN it's right | Second run = zero diff | 59 automated checks green |
+
+Both are real openEduSuite cases — Cases 1 and 4.
 
 > Every level is text in the repo.
 
 <!-- notes:
-(2.5 min) Core slide — read the table column by column with ONE story
-each: column 1 = Case 1 (domain cutover), column 2 = Case 4 (SSO
-suite). Point out: all three levels live in git, not in heads or
-chats. Work becomes repeatable instead of heroic. Transition: "How do
-you get from this pyramid to a running workflow? → OpenSpec."
+(2.5 min) Core slide. The two columns are two EVERYDAY scenarios,
+not project jargon: column 1 = a risky one-time change (we renamed
+all domains in production — Case 1), column 2 = proving a promise
+(login must work for all 15 services — Case 4, the 59-check SSO
+suite). Read the table row by row: same three levels, very different
+changes — that is why it is a method, not a trick. All levels live in
+git, not in heads or chats. Transition: "How do you get from this
+pyramid to a running workflow? → OpenSpec."
 -->
 
 ---
