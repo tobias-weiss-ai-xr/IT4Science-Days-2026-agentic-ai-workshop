@@ -50,16 +50,17 @@ the story of an operation that is built and run BY agents.
 
 ---
 
-## Where I come from: an operation, not a lab
+## Where I come from
 
-- openEduSuite: sovereign groupware suite for teaching, research, administration — on bare-metal Kubernetes.
-- **AI-infused** means two things here: LLM services *in* the suite, and agents working *on* the operation.
-- Production, not a demo: real mailboxes, real students, real outages.
+- openEduSuite: sovereign groupware suite
+- Bare-metal Kubernetes, in production
+- AI in the suite, agents on the operation
+- Real mailboxes, real students, real outages
 
-> This session is the story of how specs turned into productive workflows.
+> A story from production, not a demo.
 
 <!-- notes:
-(2 min) Set the context: University of Marburg, DevOps. The suite runs
+(2 min) Context: University of Marburg, DevOps. The suite runs
 productively on our own bare-metal nodes (SCS-K8s), not in a public
 cloud. Two directions of "AI-infused": (a) the suite carries its own
 LLM/K8s resources (k8s/llm), (b) the operation itself is done
@@ -70,15 +71,15 @@ agentically — the latter is the subject of this talk.
 
 <!-- _class: smaller -->
 
-## Roadmap — 30 minutes, three blocks
+## Roadmap — 30 minutes
 
 | Block | Content | Time |
 |---|---|---|
-| 1 · Foundations | What "agentic" concretely means: model + harness + loop | ~8 min |
-| 2 · Method | Spec → Contract → Agent → Verify: the pipeline | ~10 min |
-| 3 · Practice | Four cases from the openEduSuite operation | ~12 min |
+| 1 · Foundations | Model + harness + loop | ~8 min |
+| 2 · Method | Spec → Contract → Test | ~10 min |
+| 3 · Practice | Four real cases | ~12 min |
 
-Afterwards: **10 minutes of questions.**
+Then: **10 minutes of questions.**
 
 <!-- notes:
 (30 s) Show, don't read. Block 3 is the heart — the four cases are
@@ -89,34 +90,35 @@ real incidents/projects with dates and outcomes.
 
 ## Agentic ≠ chat
 
-- Chat: question → answer. Agent: **goal → plan → tools → result → feedback.**
-- Three building blocks: model + tools (terminal, files, git, cluster) + loop (plan, act, verify).
-- The difference does not live in the model — it lives in the **harness** around it.
+- Chat: question → answer
+- Agent: goal → plan → tools → verify
+- The difference: the harness, not the model
 
-> "Agentic" is not a model feature, it is a working environment.
+> "Agentic" is a working environment.
 
 <!-- notes:
-(2 min) Expectation management: agents are not finished bots. A model
-in a chat window cannot touch a file. The agent = model inside a frame
-that gives it tools and rules. Lesson from our courses (participant
-feedback): many expect "ready-made bots" — set that term straight here.
+(1.5 min) Expectation management: agents are not finished bots. A
+model in a chat window cannot touch a file. The agent = model inside
+a frame that gives it tools and rules. Lesson from our courses:
+many expect "ready-made bots" — set that term straight here.
 -->
 
 ---
 
-## The harness determines what the model can achieve
+## The harness decides
 
-- Same model, different frame: chat window vs. terminal agent with file, git and cluster access.
-- Our harness: **pi** — terminal agent, MCP tools, skills, memory across sessions.
-- **Plan mode:** read and plan first, write later — the agent shows the plan before it touches anything.
+- Terminal agent: files, git, cluster
+- pi: MCP tools, skills, memory
+- Plan mode: consent before changes
 
-> What the agent may do is written in the contract — not left to gut feeling.
+> Permissions live in the contract, not in gut feeling.
 
 <!-- notes:
-(2 min) Briefly show or describe pi: opens terminals, reads files,
-runs git, calls MCP tools. Plan mode = consent before any change.
-Important for the ops crowd: the agent has the same rights I have at
-my workstation — hence the contract.
+(2 min) Same model, different frame: chat window vs. terminal agent
+with file, git and cluster access. Briefly show or describe pi:
+opens terminals, reads files, runs git, calls MCP tools. Plan mode =
+consent before any change. Ops crowd: the agent has the same rights
+I have at my workstation — hence the contract.
 -->
 
 ---
@@ -124,40 +126,44 @@ my workstation — hence the contract.
 ## pi in 60 seconds
 
 ```bash
-curl -fsSL https://pi.dev/install.sh | sh          # macOS / Linux
+curl -fsSL https://pi.dev/install.sh | sh
 npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 ```
 
-- **v1.0** (Oct 2026): fullscreen TUI · codemode −40% prompt tokens · image generation · hardened MCP OAuth.
-- **Ctrl+L** — switch models mid-session · **Ctrl+P** cycles favorites · **Shift+Tab** cycles thinking level.
-- Provider-agnostic: subscriptions, API keys or local models · `/hotkeys` lists every shortcut.
+- v1.0: fullscreen · lean codemode · images
+- **Ctrl+L** — switch model mid-session
+- **Ctrl+P** favorites · **Shift+Tab** thinking
+- Provider-agnostic · `/hotkeys` lists all
 
 <!-- notes:
 (1.5 min) Install is two lines — live-demoable. v1.0 released
 2026-10-01, currently 1.0.2. Ctrl+L is THE shortcut to demo: switch
 model mid-task — cheap model for research, strong model for the fix.
 If someone asks "which key does X": run /hotkeys live. Nix users:
-nix run github:earendil-works/pi/stable.
+nix run github:earendil-works/pi/stable. Radius login and MCP OAuth
+hardening are also in 1.0 — mention if asked.
 -->
 
 ---
 
-## "Can the agent leak my keys?" — pi-sandbox
+## "Can it leak my keys?" — pi-sandbox
 
-- An empirical study, not vibes: escape-attempt probes + a real exfiltration test across sandbox variants — evidence committed in the repo.
-- The *recommended* Docker setup only stops **accidental** leaks — a malicious agent exfiltrates the one key you pass in.
-- The *hardened* flags as documented don't run pi at all — `--read-only` breaks the session directory.
-- What does work: seccomp + noexec (egress cut), non-root without network (local models), gVisor, secrets-broker — the real key never enters the sandbox.
+- Escape probes + real exfiltration test
+- Recommended Docker: stops accidents only
+- Hardened flags: pi won't even start
+- Works: seccomp, gVisor, secrets-broker
 
-> Sandboxing is a measurement, not a checkbox. `github.com/tobias-weiss-ai-xr/pi-sandbox`
+> Sandboxing is a measurement, not a checkbox.
 
 <!-- notes:
-(2 min) This slide earns trust with the ops audience: we TESTED the
-isolation instead of trusting docs. Two headline findings:
-(1) recommended setup = safe against accidents only; (2) documented
-hardening crashes pi. What survives: seccomp/noexec, non-root +
-no-network, gVisor, and the secrets-broker pattern. THREAT_MODEL.md
-has the full matrix with evidence links.
+(1.5 min) Earns trust with the ops audience: we TESTED the isolation
+instead of trusting docs. Findings: (1) recommended setup = safe
+against accidents only — a malicious agent exfiltrates the one key
+you pass in; (2) documented hardening crashes pi (--read-only breaks
+the session directory). Survivors: seccomp + noexec (egress cut),
+non-root without network (local models), gVisor, secrets-broker —
+the real key never enters the sandbox.
+github.com/tobias-weiss-ai-xr/pi-sandbox · THREAT_MODEL.md
 -->
 
 ---
@@ -166,66 +172,69 @@ has the full matrix with evidence links.
 
 ## The pyramid: Spec · Contract · Test
 
-| Level | Says | Example 1: domain cutover | Example 2: SSO test suite |
+| Level | Says | Domain cutover | SSO test suite |
 |---|---|---|---|
-| **Spec** | WHAT + acceptance | "Swap home.openedu → suite.graphwiz.ai; guards: 157 + 8 manifests untouched" | "All 15 SSO clients verified e2e: login, logout, scopes" |
-| **Contract** | HOW the agent works | `AGENTS.md`: plan-mode before production; the script must be idempotent | `AGENTS.md`: every warning is a documented decision — "whatever" does not exist |
-| **Test** | WHEN it is right | Re-run = no diff (idempotency proof) | `tests/sso`: 59 checks green → merge |
+| **Spec** | WHAT + acceptance | Swap domain, guards 157 + 8 | 15 clients e2e |
+| **Contract** | HOW the agent works | Plan-mode first, idempotent | Every warning: a decision |
+| **Test** | WHEN it's right | Re-run = no diff | 59 checks green → merge |
 
-> Every level is text in the repo — work becomes repeatable instead of heroic.
+> Every level is text in the repo.
 
 <!-- notes:
-(3 min) Core slide — read the table column by column with ONE story
+(2.5 min) Core slide — read the table column by column with ONE story
 each: column 1 = Case 1 (domain cutover), column 2 = Case 4 (SSO
 suite). Point out: all three levels live in git, not in heads or
-chats. Transition: "How do you get from this pyramid to a running
-workflow? → OpenSpec."
+chats. Work becomes repeatable instead of heroic. Transition: "How do
+you get from this pyramid to a running workflow? → OpenSpec."
 -->
 
 ---
 
 ## From spec to change: OpenSpec
 
-- A **change** = proposal + spec delta + tasks — versioned in the repo, readable by human *and* agent.
-- The agent implements task by task; the human reviews and **archives**.
-- Archived means: the spec on main is the new state — **documentation is the product**, not a by-product.
+- Change = proposal + spec delta + tasks
+- Agent implements, human reviews, archives
+- Archive: main spec is the new state
 
 ```text
-Spec (OpenSpec) → Contract (AGENTS.md) → Agent (pi)
-      → Verify (tests/CI) → Operate (ArgoCD)
+Spec → Contract → Agent
+   → Verify (tests) → Operate (ArgoCD)
 ```
 
+> Documentation is the product.
+
 <!-- notes:
-(2 min) OpenSpec CLI: new change, continue, apply, archive. The flow:
-proposal by human or agent, refinement in dialogue, then work through
-tasks. Key point: "archive" updates the specs — that is how the docs
-stay in sync with the system.
+(1.5 min) OpenSpec CLI: new change, continue, apply, archive. The
+flow: proposal by human or agent, refinement in dialogue, then work
+through tasks. Key point: "archive" updates the specs — that is how
+the docs stay in sync with the system.
 -->
 
 ---
 
-## OpenSpec × pi: the agent lives in the spec
+## OpenSpec × pi
 
-- **pi-openspec** — `pi install npm:openspec-pi` — deep OpenSpec integration as a pi package.
-- Native `openspec` tool: the agent queries `status`, `validate`, `show`, `archive` **during the task** — no copy-pasting specs.
-- Auto-context: `openspec context` is injected into the system prompt at session start — invalidated when the spec tree changes.
-- The workflow as slash commands: `/opsx-new`, `/opsx-apply`, `/opsx-verify`, `/opsx-archive` — plus matching skills.
+- `pi install npm:openspec-pi`
+- Agent queries spec state mid-task
+- Auto-context: injected at session start
+- `/opsx-new` · `apply` · `verify` · `archive`
 
-> The spec is not a document next to the agent — it is the agent's operating context.
+> The spec is the agent's operating context.
 
 <!-- notes:
-(1.5 min) Closes the loop between method and harness: the Spec→
+(1 min) Closes the loop between method and harness: the Spec→
 Contract workflow is wired directly into pi. Fresh session in a repo
 with openspec/ starts already knowing the change state (auto-injected
-context). /opsx-verify before commit is the habit to copy: validate
-+ doctor health sweep. Requires OpenSpec CLI >= 1.9 on PATH.
+context, invalidated when the spec tree changes). /opsx-verify
+before commit is the habit to copy: validate + doctor sweep.
+Requires OpenSpec CLI >= 1.9 on PATH.
 -->
 
 ---
 
 <!-- _class: smaller -->
 
-## The stage: openEduSuite on one slide
+## The stage: openEduSuite
 
 | Component | Service | | Component | Service |
 |---|---|---|---|---|
@@ -234,11 +243,11 @@ context). /opsx-verify before commit is the habit to copy: validate
 | Files | **OpenCloud** | | Video | **Jitsi/Intercom** |
 | Wiki | **XWiki** | | Portal | **collab-dashboard** |
 
-- GitOps: **ArgoCD** reconciles the cluster; bare metal (SCS), MariaDB/Galera, HAProxy.
-- Agents work on this production system — hence: **spec before execution, test as acceptance.**
+- ArgoCD GitOps · bare metal · Galera
+- Agents on production: spec first, tests accept
 
 <!-- notes:
-(2 min) Locate the audience: anyone running something similar knows
+(1.5 min) Locate the audience: anyone running something similar knows
 these components. One login, eight services. The bottom bullet is the
 core tension of this talk: agents with write access on production —
 how do you make that accountable? Answer: the next four cases.
@@ -246,146 +255,156 @@ how do you make that accountable? Answer: the next four cases.
 
 ---
 
-## Case 1 · Domain migration of the whole suite — as a spec
+## Case 1 · Domain migration, as a spec
 
-- Starting point: cutover `home.openedu` → `suite.graphwiz.ai` — ingresses, certificates, OAuth redirects, mail domains across the whole stack.
-- Human writes the **contract**: swap script idempotent, guard counters (157 + 8 manifests must *not* be touched), Keycloak redirects, Let's Encrypt wildcard.
-- Agent implements `bootstrap-domain-swap.sh` — acceptance criteria green, only then execution.
+- Cutover: `home.openedu` → `suite.graphwiz.ai`
+- Ingresses, certificates, redirects, mail
+- Contract: idempotent script, guards 157 + 8
+- Agent implements · checks green · then run
 
-> A nerve-racking cutover becomes routine: you can simply run the script again.
+> Nerve-racking cutover becomes routine: just rerun.
 
 <!-- notes:
-(3 min) The point: without a spec this is a week of manual work and
+(2.5 min) The point: without a spec this is a week of manual work and
 fear. With a spec: one script with built-in guards. Idempotency is
 the acceptance criterion — a second run changes nothing. Story: on
 the first run a guard check fired (one directory matched too much) —
-exactly what guards are for.
+exactly what guards are for. Also in scope: Keycloak redirects,
+Let's Encrypt wildcard, oauth2-proxy fixes.
 -->
 
 ---
 
-## Case 2 · SSO mystery: white page after login
+## Case 2 · SSO mystery
 
-- Symptom: SOGo webmail shows a **white page** after SAML login — three root causes in a row.
-- Agent in plan mode: hypotheses → probes (metadata dump, ACS URL, TLS hop at the ingress) → fix → test.
-- Second case, same pattern: Stalwart XOAUTH2 broke on a dead OIDC issuer inside a directory object.
+- Symptom: white page after SAML login
+- Plan mode: hypotheses → probes → fix
+- Causes: dead domains, TLS hop, ACS URL
+- Stalwart: dead OIDC issuer in directory
 
-> Debugging is the best agentic use case: symptom in, root-cause chain out — with a log you can reread.
+> Debugging: symptom in, root-cause chain out.
 
 <!-- notes:
-(3 min) Tell it live; everyone knows white pages. Point 1: repo/deploy
-still hung on old domains + placeholder IdP metadata (by design).
-Point 2: TLS termination at the ingress vs. ACS-URL scheme. The agent
-needed several probes — but every hypothesis was visible. Afterwards
-each root cause became a probe in the test suite. Key line: "Every bug
-found becomes a test before it comes back."
+(2.5 min) Tell it live; everyone knows white pages. SOGo webmail
+after SAML login — three root causes in a row: repo/deploy still on
+old domains + placeholder IdP metadata (by design); TLS termination
+at the ingress vs. ACS-URL scheme. The agent needed several probes —
+but every hypothesis was visible. Second case, same pattern: Stalwart
+XOAUTH2 broke on a dead OIDC issuer inside a directory object.
+Afterwards each root cause became a probe in the test suite. Key
+line: "Every bug found becomes a test before it comes back."
 -->
 
 ---
 
-## Case 3 · "Fix-all": making drift visible
+## Case 3 · "Fix-all": drift to GitOps
 
-- Pattern: k8s directories with **no** ArgoCD app — tenant mail, LLM, XWiki; legacy from the imperative-apply era.
-- Orders with acceptance criteria: every app under GitOps, every diff explained, nothing implicit.
-- Side finding: `k8s/llm` — the model serving is part of the same suite.
+- k8s directories without an ArgoCD app
+- Legacy from imperative applies
+- Orders: every app GitOps, diffs explained
+- Side finding: `k8s/llm` — same suite
 
-> Agents are great at the tedious work of whole directories — if the definition of done is in the contract.
+> Boring, important work — perfect for agents.
 
 <!-- notes:
-(2 min) This kind of work is boring and important — perfect for
-agents. The human defines: what is "done"? (App exists, sync green,
-no unmanaged manifests left.) The agent works through the list.
-Message to the audience: start with tasks like this, not with
-"write my thesis".
+(1.5 min) Tenant mail, LLM, XWiki directories were never under any
+ArgoCD app. This work is tedious and important — perfect for agents.
+The human defines what is "done": app exists, sync green, no
+unmanaged manifests left. The agent works through the list. Message:
+start with tasks like this, not with "write my thesis".
 -->
 
 ---
 
-## Case 4 · An agent fleet with acceptance gates
+## Case 4 · Fleet with acceptance gates
 
-- The SSO test suite (**59 checks, 15 clients e2e**) was built in batches: parallel workers, isolated git worktrees.
-- Every task had exact acceptance criteria; merge only on green — otherwise the runner discards it.
-- Fleet = spec at scale: write contracts once, distribute many small orders.
+- SSO suite: 59 checks, 15 clients e2e
+- Built in batches by parallel workers
+- Isolated worktrees, exact criteria
+- Merge only on green — else discarded
 
-> Not one super-agent — many small orders with tests. Scalable, cheap, auditable.
+> Many small orders — not one super-agent.
 
 <!-- notes:
-(2 min) The tool here is agentflow (next slide). This is how the e2e
-checks for all SSO clients were built — logout per client type,
+(1.5 min) The tool here is agentflow (next slide). This is how the
+e2e checks for all SSO clients were built — logout per client type,
 session TTL, scopes. A human would have spent weeks clicking through
-this.
+this. Scalable, cheap, auditable.
 -->
 
 ---
 
-## The tool behind the fleet: agentflow (`af`)
+## The tool: agentflow (`af`)
 
-- Small Rust orchestrator: declarative `tasks.json` + `workers.json` → parallel LLM workers, each in an **isolated git worktree**.
-- Merge only after the task's **acceptance gate** (shell command, exit 0) — retries get a fresh branch and the error history added to the prompt.
-- Measured routing: every attempt leaves a receipt; free workers are picked by UCB1 (track record + exploration) — visible in `af cost`.
-- Thin by design: it drives `git` and any OpenAI-compatible agent CLI (default: **pi**) — 71 tests, no network in CI.
+- Rust orchestrator: `tasks.json` + `workers.json`
+- Parallel workers, isolated git worktrees
+- Gate: exit 0, then merge
+- Retries: fresh branch + error history
+- UCB1 routing, receipts in `af cost`
 
-> Contracts once, many small orders — the runner enforces the gates. `github.com/tobias-weiss-ai-xr/agentflow`
+> Contracts once — the runner enforces the gates.
 
 <!-- notes:
-(2 min) Concrete demo path: af run --dry-run shows the dispatch plan,
-af status is the live board, af cost shows per-worker trust. Failure
-memory is the underrated feature: retries list earlier errors so the
-agent does not repeat them. This is the generalization of Case 4 —
-the same pattern now runs as a product tool.
+(1.5 min) Thin by design: drives git and any OpenAI-compatible agent
+CLI — default: pi. 71 tests, no network in CI. Demo path:
+af run --dry-run shows the dispatch plan, af status is the live
+board, af cost shows per-worker trust. Failure memory is underrated:
+retries list earlier errors so the agent does not repeat them.
+github.com/tobias-weiss-ai-xr/agentflow
 -->
 
 ---
 
 ## What the operation learned
 
-- **Tight specs over big contexts:** fewer tokens, same quality — the spec is the compressor.
-- **Manage expectations:** agents do not deliver finished bots — they need contracts and tests.
-- **Test first:** every incident becomes a test. Every warning in the suite is a documented decision.
+- Tight specs beat big contexts
+- Agents need contracts, not faith
+- Every incident becomes a test
 
 > Trust is good. Verification is cheaper.
 
 <!-- notes:
-(2 min) The three lessons are deliberately phrased for operations.
-Token case: a tight spec with 5 acceptance criteria beats a
-1000-line prompt. Expectations: from our workshops — people want
-"finished bots" and get a tool with rules. Test first: the SSO suite
-was built exactly this way (59/0/6, every warning discussed).
+(1.5 min) Three lessons, phrased for operations. Token case: a tight
+spec with 5 acceptance criteria beats a 1000-line prompt — fewer
+tokens, same quality. Expectations: people want "finished bots" and
+get a tool with rules. Test first: the SSO suite was built exactly
+this way (59/0/6, every warning a documented decision).
 -->
 
 ---
 
-## The pattern, applied to your project
+## Apply it to your project
 
-1. **Contract first:** `AGENTS.md` in the repo — what the agent may do, where the facts live.
-2. **Spec change before code:** small tasks with acceptance criteria — proposal → tasks → apply → archive.
-3. **CI is the acceptance:** green = done. The agent may repeat itself; you review the result.
-4. **Memory across sessions:** decisions land in the repo and in memory — not in the chat history.
+1. Contract first: `AGENTS.md`
+2. Spec change before code
+3. CI green = done
+4. Memory in the repo, not the chat
 
-> Start with one boring, important task. Not with the experiment "an agent replaces me".
+> Start with one boring, important task.
 
 <!-- notes:
-(2 min) The transfer slide: the audience should be able to do one
+(1.5 min) The transfer slide: the audience should be able to do one
 thing tomorrow. Point 1 costs 20 minutes and changes everything —
 the agent reads the contract on every start. Point 4: experiences /
-spec repo instead of chat history.
+spec repo instead of chat history. Not "an agent replaces me".
 -->
 
 ---
 
 ## Resources
 
-- **openEduSuite** — `openedusuite.graphwiz.ai` · portal: `openedu.graphwiz.ai`
-- **pi** — `pi.dev` · install: `curl -fsSL https://pi.dev/install.sh | sh`
-- **pi-openspec** — `github.com/tobias-weiss-ai-xr/pi-openspec` (`pi install npm:openspec-pi`)
-- **pi-sandbox** — `github.com/tobias-weiss-ai-xr/pi-sandbox` · sandbox evidence + threat model
-- **agentflow** — `github.com/tobias-weiss-ai-xr/agentflow` · parallel LLM tasks on worktrees, acceptance gates
-- **Workshop repo** (3h deck + exercises) — GitHub/Codeberg: `IT4Science-Days-2026-agentic-ai-workshop`
+- openEduSuite · openedusuite.graphwiz.ai
+- pi · pi.dev — docs: pi.dev/docs
+- pi-openspec · npm:openspec-pi
+- pi-sandbox · evidence + threat model
+- agentflow · worktrees + gates
+- Workshop repo · IT4Science-Days-2026-agentic-ai-workshop
 
 <!-- notes:
 (30 s) Do not read aloud. Everything named here is public and
-tangible: repos, specs, test suites — no slide magic. The workshop
-deck (3h version) is public too — deeper dive = do the exercises.
+tangible: repos, specs, test suites — no slide magic. GitHub user:
+tobias-weiss-ai-xr. The workshop deck (3h version, IT4Science Days
+2026) is public too — deeper dive = do the exercises.
 -->
 
 ---
@@ -403,6 +422,7 @@ GöAID · openEduSuite · University of Marburg
 <!-- notes:
 (10 min) Q&A. Likely questions: agent permissions/security (→
 contract + plan mode + tests), model choice (→ harness is
-model-agnostic, pi runs with various providers), cost (→ tight specs,
-small orders), getting started (→ AGENTS.md + one boring task).
+model-agnostic, Ctrl+L, pi runs with various providers), cost (→
+tight specs, small orders), getting started (→ AGENTS.md + one
+boring task).
 -->
