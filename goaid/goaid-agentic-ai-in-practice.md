@@ -221,7 +221,7 @@ the docs stay in sync with the system.
 
 ## OpenSpec × pi
 
-- `pi install npm:openspec-pi`
+- `pi install git:github.com/tobias-weiss-ai-xr/pi-openspec`
 - Agent queries spec state mid-task
 - Auto-context: injected at session start
 - `/opsx-new` · `apply` · `verify` · `archive`
@@ -401,7 +401,7 @@ spec repo instead of chat history. Not "an agent replaces me".
 
 - openEduSuite · openedusuite.graphwiz.ai
 - pi · pi.dev — docs: pi.dev/docs
-- pi-openspec · npm:openspec-pi
+- pi-openspec · `github.com/tobias-weiss-ai-xr/pi-openspec`
 - pi-sandbox · evidence + threat model
 - agentflow · worktrees + gates
 - Workshop repo · IT4Science-Days-2026-agentic-ai-workshop
