@@ -13,7 +13,8 @@ cd "$(dirname "$0")"
 #   ./build.sh openedu-unsere-arbeit   dasselbe fuer das openEDU-Deck
 #   ./build.sh --list [--export] zusaetzlich Folienverzeichnis / PDF+PPTX-Export
 DECK=pre-presentation-builder/presentations/it4science-days-2026-agentic-ai-workshop
-for a in "$@"; do case "$a" in --*) ;; *) DECK=pre-presentation-builder/presentations/$a;; esac; done
+# goaid-* Decks liegen unter goaid/ im Repo-Root
+for a in "$@"; do case "$a" in --*) ;; goaid-*) DECK=goaid/$a;; *) DECK=pre-presentation-builder/presentations/$a;; esac; done
 
 command -v marp >/dev/null 2>&1 && MARP=(marp) || MARP=(npx --yes @marp-team/marp-cli)
 
@@ -43,7 +44,8 @@ check
 for a in "$@"; do case "$a" in
   --export) export CHROME_PATH="${CHROME_PATH:-$(command -v google-chrome || command -v chromium)}"
      stem=$(basename "$DECK")
-     "${MARP[@]}" "$DECK.md" --pdf  -o "presentation/$stem.pdf"  </dev/null >/dev/null 2>&1
-     "${MARP[@]}" "$DECK.md" --pptx -o "presentation/$stem.pptx" </dev/null >/dev/null 2>&1
-     echo "exportiert: presentation/$stem.pdf + .pptx" ;;
+     out=pre-presentation-builder/presentations; case "$DECK" in goaid/*) out=goaid;; esac
+     "${MARP[@]}" "$DECK.md" --pdf  -o "$out/$stem.pdf"  </dev/null >/dev/null 2>&1
+     "${MARP[@]}" "$DECK.md" --pptx -o "$out/$stem.pptx" </dev/null >/dev/null 2>&1
+     echo "exportiert: $out/$stem.pdf + .pptx" ;;
 esac; done
