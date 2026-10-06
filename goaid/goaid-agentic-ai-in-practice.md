@@ -350,6 +350,7 @@ this. Scalable, cheap, auditable.
 - Routing by track record — receipts in `af cost`
 
 > Contracts once — the runner enforces the gates.
+> github.com/tobias-weiss-ai-xr/agentflow
 
 <!-- notes:
 (1.5 min) Walk the graphic: declarative tasks + workers, af fans out
