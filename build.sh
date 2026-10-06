@@ -17,6 +17,8 @@ DECK=pre-presentation-builder/presentations/it4science-days-2026-agentic-ai-work
 for a in "$@"; do case "$a" in --*) ;; goaid-*) DECK=goaid/$a;; *) DECK=pre-presentation-builder/presentations/$a;; esac; done
 
 command -v marp >/dev/null 2>&1 && MARP=(marp) || MARP=(npx --yes @marp-team/marp-cli)
+# --allow-local-files: lokale Bilder (SVG/PNG) werden sonst beim Export still verworfen
+MARP+=(--allow-local-files)
 
 render() { "${MARP[@]}" "$DECK.md" -o "$DECK.html" </dev/null >/dev/null 2>&1
            echo "gerendert: $DECK.html"; }

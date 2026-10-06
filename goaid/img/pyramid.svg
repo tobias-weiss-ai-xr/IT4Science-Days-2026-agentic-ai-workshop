@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="180" viewBox="0 0 300 200" font-family="Segoe UI,system-ui,sans-serif">
+  <polygon points="150,18 212,80 88,80" fill="#3b6fc4"/>
+  <polygon points="88,80 212,80 252,140 48,140" fill="#2e8b8b"/>
+  <polygon points="48,140 252,140 292,190 8,190" fill="#6fbf73"/>
+  <text x="150" y="60" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">Spec</text>
+  <text x="150" y="117" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">Contract</text>
+  <text x="150" y="171" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">Test</text>
+</svg>

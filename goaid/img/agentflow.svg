@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="238" viewBox="0 0 900 238" font-family="Segoe UI,system-ui,sans-serif">
+  <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#888"/></marker></defs>
+  <rect x="20" y="48" width="150" height="46" rx="8" fill="#2a2a2a" stroke="#555"/><text x="95" y="76" text-anchor="middle" font-size="16" fill="#e8e8e8">tasks.json</text>
+  <rect x="20" y="118" width="150" height="46" rx="8" fill="#2a2a2a" stroke="#555"/><text x="95" y="146" text-anchor="middle" font-size="16" fill="#e8e8e8">workers.json</text>
+  <rect x="225" y="78" width="105" height="56" rx="8" fill="#383838" stroke="#3b6fc4" stroke-width="2"/><text x="277" y="102" text-anchor="middle" font-size="19" font-weight="700" fill="#fff">af</text><text x="277" y="122" text-anchor="middle" font-size="12" fill="#9a9a9a">git + agent CLI</text>
+  <line x1="172" y1="71" x2="221" y2="90" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="172" y1="141" x2="221" y2="122" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <rect x="385" y="18" width="170" height="46" rx="8" fill="#2a2a2a" stroke="#555"/><text x="470" y="46" text-anchor="middle" font-size="15" fill="#e8e8e8">worker A · worktree</text>
+  <rect x="385" y="95" width="170" height="46" rx="8" fill="#2a2a2a" stroke="#555"/><text x="470" y="123" text-anchor="middle" font-size="15" fill="#e8e8e8">worker B · worktree</text>
+  <rect x="385" y="172" width="170" height="46" rx="8" fill="#2a2a2a" stroke="#555"/><text x="470" y="200" text-anchor="middle" font-size="15" fill="#e8e8e8">worker C · worktree</text>
+  <line x1="332" y1="100" x2="381" y2="48" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="332" y1="106" x2="381" y2="118" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="332" y1="112" x2="381" y2="188" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <rect x="595" y="18" width="80" height="46" rx="8" fill="#22303f" stroke="#d29a3a"/><text x="635" y="46" text-anchor="middle" font-size="15" fill="#e8e8e8">gate</text>
+  <rect x="595" y="95" width="80" height="46" rx="8" fill="#22303f" stroke="#d29a3a"/><text x="635" y="123" text-anchor="middle" font-size="15" fill="#e8e8e8">gate</text>
+  <rect x="595" y="172" width="80" height="46" rx="8" fill="#22303f" stroke="#d29a3a"/><text x="635" y="200" text-anchor="middle" font-size="15" fill="#e8e8e8">gate</text>
+  <line x1="557" y1="41" x2="591" y2="41" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="557" y1="118" x2="591" y2="118" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="557" y1="195" x2="591" y2="195" stroke="#888" stroke-width="2" marker-end="url(#ar3)"/>
+  <rect x="735" y="78" width="145" height="60" rx="8" fill="#1d3a26" stroke="#6fbf73" stroke-width="2"/><text x="807" y="104" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">merge to main</text><text x="807" y="124" text-anchor="middle" font-size="12" fill="#9a9a9a">only on green</text>
+  <line x1="677" y1="41" x2="712" y2="75" stroke="#6fbf73" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="677" y1="118" x2="731" y2="108" stroke="#6fbf73" stroke-width="2" marker-end="url(#ar3)"/>
+  <line x1="677" y1="195" x2="712" y2="141" stroke="#6fbf73" stroke-width="2" marker-end="url(#ar3)"/>
+  <path d="M 635 141 L 635 232 L 470 232 L 470 221" fill="none" stroke="#d29a3a" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar3)"/>
+  <text x="552" y="228" text-anchor="middle" font-size="13" fill="#d29a3a">retry: fresh branch + error log</text>
+</svg>

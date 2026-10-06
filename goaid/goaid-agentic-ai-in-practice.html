@@ -269,11 +269,7 @@ blockquote {
 }
 ;" data-marpit-pagination-total="20">
 <h2 id="agentic-%E2%89%A0-chat">Agentic ≠ chat</h2>
-<ul>
-<li>Chat: question → answer</li>
-<li>Agent: goal → plan → tools → verify</li>
-<li>The difference: the harness, not the model</li>
-</ul>
+<p><img src="img/chat-vs-agent.svg" alt="" style="height:230px;" /></p>
 <blockquote>
 <p>&quot;Agentic&quot; is a working environment.</p>
 </blockquote>
@@ -527,11 +523,11 @@ blockquote {
 }
 ;" data-marpit-pagination-total="20">
 <h2 id="the-pyramid-spec--contract--test">The pyramid: Spec · Contract · Test</h2>
+<p><img src="img/pyramid.svg" alt="" style="height:130px;" /></p>
 <table>
 <thead>
 <tr>
 <th>Level</th>
-<th>Says</th>
 <th>Rename every domain</th>
 <th>Prove every login</th>
 </tr>
@@ -539,19 +535,16 @@ blockquote {
 <tbody>
 <tr>
 <td><strong>Spec</strong></td>
-<td>WHAT + acceptance</td>
 <td>New domain everywhere, nothing else</td>
 <td>15 services, login + logout</td>
 </tr>
 <tr>
 <td><strong>Contract</strong></td>
-<td>HOW the agent works</td>
 <td>Plan first, rerun-safe script</td>
 <td>Fix, never silence a warning</td>
 </tr>
 <tr>
 <td><strong>Test</strong></td>
-<td>WHEN it's right</td>
 <td>Second run = zero diff</td>
 <td>59 automated checks green</td>
 </tr>
@@ -1110,12 +1103,11 @@ blockquote {
 }
 ;" data-marpit-pagination-total="20">
 <h2 id="the-tool-agentflow-af">The tool: agentflow (<code>af</code>)</h2>
+<p><img src="img/agentflow.svg" alt="" style="height:225px;" /></p>
 <ul>
-<li>Rust orchestrator: <code>tasks.json</code> + <code>workers.json</code></li>
-<li>Parallel workers, isolated git worktrees</li>
-<li>Gate: exit 0, then merge</li>
-<li>Retries: fresh branch + error history</li>
-<li>UCB1 routing, receipts in <code>af cost</code></li>
+<li>Rust orchestrator, thin by design — 71 tests, no network in CI</li>
+<li>Retries: fresh branch + error history in the prompt</li>
+<li>Routing by track record — receipts in <code>af cost</code></li>
 </ul>
 <blockquote>
 <p>Contracts once — the runner enforces the gates.</p>
@@ -1386,10 +1378,11 @@ LLM/K8s resources (k8s/llm), (b) the operation itself is done
 agentically — the latter is the subject of this talk.</p></div><div class="bespoke-marp-note" data-index="2" tabindex="0"><p>notes:
 (30 s) Show, don't read. Block 3 is the heart — the four cases are
 real incidents/projects with dates and outcomes.</p></div><div class="bespoke-marp-note" data-index="3" tabindex="0"><p>notes:
-(1.5 min) Expectation management: agents are not finished bots. A
-model in a chat window cannot touch a file. The agent = model inside
-a frame that gives it tools and rules. Lesson from our courses:
-many expect &quot;ready-made bots&quot; — set that term straight here.</p></div><div class="bespoke-marp-note" data-index="4" tabindex="0"><p>notes:
+(1.5 min) Point at the graphic, don't read it. Left: chat = one
+question, one answer — the model cannot touch a file. Right: agent =
+goal → plan → tools → verify, inside a harness that gives tools and
+rules; the amber loop is where the work happens. Lesson from our
+courses: many expect &quot;ready-made bots&quot; — set that term straight here.</p></div><div class="bespoke-marp-note" data-index="4" tabindex="0"><p>notes:
 (2 min) Same model, different frame: chat window vs. terminal agent
 with file, git and cluster access. Briefly show or describe pi:
 opens terminals, reads files, runs git, calls MCP tools. Plan mode =
@@ -1409,14 +1402,15 @@ the session directory). Survivors: seccomp + noexec (egress cut),
 non-root without network (local models), gVisor, secrets-broker —
 the real key never enters the sandbox.
 github.com/tobias-weiss-ai-xr/pi-sandbox · THREAT_MODEL.md</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>notes:
-(2.5 min) Core slide. The two columns are two EVERYDAY scenarios,
-not project jargon: column 1 = a risky one-time change (we renamed
-all domains in production — Case 1), column 2 = proving a promise
-(login must work for all 15 services — Case 4, the 59-check SSO
-suite). Read the table row by row: same three levels, very different
-changes — that is why it is a method, not a trick. All levels live in
-git, not in heads or chats. Transition: &quot;How do you get from this
-pyramid to a running workflow? → OpenSpec.&quot;</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>notes:
+(2.5 min) Core slide. Pyramid: Spec (WHAT) on top, Contract (HOW)
+in the middle, Test (WHEN is it right) as the foundation. The two
+columns are two EVERYDAY scenarios, not project jargon: a risky
+one-time change (we renamed all domains in production — Case 1) and
+proving a promise (login must work for all 15 services — Case 4,
+the 59-check SSO suite). Read the table row by row: same three
+levels, very different changes — that is why it is a method, not a
+trick. All levels live in git, not in heads or chats. Transition:
+&quot;How do you get from this pyramid to a running workflow? → OpenSpec.&quot;</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>notes:
 (1.5 min) OpenSpec CLI: new change, continue, apply, archive. The
 flow: proposal by human or agent, refinement in dialogue, then work
 through tasks. Key point: &quot;archive&quot; updates the specs — that is how
@@ -1454,12 +1448,11 @@ start with tasks like this, not with &quot;write my thesis&quot;.</p></div><div 
 e2e checks for all SSO clients were built — logout per client type,
 session TTL, scopes. A human would have spent weeks clicking through
 this. Scalable, cheap, auditable.</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>notes:
-(1.5 min) Thin by design: drives git and any OpenAI-compatible agent
-CLI — default: pi. 71 tests, no network in CI. Demo path:
-af run --dry-run shows the dispatch plan, af status is the live
-board, af cost shows per-worker trust. Failure memory is underrated:
-retries list earlier errors so the agent does not repeat them.
-github.com/tobias-weiss-ai-xr/agentflow</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>notes:
+(1.5 min) Walk the graphic: declarative tasks + workers, af fans out
+into isolated worktrees, every result passes a gate (exit 0) before
+merge; amber path = retry with error memory. UCB1 = workers earn
+trust by track record. Demo path: af run --dry-run, af status,
+af cost. github.com/tobias-weiss-ai-xr/agentflow</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>notes:
 (1.5 min) Three lessons, phrased for operations. Token case: a tight
 spec with 5 acceptance criteria beats a 1000-line prompt — fewer
 tokens, same quality. Expectations: people want &quot;finished bots&quot; and

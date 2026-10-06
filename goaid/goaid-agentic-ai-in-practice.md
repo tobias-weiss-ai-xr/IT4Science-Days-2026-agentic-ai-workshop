@@ -90,17 +90,16 @@ real incidents/projects with dates and outcomes.
 
 ## Agentic ≠ chat
 
-- Chat: question → answer
-- Agent: goal → plan → tools → verify
-- The difference: the harness, not the model
+![h:230](img/chat-vs-agent.svg)
 
 > "Agentic" is a working environment.
 
 <!-- notes:
-(1.5 min) Expectation management: agents are not finished bots. A
-model in a chat window cannot touch a file. The agent = model inside
-a frame that gives it tools and rules. Lesson from our courses:
-many expect "ready-made bots" — set that term straight here.
+(1.5 min) Point at the graphic, don't read it. Left: chat = one
+question, one answer — the model cannot touch a file. Right: agent =
+goal → plan → tools → verify, inside a harness that gives tools and
+rules; the amber loop is where the work happens. Lesson from our
+courses: many expect "ready-made bots" — set that term straight here.
 -->
 
 ---
@@ -172,25 +171,28 @@ github.com/tobias-weiss-ai-xr/pi-sandbox · THREAT_MODEL.md
 
 ## The pyramid: Spec · Contract · Test
 
-| Level | Says | Rename every domain | Prove every login |
-|---|---|---|---|
-| **Spec** | WHAT + acceptance | New domain everywhere, nothing else | 15 services, login + logout |
-| **Contract** | HOW the agent works | Plan first, rerun-safe script | Fix, never silence a warning |
-| **Test** | WHEN it's right | Second run = zero diff | 59 automated checks green |
+![h:130](img/pyramid.svg)
+
+| Level | Rename every domain | Prove every login |
+|---|---|---|
+| **Spec** | New domain everywhere, nothing else | 15 services, login + logout |
+| **Contract** | Plan first, rerun-safe script | Fix, never silence a warning |
+| **Test** | Second run = zero diff | 59 automated checks green |
 
 Both are real openEduSuite cases — Cases 1 and 4.
 
 > Every level is text in the repo.
 
 <!-- notes:
-(2.5 min) Core slide. The two columns are two EVERYDAY scenarios,
-not project jargon: column 1 = a risky one-time change (we renamed
-all domains in production — Case 1), column 2 = proving a promise
-(login must work for all 15 services — Case 4, the 59-check SSO
-suite). Read the table row by row: same three levels, very different
-changes — that is why it is a method, not a trick. All levels live in
-git, not in heads or chats. Transition: "How do you get from this
-pyramid to a running workflow? → OpenSpec."
+(2.5 min) Core slide. Pyramid: Spec (WHAT) on top, Contract (HOW)
+in the middle, Test (WHEN is it right) as the foundation. The two
+columns are two EVERYDAY scenarios, not project jargon: a risky
+one-time change (we renamed all domains in production — Case 1) and
+proving a promise (login must work for all 15 services — Case 4,
+the 59-check SSO suite). Read the table row by row: same three
+levels, very different changes — that is why it is a method, not a
+trick. All levels live in git, not in heads or chats. Transition:
+"How do you get from this pyramid to a running workflow? → OpenSpec."
 -->
 
 ---
@@ -341,21 +343,20 @@ this. Scalable, cheap, auditable.
 
 ## The tool: agentflow (`af`)
 
-- Rust orchestrator: `tasks.json` + `workers.json`
-- Parallel workers, isolated git worktrees
-- Gate: exit 0, then merge
-- Retries: fresh branch + error history
-- UCB1 routing, receipts in `af cost`
+![h:225](img/agentflow.svg)
+
+- Rust orchestrator, thin by design — 71 tests, no network in CI
+- Retries: fresh branch + error history in the prompt
+- Routing by track record — receipts in `af cost`
 
 > Contracts once — the runner enforces the gates.
 
 <!-- notes:
-(1.5 min) Thin by design: drives git and any OpenAI-compatible agent
-CLI — default: pi. 71 tests, no network in CI. Demo path:
-af run --dry-run shows the dispatch plan, af status is the live
-board, af cost shows per-worker trust. Failure memory is underrated:
-retries list earlier errors so the agent does not repeat them.
-github.com/tobias-weiss-ai-xr/agentflow
+(1.5 min) Walk the graphic: declarative tasks + workers, af fans out
+into isolated worktrees, every result passes a gate (exit 0) before
+merge; amber path = retry with error memory. UCB1 = workers earn
+trust by track record. Demo path: af run --dry-run, af status,
+af cost. github.com/tobias-weiss-ai-xr/agentflow
 -->
 
 ---
